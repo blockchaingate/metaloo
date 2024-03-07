@@ -1,0 +1,119 @@
+<div class="">
+    <app-rounded-card>
+        <div class="accountMain">
+            <div class="d-flex">
+                <h2 class="accountMainTitle">
+                    <!-- 移民管理 -->
+                    {{'immigrationManagement.immigrationManagement'|translate}}
+                </h2>
+            </div>
+            <div class="">
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <div class="infoCard">
+                            <span>
+                                <!-- 我的投资金额 -->
+                                {{'immigrationManagement.myInvestmentAmount'|translate}}:
+                            </span>
+
+                            <div>
+                                {{investmentAmount}} USDT
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=""></div>
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <div class="infoCard f-c">
+                            <div class="subTitle p-t-30">
+                                <!-- 全家绿卡 -->
+                                {{'immigrationManagement.familyGreenCard'|translate}}
+                            </div>
+                            <div class="apply">
+                                <div class="infoLeft">
+                                    <div class="infoRow">
+                                        <span>
+                                            <!-- 要求： -->
+                                            {{'immigrationManagement.requirements'|translate}}：
+                                        </span>
+
+                                        <div>
+                                            <!-- 国债投资额达到150,000USDT -->
+                                            {{'immigrationManagement.bondInvestmentRequirement150'|translate}}
+                                        </div>
+                                    </div>
+                                    <div class="infoRow">
+                                        <span>
+                                            <!-- 状态： -->
+                                            {{'immigrationManagement.status'|translate}}:
+                                        </span>
+
+                                        <div
+                                            *ngIf="investmentAmount >= 150000">
+                                            <span class="text-success">
+                                                <!-- 已达标 -->
+                                                {{'immigrationManagement.reachedStandard'|translate}}
+                                            </span>
+                                        </div>
+                                        <div
+                                            *ngIf="investmentAmount < 150000">
+                                            <span class="text-danger">
+                                                <!-- 未达标 -->
+                                                {{'immigrationManagement.notReachedStandard'|translate}}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="infoRight">
+                                    <!-- button -->
+                                    <button (click)="apply(1)" [disabled]="!isPrSatisfied && applicationType!='PR' && applicationType!='green-card'"
+                                        class="btn btn-primary btn-sm statusBtn rounded-pill">
+                                        <!-- 立即申请 -->
+                                        {{'immigrationManagement.applyNow'|translate}}
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="m-t-10 m-b-10 border1"></div>
+                            <div class="subTitle p-t-30">
+                                {{'immigrationManagement.familyPassport' | translate}}
+                            </div>
+                            <div class="apply">
+                                <div class="infoLeft">
+                                    <div class="infoRow">
+                                        <span>{{'immigrationManagement.requirements'|translate}}：</span>
+
+                                        <div>
+                                            {{'immigrationManagement.bondInvestmentRequirement375'|translate}}
+                                        </div>
+                                    </div>
+                                    <div class="infoRow">
+                                        <span>{{'immigrationManagement.status'|translate}}：</span>
+
+                                        <div
+                                            *ngIf="investmentAmount >= 375000">
+                                            <span
+                                                class="text-success">{{'immigrationManagement.reachedStandard'|translate}}</span>
+                                        </div>
+                                        <div
+                                            *ngIf="investmentAmount < 375000">
+                                            <span
+                                                class="text-danger">{{'immigrationManagement.notReachedStandard'|translate}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="infoRight">
+                                    <!-- button -->
+                                    <button (click)="apply(2)" [disabled]="!isPassportSatisfied && applicationType!='Passport' && applicationType!='passport' && applicationType!='PA'"
+                                        class="btn btn-primary btn-sm statusBtn rounded-pill">
+                                        {{'immigrationManagement.applyNow'|translate}}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </app-rounded-card>
+</div>

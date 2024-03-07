@@ -1,0 +1,13 @@
+<div class="d-flex justify-content-between py-3">
+    <div>Chains</div>
+    <div><a type="button" class="btn btn-primary" href="/admin/chain/add">Add</a></div>
+</div>
+<app-chains-table [chains]="chains"></app-chains-table>
+<div class="d-flex justify-content-center">
+    <div class="px-2" (click)="prev()">
+        <a>Prev</a>
+    </div>
+    <div class="px-2" (click)="next()">
+        <a>Next</a>
+    </div>
+</div>

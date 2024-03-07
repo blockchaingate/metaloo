@@ -1,0 +1,25 @@
+<div *ngIf="page == 'send-receive'">
+  <ul class="m-3 nav nav-pills nav-fill">
+    <li class="nav-item">
+      <a class="nav-link" [ngClass]="tab =='send' ? 'active' : ''" (click)="changeTab('send')">Send</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [ngClass]="tab =='receive' ? 'active' : ''" (click)="changeTab('receive')">Receive</a>
+    </li>
+  </ul>
+
+  <div class="modal-body m-3">
+      <div *ngIf="tab == 'send'">
+          send
+      </div>
+
+      <div *ngIf="tab == 'receive'">
+          <app-receive [coins]="coins" [coin]="coin" (changePageEvent)="changePage($event)"></app-receive>
+      </div>
+  </div>
+</div>
+<div *ngIf="page == 'select-asset'" class="m-3">
+  <app-select-asset [coins]="coins" (changePageEvent)="changePage($event)" (changeCoinEvent)="changeCoin($event)"></app-select-asset>
+</div>
+
+

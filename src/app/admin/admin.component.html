@@ -1,0 +1,125 @@
+<div class="main-container d-flex">
+    <nav class="sidebar d-none d-sm-block">
+        <div class="d-flex justify-content-center pt-3">
+            <img src="/assets/images/bondSaleLogo.png" alt="bondSaleLogo" class="logo">
+        </div>
+        <ul class="menu">
+            <li class="d-flex justify-content-center align-items-center" (click)="changePage('Dashboard')">
+                <!-- <app-rounded-icon-button [title]="'Dashboard'" [icon]="'fa-tachometer'"></app-rounded-icon-button> -->
+                <div>Dashboard</div>
+            </li>
+            <li class="d-flex justify-content-center align-items-center" (click)="changePage('Users')">
+                <!-- <app-rounded-icon-button [title]="'Users'" [icon]="'fa-solid fa-link'"></app-rounded-icon-button> -->
+                <div>Users</div>
+            </li>
+            <!-- kyc list -->
+            <li class="d-flex justify-content-center align-items-center" (click)="changePage('kyc-list')">
+                <div>KYCs</div>
+            </li>
+            <li class="d-flex justify-content-center align-items-center" (click)="changePage('Orders')">
+                <div>Orders</div>
+            </li>
+            <li class="d-flex justify-content-center align-items-center">
+            </li>
+            <li class="d-flex justify-content-center align-items-center" (click)="logout()">
+                <!-- <app-rounded-icon-button [title]="'Orders'" [icon]="'fa-shopping-cart'"></app-rounded-icon-button> -->
+                <div>Logout</div>
+            </li>
+
+            <!-- <li class="d-flex justify-content-center align-items-center" (click)="changePage('Chains')">
+                <app-rounded-icon-button [title]="'Chains'" [icon]="'fa-solid fa-link'"></app-rounded-icon-button>
+            </li>
+
+            <li class="d-flex justify-content-center align-items-center" (click)="changePage('Coins')">
+                <app-rounded-icon-button [title]="'Coins'" [icon]="'fa-solid fa-link'"></app-rounded-icon-button>
+            </li>
+
+            <li class="d-flex justify-content-center align-items-center" (click)="changePage('ChainCoins')">
+                <app-rounded-icon-button [title]="'ChainCoins'" [icon]="'fa-solid fa-link'"></app-rounded-icon-button>
+            </li>
+
+            <li class="d-flex justify-content-center align-items-center" (click)="changePage('Users')">
+                <app-rounded-icon-button [title]="'Users'" [icon]="'fa-solid fa-link'"></app-rounded-icon-button>
+            </li>
+
+            <li class="d-flex justify-content-center align-items-center" (click)="changePage('Addresses')">
+                <app-rounded-icon-button [title]="'Addresses'" [icon]="'fa-solid fa-link'"></app-rounded-icon-button>
+            </li>
+
+            <li class="d-flex justify-content-center align-items-center" (click)="changePage('KYCs')">
+                <app-rounded-icon-button [title]="'KYCs'" [icon]="'fa-id-card'"></app-rounded-icon-button>
+            </li>
+            <li class="d-flex justify-content-center align-items-center" (click)="changePage('Orders')">
+                <app-rounded-icon-button [title]="'Orders'" [icon]="'fa-shopping-cart'"></app-rounded-icon-button>
+            </li>
+
+            <li class="d-flex justify-content-center align-items-center" (click)="changePage('Wallets')">
+                <app-rounded-icon-button [title]="'Wallets'" [icon]="'fa-shopping-cart'"></app-rounded-icon-button>
+            </li>
+
+            <li class="d-flex justify-content-center align-items-center" (click)="changePage('Withdraws')">
+                <app-rounded-icon-button [title]="'Withdraws'" [icon]="'fa-shopping-cart'"></app-rounded-icon-button>
+            </li>
+            <li class="d-flex justify-content-center align-items-center" (click)="changePage('Transactions')">
+                <app-rounded-icon-button [title]="'Transactions'" [icon]="'fa-shopping-cart'"></app-rounded-icon-button>
+            </li> -->
+        </ul>
+    </nav>
+
+    <div class="w-100">
+        <!-- <alert class="pt-1"></alert> -->
+        <div class="content-header d-flex align-items-center justify-content-between">
+            <h3 class="px-3 d-none d-sm-block">
+                {{page}}
+            </h3>
+            <div class="px-3 d-block d-sm-none">
+                <img src="/assets/images/bondSaleLogo.png" alt="bondSaleLogo" class="logo">
+            </div>
+            <div class="px-3 d-flex">
+
+                <div class="btn-group d-none d-sm-block" dropdown>
+                    <button type="button" dropdownToggle class="btn btn-light">
+                        <i class="fa fa-user-circle fa-2" aria-hidden="true"></i>
+                    </button>
+                    <div id="dropdown-basic" *dropdownMenu class="px-3 dropdown-menu dropdown-menu-right" role="menu"
+                        aria-labelledby="button-basic">
+                        <div class="d-flex flex-column align-items-center justify-content-center border-bottom pb-2">
+
+                            <i class="fa fa-user-circle fa-2" aria-hidden="true"></i>
+                            <div class="font-weight-bold pt-2">{{me.firstName}} {{me.lastName}}</div>
+                            <div>{{me.email}}</div>
+                        </div>
+                        <ul>
+                            <li role="menuitem"><a class="dropdown-item text-center" [routerLink]="['/account']"
+                                    routerLinkActive="router-link-active">User Dashboard</a></li>
+                            <li role="menuitem"><a class="dropdown-item text-center" href="#">Settings</a></li>
+                            <li class="divider dropdown-divider"></li>
+                            <li role="menuitem"><a class="dropdown-item text-center text-danger" (click)="logout()">Sign
+                                    out</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="btn-group d-block d-sm-none border" dropdown>
+                    <button type="button" dropdownToggle class="btn btn-light">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu"
+                        aria-labelledby="button-basic">
+                        <li role="menuitem"><a class="dropdown-item text-center" href="#">Assets</a></li>
+                        <li role="menuitem"><a class="dropdown-item text-center" href="#">Pay</a></li>
+                        <li class="divider dropdown-divider"></li>
+                        <li role="menuitem"><a class="dropdown-item text-center" href="#">Settings</a></li>
+                        <li role="menuitem"><a class="dropdown-item text-center text-danger" href="#">Sign out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="content h-100">
+            <router-outlet></router-outlet>
+        </div>
+
+    </div>
+</div>

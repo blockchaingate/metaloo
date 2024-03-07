@@ -1,0 +1,129 @@
+<div class="">
+    <app-rounded-card>
+        <div class="accountMain">
+            <div class="d-flex">
+                <h2 class="accountMainTitle">
+                    账户安全
+                </h2>
+            </div>
+            <div class="">
+                <div class="row" *ngIf="loaded && !hasError">
+                    <div class="col-md-12 ">
+                        <div class="subTitle">
+                            双重验证（2FA）
+                        </div>
+                    </div>
+                    <div class="col-md-12 ">
+                        <div class="infoCard">
+                            <!-- email -->
+                            <div class="infoCardLeft  d-flex">
+                                <div class="infoCardLeftTitle">
+                                    <span>Email</span>
+
+                                    <div>
+                                        {{ kyc_data.email }}
+                                    </div>
+
+                                </div>
+                                <div class="infoCardLeftContent">
+                                    <span>{{ 'Status' | translate }}</span>
+                                    <!-- <div class="infoCardLeftContentText">
+                                        已验证
+                                    </div> -->
+                                    <div class="infoCardLeftContentBtn"
+                                        [ngClass]="{'text-success': kyc_data.isEmailVerified }">
+                                        {{ (kyc_data.isEmailVerified ? 'Verified' : 'Unverified') | translate}}
+                                    </div>
+                                    <!-- button -->
+                                    <div class="infoCardLeftBtn">
+                                        <button class="btn btn-primary btn-sm statusBtn rounded-pill">
+                                            {{ 'Verify' | translate }}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="infoCard">
+                            <!-- phone -->
+                            <div class="infoCardLeft d-flex">
+                                <div class="infoCardLeftTitle">
+                                    <span> {{ 'PhoneNumber' | translate }}</span>
+
+                                    <div>
+                                        {{ kyc_data.phone ?? '' }}
+                                    </div>
+
+                                </div>
+                                <div class="infoCardLeftContent">
+                                    <span> {{ 'Status' | translate }}</span>
+                                    <!-- <div class="infoCardLeftContentText">
+                                        已验证
+                                    </div> -->
+                                    <div class="infoCardLeftContentBtn"
+                                        [ngClass]="{'text-success': kyc_data.isPhoneVerified }"></div>
+                                    {{ (kyc_data.isPhoneVerified ? 'Verified' : 'Unverified') | translate}}
+                                </div>
+
+                                <!-- button -->
+                                <div class="infoCardLeftBtn">
+                                    <button class="btn btn-primary btn-sm statusBtn rounded-pill">
+                                        {{ 'Verify' | translate }}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="infoCard">
+                            <div class="infoCardLeft  d-flex">
+                                <div class="infoCardLeftTitle">
+                                    <span>谷歌身份验证器</span>
+
+
+                                </div>
+                                <div class="infoCardLeftContent">
+                                    <span>状态</span>
+                                    <div class="infoCardLeftContentText">
+                                        <!-- {{ (kyc_data.isPhoneVerified ? 'Verified' : 'Unverified') | translate}} -->
+                                        unkonw
+                                    </div>
+                                    <div class="infoCardLeftBtn">
+
+                                        <button (click)="getGoogleAuthSecret()"
+                                            class="btn btn-primary btn-sm statusBtn rounded-pill">
+                                            {{ 'Verify' | translate }}
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 ">
+                        <div class="subTitle accountMainTitle">
+                            密码管理
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="infoCard">
+                            <!-- 登陆密码< -->
+                            <div class="infoCardLeft  d-flex">
+                                <div class="infoCardLeftTitle">
+                                    <span>登陆密码</span>
+                                </div>
+                                <div class="infoCardLeftContent">
+                                    <!-- button -->
+                                    <div class="infoCardLeftBtn">
+                                        <button class="btn btn-primary btn-sm statusBtn rounded-pill">
+                                            修改
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </app-rounded-card>
+</div>

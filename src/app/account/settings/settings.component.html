@@ -1,0 +1,55 @@
+<app-rounded-card>
+    <div class="d-flex">
+        <h2>
+            Settings
+        </h2>
+    </div>
+    <div class="mt-3">
+        <div class="row">
+            <div class="col-md-12">
+                <button *ngIf="!isChangePassword" class="btn btn-primary" (click)="changePassword()">Change
+                    Password</button>
+                <!-- when isChangePassword is true, show template -->
+                <div *ngIf="isChangePassword">
+                    <label for="" class="mt-3">Current Password</label>
+                    <input type="password" class="form-control mt-1" [(ngModel)]="oldPassword"
+                        placeholder="Current Password">
+                    <label for="" class="mt-3">New Password</label>
+                    <input type="password" class="form-control mt-1" [(ngModel)]="newPassword"
+                        placeholder="New Password">
+                    <label for="" class="mt-3">Repeat New Password</label>
+                    <input type="password" class="form-control mt-1" [(ngModel)]="repeatNewPassword"
+                        placeholder="Repeat New Password">
+                    <!-- error msg -->
+                    <div class="mt-3" *ngIf="hasError">
+                        <div class="alert alert-danger" role="alert">
+                            {{errorMsg}}
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between mt-3">
+                        <button type="button" class="btn btn-primary" (click)="confirmChangePassword()">Change
+                            Password</button>
+                        <button type="button" class="btn btn-secondary" (click)="cancelChangePassword()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-rounded-card>
+
+<ng-template #otherContent>
+    <!-- Display other content here -->
+</ng-template>
+
+<template #changePasswordTemplate>
+    <!-- 3 input box: current, new, repeat -->
+    <!-- 1 button: change password -->
+    <!-- 1 button: cancel -->
+    <input type="password" class="form-control mt-3" placeholder="Current Password">
+    <input type="password" class="form-control mt-3" placeholder="New Password">
+    <input type="password" class="form-control mt-3" placeholder="Repeat New Password">
+    <div class="d-flex justify-content-between">
+        <button type="button" class="btn btn-primary" (click)="confirmChangePassword()">Change Password</button>
+        <button type="button" class="btn btn-secondary" (click)="cancelChangePassword()">Cancel</button>
+    </div>
+</template>

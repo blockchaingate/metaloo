@@ -1,0 +1,115 @@
+<header class="header-top" [ngClass]="{homepage: isHomePage , 'sticky-header': isScrolled}">
+
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark  bond-nav">
+        <div class="container-fluid">
+            <a *ngIf="!isDigitId" class="navbar-brand" href="#"><img src="/assets/logo/logo.svg" class="dnb-logo"
+                    alt="dnb-logo">
+                <!-- <span class="thebond"> {{'bondIntro.title' | translate}}</span> -->
+            </a>
+            <a *ngIf="isDigitId" class="navbar-brand" href="#"><img
+                    src="/assets/images/digital-id-img/digital-id-logo2.png" class="digital-id-logo" alt="dnb-logo">
+                <span class="thebond"> {{'Digital ID' | translate}}</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true"
+                aria-label="Toggle navigation" (click)="isHiddenOnMobile = !isHiddenOnMobile">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div [class.hide-on-mobile]="isHiddenOnMobile" id="navbarSupportedContent"
+                class="collapse navbar-collapse hide-on-mobile">
+                <ul class="navbar-nav mb-2 mb-lg-0 align-items-center" *ngIf="isInit && isDigitId">
+
+                    <li class="nav-item active">
+                        <a class="nav-link" (click)="linkTo('/');selectedItem=1" [class.selected]="selectedItem==1"
+                            routerLinkActive="selected"
+                            [routerLinkActiveOptions]="{exact: true}">{{'Home'|translate}}</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav mb-2 mb-lg-0 align-items-center" *ngIf="isInit && !isDigitId">
+
+                    <li class="nav-item active">
+                        <a class="nav-link" (click)="linkTo('/');selectedItem=1" [class.selected]="selectedItem==1"
+                            routerLinkActive="selected"
+                            [routerLinkActiveOptions]="{exact: true}">{{'Home'|translate}}</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" (click)="linkTo('/about-bond');selectedItem=2"
+                            [class.selected]="selectedItem==2" routerLinkActive="selected"
+                            [routerLinkActiveOptions]="{exact: true}">{{'About'|translate}}</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" (click)="linkTo('/faq');selectedItem=3" [class.selected]="selectedItem==3"
+                            routerLinkActive="selected"
+                            [routerLinkActiveOptions]="{exact: true}">{{'FAQ'|translate}}</a>
+                    </li>
+                    <!-- about-el-salvador -->
+                    <li class="nav-item active">
+                        <a class="nav-link" (click)="linkTo('/about-el-salvador');selectedItem=4"
+                            [class.selected]="selectedItem==4" routerLinkActive="selected"
+                            [routerLinkActiveOptions]="{exact: true}">{{'abount-el.about_el_salvador'|translate}}</a>
+                    </li>
+
+
+                </ul>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                </ul>
+                <ul class="navbar-nav mb-2 mb-lg-0 align-items-center" *ngIf="isInit">
+                    <li class="nav-item active LangBtn">
+
+                        <div class="btn-group" dropdown #dropdown="bs-dropdown" [autoClose]="true">
+                            <button id="button-basic" dropdownToggle type="button" class="lagBtn "
+                                aria-controls="dropdown-basic"> <img src="/assets/images/icon-Lau.png" alt="">
+                                {{selectedLan}}
+                                <!-- <span class="caret"></span> -->
+                            </button>
+                            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu"
+                                aria-labelledby="button-basic">
+                                <li role="menuitem"><a class="dropdown-item" (click)="selectLan('en')">English</a></li>
+                                <!-- <li role="menuitem"><a class="dropdown-item" (click)="selectLan('es')">español</a></li>
+                                <li role="menuitem"><a class="dropdown-item" (click)="selectLan('fr')">French</a></li>
+                                <li role="menuitem"><a class="dropdown-item" (click)="selectLan('tk')">Türkçe</a></li>
+                                <li role="menuitem"><a class="dropdown-item" (click)="selectLan('kr')">한국인</a></li> -->
+                                <li role="menuitem"><a class="dropdown-item" (click)="selectLan('sc')">简体中文</a></li>
+                                <!-- <li role="menuitem"><a class="dropdown-item" (click)="selectLan('tc')">繁體中文</a></li>
+                                <li role="menuitem"><a class="dropdown-item" (click)="selectLan('jp')">日本語</a></li> -->
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item" *ngIf="!isLogin && !isDigitId">
+                        <a class="nav-link" (click)="linkTo('/signin');selectedItem=7"
+                            [class.selected]="selectedItem==7" routerLinkActive="selected"
+                            [routerLinkActiveOptions]="{exact: true}">
+                            <img src="/assets/images/icon-sign.png" alt="sign">
+                            {{'Sign in'|translate}}</a>
+                    </li>
+                    <li class="nav-item" *ngIf="!isLogin && !isDigitId">
+                        <a class="nav-link" (click)="linkTo('/signup')">
+                            <button class="btn-header">{{'Create Account'|translate}}</button>
+                        </a>
+                    </li>
+                    <li class="nav-item" *ngIf="isLogin && !isDigitId">
+                        <a class="nav-link" (click)="linkTo('/account/dashboard')">
+                            <button class="btn-header">{{'Account'|translate}}</button>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<ng-template #tempLogin>
+    <!-- <div class="modal-header">
+        <h4 class="modal-title pull-left">{{ "orderPage.paymentDetails" | translate }}</h4>
+
+    </div> -->
+    <div class="modal-body">
+        <div class="d-flex justify-content-between payMethodSelect">
+            <app-signin></app-signin>
+        </div>
+    </div>
+</ng-template>

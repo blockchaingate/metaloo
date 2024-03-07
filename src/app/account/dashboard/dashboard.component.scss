@@ -1,0 +1,93 @@
+label {
+    font-size: 12px;
+    color: #999;
+}
+
+.btcImg {
+    height: 230px;
+    margin-top: -55px;
+}
+
+.kycLevel {
+    width: 44px;
+    height: 20px;
+    background: linear-gradient(90deg, #9ea4b7 0%, #cfd3dd 100%);
+    border-radius: 4px;
+    text-align: center;
+
+    div {
+        width: 16px;
+        height: 18px;
+        font-size: 14px;
+        font-family: "Roboto", sans-serif;
+        font-style: italic;
+        font-weight: 800;
+        color: #ffffff;
+        line-height: 18px;
+        text-align: center;
+        margin: 0 auto;
+    }
+}
+
+.go.btn {
+    width: 138px;
+    height: 48px;
+    border-radius: 24px !important;
+    border: 1px solid #0140ce;
+    color: #0140ce;
+    background-color: #fff;
+    font-size: 14px;
+}
+
+.spacer-1200 {
+    display: none;
+}
+
+td{
+    vertical-align: middle;
+}
+
+@media screen and (max-width: 1100px) {
+    .spacer-1200 {
+        display: block;
+        height: 1px;
+        width: 100%;
+    }
+
+    .topRow > div {
+        padding-bottom: 10px;
+        
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .btcImg {
+        height: 150px;
+        margin-top: 20px;
+    }
+
+    .topRow > div {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
+    .gap-10{
+        gap: 10px;
+    }
+
+    .menuMain {
+        display: none;
+        justify-content: center;
+        height: 100%;
+        align-items: center;
+    }
+
+    .menuMain > div {
+        margin: 0 10px;
+    }
+    
+    
+
+
+}

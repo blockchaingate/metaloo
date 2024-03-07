@@ -1,0 +1,20 @@
+<div class="row pb-3">
+  <div class="col col-12">
+    <label for="basic-url">I want to sell</label>
+    <div class="inline ">
+      <input type="number" class="form-control" name="quantity" [(ngModel)]="quantity">
+      <app-combobox [(ngModel)]="coin" [imageType]="'image'" [items]="coins" [dropdownIcon]="'caret'"></app-combobox>
+    </div>
+    <div class="py-1">My available balance: {{available_balance}} {{coin.text}}</div>
+  </div>
+  <div class="col col-12 mt-3 ">
+    <label for="basic-url">I will receive</label>
+    <div class="inline">
+      <input type="number" class="form-control" name="amount" [(ngModel)]="amount">
+      <app-combobox [(ngModel)]="fiat" [imageType]="'image'" [items]="fiats" [dropdownIcon]="'caret'"></app-combobox>
+    </div>
+  </div>
+</div>
+<button type="button" class="btn-primary w-100 mainColor" [disabled]="quantity && (quantity > available_balance)" (click)="next()">
+  SELL NOW
+</button>

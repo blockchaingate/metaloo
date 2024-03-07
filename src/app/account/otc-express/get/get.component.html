@@ -1,0 +1,23 @@
+<div class="tabCotainer">
+    <button type="button" class="btn-primary w-100 mainColor my-2" (click)="getWith('zelle')">
+        Get fiat with Zelle
+    </button>
+
+    <button type="button" class="btn-primary w-100 mainColor my-2" (click)="getWith('cashapp')">
+        Get fiat with Cashapp
+    </button>
+
+    <div *ngIf="method">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Your {{method}} account</label>
+            <input type="email" class="form-control" [(ngModel)]="account">
+            <small id="emailHelp" class="form-text text-muted">We will send {{order.amount}} {{order.fiat_currency}} to your {{method}} account</small>
+        </div>
+    
+        <button type="button" class="btn-primary w-100 mainColor my-2" (click)="confirm()">
+            Confirm
+        </button>
+    </div>
+
+
+</div>

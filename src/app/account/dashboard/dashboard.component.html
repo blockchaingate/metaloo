@@ -1,0 +1,126 @@
+<div *ngIf="loaded">
+    <app-rounded-card>
+        <!-- <h2>
+            {{'Account Infomation'|translate}}
+        </h2> -->
+        <!-- user infor list: fname, lname, phone, email, address, nationality -->
+        <div class="">
+            <div class="row topRow">
+                <div class="col-md-3 d-flex align-items-center">
+                    <div class="font-30">
+                        Welcome
+                    </div>
+                </div>
+                <div class="col-md-3 gap-10">
+                    <label>Email</label>
+                    <div>{{user.email}}</div>
+                </div>
+                <div class="col-md-6 spacer-1200"></div>
+                <div class="col-md-2">
+                    <label>{{'Email Verification'|translate}}</label>
+                    <div>
+                        <img src="/assets/images/checkIcon.png" alt="check icon">
+                        {{user.isEmailVerified}}
+                    </div>
+                </div>
+                <div class="col-md-2 gap-10">
+                    <!-- <label>{{'Email Verification'|translate}}</label> -->
+                    <label>{{'KYC level'|translate}}</label>
+                    <div class="kycLevel">
+                        <div>L{{kyc_level}}</div>
+                    </div>
+                </div>
+                <div class="col-md-2 gap-10">
+                    <button *ngIf="input_level < 2" class="btn  go" (click)="goToKyc()">
+                        <!-- {{'Proceed to KYC'|translate}} -->
+                        <div *ngIf="input_level < 2">{{"dashboard.continueKYC" | translate}}</div>
+                        <div *ngIf="input_level == 2">{{"dashboard.kycPending" | translate}}</div>
+                    </button> 
+                </div>
+            </div>
+            <!-- <div class="row mb-3">
+                <div class="col-md-6">
+                    <label>{{'Phone Number'|translate}}</label>
+                    <div>{{user.phone}}</div>
+                </div>
+            </div> -->
+
+        </div>
+    </app-rounded-card>
+    <app-bond-assets></app-bond-assets>
+    <!-- <app-rounded-card>
+        <h2>
+            {{'KYC Infomation'|translate}}
+            <br>
+            <span *ngIf="kycLoaded">
+                {{'Current KYC Level'|translate}}: {{kyc_level}}
+            </span>
+        </h2>
+        <p class="t-aaa">
+            {{'kycL2Req'|translate}}
+        </p>
+        <p class="t-aaa" *ngIf="kycLoaded && input_level < 2">
+            {{'kycL2Do'|translate}}
+        </p>
+        <div class="" *ngIf="!kycLoaded">
+            {{'Loading'|translate}}...
+        </div>
+        <div class="" *ngIf="kycLoaded">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label>{{'level1p'|translate}}</label>
+                    <div class="d-flex align-items-end">
+                        <label>{{'Submit Status'|translate}}: </label>
+                        <div *ngIf="input_level > -1" class="text-success">{{'Submitted'|translate}}</div>
+                        <div *ngIf="input_level == -1" class="text-danger">
+                            <div>{{'Unsubmitted'|translate}}</div>
+                        </div>
+                        <label class="p-l-30">{{'KYC Status'|translate}}: </label>
+                        <div *ngIf="kyc_level > -1" class="text-success">{{'Pass'|translate}}</div>
+                        <div *ngIf="kyc_level == -1" class="text-danger">
+                            <div>{{'Unverified'|translate}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label>{{'level2u'|translate}}</label>
+                    <div class="d-flex align-items-end">
+                        <label>{{'Submit Status'|translate}}: </label>
+                        <div *ngIf="input_level > 0" class="text-success">{{'Submitted'|translate}}</div>
+                        <div *ngIf="input_level <= 0" class="text-danger">
+                            <div>{{'Unsubmitted'|translate}}</div>
+                        </div>
+                        <label class="p-l-30">{{'KYC Status'|translate}}: </label>
+
+                        <div *ngIf="kyc_level > 0" class="text-success">{{'Pass'|translate}}</div>
+                        <div *ngIf="kyc_level <= 0" class="text-danger">
+                            <div>{{'Unverified'|translate}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label>{{'level3a'|translate}}</label>
+
+                    <div class="d-flex align-items-end">
+                        <label>{{'Submit Status'|translate}}: </label>
+                        <div *ngIf="input_level > 1" class="text-success">{{'Submitted'|translate}}</div>
+                        <div *ngIf="input_level < 2" class="text-danger">
+                            <div>{{'Unsubmitted'|translate}}</div>
+                        </div>
+                        <label class="p-l-30">{{'KYC Status'|translate}}: </label>
+                        <div *ngIf="kyc_level > 1" class="text-success">{{'Pass'|translate}}</div>
+                        <div *ngIf="kyc_level < 2" class="text-danger">
+                            <div>{{'Unverified'|translate}}</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </app-rounded-card> -->
+</div>

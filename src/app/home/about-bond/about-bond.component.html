@@ -1,0 +1,296 @@
+<div class="container aboutBond">
+    <div class="row">
+        <div class="aboutTitle">
+            {{ 'about.aboutBondTitle' | translate }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <div class="aboutMenu">
+                <ul>
+                    <li>
+                        <a (click)="scrollTo('t1')">{{ 'about.aboutIntro' | translate }}</a>
+                    </li>
+                    <li>
+                        <a (click)="scrollTo('t2')">{{ 'about.bondParametersTitle' | translate }}</a>
+                    </li>
+                    <li>
+                        <a (click)="scrollTo('t3')">{{ 'about.otherRights' | translate }}</a>
+                    </li>
+                    <li>
+                        <a (click)="scrollTo('t4')">{{ 'about.investmentMethods' | translate }}</a>
+                    </li>
+                    <li>
+                        <a href="#t5">
+                            {{ 'about.contactInformation' | translate }}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="t1" id="t1">
+                {{ 'about.aboutBondIntroduction' | translate }}
+            </div>
+            <p>
+                {{ 'about.salvadorBitcoinLegal' | translate }}
+            </p>
+            <p>
+                {{ 'about.digitalEconomyPlan' | translate }}
+            </p>
+
+            <p>
+                {{ 'about.digitalBondIntroduction' | translate }}
+            </p>
+            <p>
+                {{ 'about.digitalBondFeatures' | translate }}
+            </p>
+            <div class="t1" id="t2">
+                {{ 'about.bondParametersTitle' | translate }}
+            </div>
+            <p>
+                {{ 'about.bondParametersDescription' | translate }}
+            </p>
+            <div class="infoTableCon">
+                <table class="infoTable">
+                    <tr>
+                        <td class="infoTd1" rowspan="5">{{ 'about.basicInformation' | translate }}</td>
+                        <td class="infoTd1">{{ 'about.bondName' | translate }}</td>
+                        <td class="infoTd2">{{ 'about.dnb' | translate }}</td>
+                        <td class="infoTd2">{{ 'about.xdnb' | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="infoTd1">{{ 'about.bondFullName' | translate }}</td>
+                        <td class="infoTd2">{{ 'about.digitalNationalBond' | translate }}</td>
+                        <td class="infoTd2">{{ 'about.xDigitalNationalBond' | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="infoTd1">{{ 'about.issuer' | translate }}</td>
+                        <td class="infoTd2">{{ 'about.governmentOfElSalvador' | translate }}</td>
+                        <td class="infoTd2">{{ 'about.governmentOfElSalvador' | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="infoTd1">{{ 'about.faceValue' | translate }}</td>
+                        <td class="infoTd2">{{ 'about.dnbFaceValue' | translate }}</td>
+                        <td class="infoTd2">{{ 'about.xdnbFaceValue' | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="infoTd1">{{ 'about.bondType' | translate }}</td>
+                        <td class="infoTd2">{{ 'about.fixedAnnualInterestBond' | translate }}</td>
+                        <td class="infoTd2">{{ 'about.fixedAnnualInterestBond' | translate }}</td>
+                    </tr>
+                    <!-- <tr>
+                        <td class="infoTd1" rowspan="5">{{ 'about.interestAndPrincipal' | translate }}</td>
+                        <td class="infoTd1">{{ 'about.project' | translate }}</td>
+                        <td class="infoTd2">{{ 'about.bondA' | translate }}</td>
+                        <td class="infoTd2">{{ 'about.bondB' | translate }}</td>
+                    </tr> -->
+                    <tr>
+                        <td class="infoTd1" rowspan="4">{{ 'about.interestAndPrincipal' | translate }}</td>
+
+                        <td class="infoTd1">{{ 'about.bondInterestRate' | translate }}</td>
+                        <td class="infoTd2">{{ 'about.annualRate8' | translate }}</td>
+                        <td class="infoTd2">{{ 'about.annualRate7.5' | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="infoTd1">{{ 'about.interestPaymentFrequency' | translate }}</td>
+                        <td class="infoTd2">{{ 'about.annualInterestPayment' | translate }}</td>
+                        <td class="infoTd2">{{ 'about.annualInterestPayment' | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="infoTd1">{{ 'about.bondTerm' | translate }}</td>
+                        <td class="infoTd2">{{ 'about.term10Years' | translate }}</td>
+                        <td class="infoTd2">{{ 'about.term10Years' | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="infoTd1">{{ 'about.principalRepaymentMethod' | translate }}</td>
+                        <td class="infoTd2">{{ 'about.goldOrXDNB' | translate }} ①</td>
+                        <td class="infoTd2">{{ 'about.fullRepaymentAtMaturity' | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="infoTd1" rowspan="6">{{ 'about.issuanceInformation' | translate }}</td>
+                        <td class="infoTd1">{{ 'about.issuanceMethod' | translate }}</td>
+                        <td class="infoTd2">{{ 'about.blockchainSmartContracts' | translate }}</td>
+                        <td class="infoTd2">{{ 'about.blockchainSmartContracts' | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="infoTd1">{{ 'about.issuanceBlockchain' | translate }}</td>
+                        <td class="infoTd2">{{ 'about.issuanceBlockchain' | translate }}</td>
+                        <td class="infoTd2">{{ 'about.issuanceBlockchain' | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="infoTd1">{{ 'about.contractAddress' | translate }}</td>
+                        <td class="infoTd2">{{ 'about.wait' | translate }} ①</td>
+                        <td class="infoTd2">{{ 'about.wait' | translate }} ①</td>
+                    </tr>
+                    <tr>
+                        <td class="infoTd1">{{ 'about.paymentMethods' | translate }}</td>
+                        <td class="infoTd2">{{ 'about.usdAndCryptocurrency' | translate }} ②</td>
+                        <td class="infoTd2">{{ 'about.usdAndCryptocurrency' | translate }} ②</td>
+                    </tr>
+                    <tr>
+                        <td class="infoTd1">{{ 'about.issuanceTime' | translate }}</td>
+                        <td class="infoTd2">{{'about.wait'|translate}}</td>
+                        <td class="infoTd2">{{'about.wait'|translate}}</td>
+                    </tr>
+                    <tr>
+                        <td class="infoTd1">{{ 'about.issuanceRange' | translate }}</td>
+                        <td class="infoTd2">{{ 'about.globalExcludingSomeCountries' | translate }}</td>
+                        <td class="infoTd2">{{ 'about.globalExcludingSomeCountries' | translate }}</td>
+                    </tr>
+                    <tr>
+                        <td class="infoTd1" rowspan="1">{{ 'about.otherRights' | translate }}</td>
+                        <td class="infoTd1">{{ 'about.immigrationPolicy' | translate }}</td>
+                        <td class="infoTd2">{{ 'about.immigrationAndGreenCard' | translate }} ③</td>
+                        <td class="infoTd2">{{ 'about.immigrationAndGreenCard' | translate }} ③</td>
+                    </tr>
+                    <!-- <tr>
+                        <td class="infoTd1">{{ 'about.dftRights' | translate }}</td>
+                        <td class="infoTd2">{{ 'about.dftExchangeForGoldCoin' | translate }}</td>
+                        <td class="infoTd2"></td>
+                    </tr> -->
+                </table>
+                <div class="notes">
+                    <h3>
+                        {{'about.remarks'|translate}}
+                    </h3>
+                    <p>
+                        ① {{'about.convertDnbToXdnb'|translate}}
+                    </p>
+
+                    <div class="d-flex noteRow">
+                        <p>
+                            ① {{'about.dnbContract'|translate}}:
+                            {{'about.wait'|translate}}
+                        </p>
+                        <p>
+                            {{'about.xdnbContract'|translate}}:
+                            {{'about.wait'|translate}}
+                        </p>
+                    </div>
+                    <p>
+                        ② {{'about.supportedCryptocurrencies'|translate}}
+                    <p>
+                    <p>
+                        ③ {{'about.investmentBenefits'|translate}}
+                    </p>
+                </div>
+
+
+            </div>
+            <div class="t1" id="t3">
+                {{ 'about.desc' | translate }}
+            </div>
+            <p>
+                {{ 'about.investElSalvadorDigitalBonds' | translate }}
+            </p>
+            <div class="d-flex pt-68 colOnMobile">
+                <div class="">
+                    <div class="bondIcon">
+                        <img src="/assets/images/ab1.png" alt="">
+                    </div>
+                </div>
+                <div>
+                    <div class="t2">
+                        {{ 'about.interestIncome' | translate }}
+                    </div>
+                    <p>
+                        {{ 'about.fixedRateBonds' | translate }}
+                    </p>
+                </div>
+            </div>
+            <div class="d-flex pt-47 colOnMobile">
+                <div class="">
+                    <div class="bondIcon">
+                        <img src="/assets/images/ab2.png" alt="">
+                    </div>
+                </div>
+                <div>
+                    <div class="t2">
+                        {{ 'about.immigrationChannel' | translate }}
+                    </div>
+                    <p>
+                        {{ 'about.greenCardSupport' | translate }}
+                    </p>
+                    <div class="infoTableCon2">
+                        <table class="infoTable">
+                            <tr>
+                                <td class="infoTd1">{{ 'about.investmentAmount' | translate }}</td>
+                                <td class="infoTd1">{{ 'about.familyGreenCard' | translate }} ①</td>
+                                <td class="infoTd1">{{ 'about.familyPassport' | translate }} ①</td>
+                                <td class="infoTd1">{{ 'about.immigrationConsultant' | translate }}</td>
+                            </tr>
+                            <tr>
+                                <td class="infoTd2">150,000</td>
+                                <td class="infoTd2">{{ 'about.greesPass' | translate }}</td>
+                                <td class="infoTd2">{{ 'about.immigrationChannel' | translate }}</td>
+                                <td class="infoTd2">{{ 'about.support' | translate }}</td>
+                            </tr>
+                            <tr>
+                                <td class="infoTd2">375,000</td>
+                                <td class="infoTd2">{{ 'about.greesPass' | translate }}</td>
+                                <td class="infoTd2">{{ 'about.greesPass' | translate }}</td>
+                                <td class="infoTd2">{{ 'about.support' | translate }}</td>
+                            </tr>
+                        </table>
+                        <div class="notes">
+                            <h3>
+                                {{'about.remarks'|translate}}
+                            </h3>
+                            <p>
+                                ① {{'about.family'|translate}}
+                            </p>
+                        </div>
+                    </div>
+                    <p>&nbsp;</p>
+                </div>
+            </div>
+            <div class="d-flex pt-47 colOnMobile">
+                <div class="">
+                    <div class="bondIcon">
+                        <img src="/assets/images/ab3.png" alt="">
+                    </div>
+                </div>
+                <div>
+                    <div class="t2">
+                        {{ 'about.DFTEquity' | translate }}
+                    </div>
+                    <p>
+                        {{ 'about.uniqueDFT' | translate }}
+                    </p>
+                </div>
+            </div>
+            <div class="d-flex pt-47 colOnMobile">
+                <div class="">
+                    <div class="bondIcon">
+                        <img src="/assets/images/ab4.png" alt="">
+                    </div>
+                </div>
+                <div>
+                    <div class="t2">
+                        {{ 'about.pureGoldCommemorativeCoin' | translate }}
+                    </div>
+                    <p>
+                        {{ 'about.exchangeFor1OunceGoldCoin' | translate }}
+                    </p>
+                </div>
+            </div>
+
+            <div class="t1" id="t4">
+                {{ 'about.investmentMethods' | translate }}
+            </div>
+            <p>
+                {{ 'about.investDetail' | translate }}
+            </p>
+            <div class="t1" id="t5">
+                {{ 'about.contactInformation' | translate }}
+            </div>
+            <p>
+                {{ 'about.contactUsByEmail' | translate }}
+            </p>
+            <p>
+                Pay.cool：dnb@pay.cool
+            </p>
+        </div>
+    </div>
+</div>

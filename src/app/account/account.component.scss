@@ -1,0 +1,139 @@
+.main-container {
+    position: relative;
+    // background: rgb(12, 42, 112);
+    // background: linear-gradient(142deg, rgb(11 18 35) 0%, rgb(45 23 83) 51%, rgb(20 47 72) 100%);
+
+    .logo {
+        width: 40px;
+        filter: invert(0.8);
+    }
+}
+
+.sidebar {
+    width: 10%;
+    min-height: 100vh;
+    min-width: 180px;
+    overflow: visible;
+    border-right: 1px solid rgba(91, 97, 110, 0.2);
+    background-color: #fff;
+    // background: rgb(var(--gray0));
+    // background: rgb(12, 42, 112);
+    // background: linear-gradient(142deg, rgba(12, 42, 112, 1) 0%, rgb(54 25 101) 51%, rgb(34 90 140) 100%);
+}
+
+.accountMenu {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.menuMain {
+    display: flex;
+    justify-content: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0px;
+}
+
+ul.menu {
+    margin: 18px 8px;
+}
+
+ul.menu li {
+    height: 50px;
+    cursor: pointer;
+
+    img {
+        padding-right: 8px;
+    }
+}
+
+.content-header {
+    border-bottom: 1px solid rgba(91, 97, 110, 0.2);
+    height: 68px;
+}
+
+.content {
+    padding: 24px;
+    // background: rgba(0, 62, 193, 0.03);
+}
+
+.menuItem {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: #3a4f7c;
+    line-height: 20px;
+}
+
+.menuIcon{
+    width: 20px;
+    height: auto;
+
+}
+
+.openMenu {
+    display: none;
+}
+
+@media screen and (min-width: 576px) {
+    .openMenu {
+        display: none;
+    }
+
+    .closeBtn {
+        display: none;
+    }
+
+    .mobileMenu {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .openMenu {
+        display: flex;
+    }
+
+    .sidebar {
+        position: fixed;
+        min-width: 100vw;
+        z-index: 99;
+        height: 100vh;
+        top: 0;
+        left: 0;
+    }
+
+    .mobileMenu {
+        display: block;
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    // .sidebar {
+    //     width: 100%;
+    //     min-width: 100vw;
+    //     z-index: 99;
+    //     height: 100vh;
+    //     top: 0;
+    //     left: 0;
+    // }
+
+    .mobileMenu {
+        display: block;
+    }
+
+    .menuMain {
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        align-items: center;
+    }
+
+    .menuMain > div {
+        margin: 0 10px;
+    }
+    
+}

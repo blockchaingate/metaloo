@@ -1,0 +1,98 @@
+<app-rounded-card>
+    <div class="orders">
+        <h2>
+            {{'orderDetail.orderDetails'|translate}}
+        </h2>
+        <p><span>
+                <a [routerLink]="['/account/orders']" routerLinkActive="router-link-active">
+                    {{'orderDetail.orders'|translate}}</a></span>
+            > {{'orderDetail.orderId'|translate}}: {{orderId}}</p>
+
+        <div>
+            <div class="row" *ngIf="isLoaded">
+                <div class="col-md-12">
+
+                    <table class="  order-table" id="order-detail-table">
+                        <tbody>
+                            <tr>
+                                <td>{{'orderDetail.orderId'|translate}}</td>
+                                <td>{{orderId}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'orderDetail.createdAt'|translate}}</td>
+                                <div *ngIf="currentLanguage == 'en'">
+                                    {{order.created_at | date:'medium'}}
+                                </div>
+                                <div *ngIf="currentLanguage != 'en'">
+                                    <!-- format date as chinese format -->
+                                    {{order.created_at | date:'yyyy-MM-dd HH:mm:ss'}}
+                                </div>
+                            </tr>
+                            <tr>
+                                <td>{{'orderDetail.bondId'|translate}}</td>
+                                <td>{{order.bondId.symbol}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'orderDetail.quantity'|translate}}</td>
+                                <td>{{order.quantity}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'orderDetail.status'|translate}}</td>
+                                <td>{{(order.status == 'Pending' || order.status == 'Confirmed by User'?'Pending'
+                                    :order.status) | translate}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'orderDetail.paymentMethod'|translate}}</td>
+                                <td>{{(order.isCryptoPayment ? 'orderDetail.cryptoPayment' :
+                                    'orderDetail.notCryptoPayment') | translate}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'orderDetail.paymentCoin'|translate}}</td>
+                                <td>{{order.paymentCoin}}</td>
+                            </tr>
+                            <!-- check if order has txid -->
+                            <tr *ngIf=" order.hasOwnProperty('txid') ">
+                                <td>{{'orderDetail.paymentId'|translate}}</td>
+                                <td>{{ order.txid}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div *ngIf="isLoaded && order.status === 'Confirmed Payment'">
+                        <button type="button" (click)="captureDivAsPDF()"
+                            class="btn btn-primary rounded-pill btnOver mt-3">{{
+                            "orderPage.downloadVoucherButton" |
+                            translate }}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div *ngIf="isConfirmed">
+                    <h2>{{'orderDetail.orderConfirmed'|translate}}</h2>
+                    <p>{{'orderDetail.thankYou'|translate}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-rounded-card>
+
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">{{'orderDetail.confirmOrderInfo'|translate}}</h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+            <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <app-order [userData]="userData" [bondType]="bond_type" [chainName]=" chain_name" [coinName]="coin_name"
+            [quantity]="value" [buyWithKYC]="buyWithKYC"></app-order>
+        <div class="confirm">
+            <label class="">
+                <input type="checkbox" id="termsAndConditionsCheckbox">
+                {{'orderDetail.agreeTerms'|translate}}
+            </label>
+            <br>
+            <button type="submit" (click)="submitOrder()"
+                class="btn btn-primary btn-lg mt-3">{{'orderDetail.confirmOrder'|translate}}</button>
+        </div>
+    </div>
+</ng-template>

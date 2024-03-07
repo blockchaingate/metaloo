@@ -1,0 +1,76 @@
+<div class="container kycDiv mt-2">
+  <div class="row">
+      <div class="col-md-6">
+          <div class="kycTitle">
+              KYC
+          </div>
+      </div>
+      <div class="col-md-6 kycTitleSub">
+          <app-skip-kyc />
+      </div>
+  </div>
+  <div class="row kyvRow">
+
+      <div class="col-md-8 kycCon">
+      <app-rounded-card>
+        <div class="container mt-4">
+          <div class="basicTitle">{{ "level2.l2" | translate }}</div>
+          <div class="basicTitleSub">{{ "level2.personalInfo" | translate }}</div>
+          <form #myForm="ngForm" novalidate (ngSubmit)="onSubmit(myForm)">
+            <div class="form-group mt-30">
+              <label for="countryOfResidency">{{ "level2.countryOfResidency" | translate }}:</label>
+              <input type="text" class="form-control" id="countryOfResidency" [(ngModel)]="formData.countryOfResidency"
+                name="countryOfResidency" required>
+              <div *ngIf="myForm.submitted && myForm.controls.countryOfResidency.errors?.required" class="text-danger">
+                {{ "level2.countryOfResidency" | translate }} {{ "level2.requiredError" | translate }}
+              </div>
+            </div>
+            <div class="form-group mt-30">
+              <label for="province">{{ "level2.province" | translate }}:</label>
+              <input type="text" class="form-control" id="province" [(ngModel)]="formData.province" name="province"
+                required>
+              <div *ngIf="myForm.submitted && myForm.controls.province.errors?.required" class="text-danger">
+                {{ "level2.province" | translate }} {{ "level2.requiredError" | translate }}
+              </div>
+            </div>
+            <div class="row">
+
+              <div class="form-group mt-30 col-md-6">
+                <label for="city">{{ "level2.city" | translate }}:</label>
+                <input type="text" class="form-control" id="city" [(ngModel)]="formData.city" name="city" required>
+                <div *ngIf="myForm.submitted && myForm.controls.city.errors?.required" class="text-danger">
+                  {{ "level2.city" | translate }} {{ "level2.requiredError" | translate }}
+                </div>
+              </div>
+              <div class="form-group mt-30 col-md-6">
+                <label for="postalCode">{{ "level2.postalCode" | translate }}:</label>
+                <input type="text" class="form-control" id="postalCode" [(ngModel)]="formData.postalCode"
+                  name="postalCode" required>
+                <div *ngIf="myForm.submitted && myForm.controls.postalCode.errors?.required" class="text-danger">
+                  {{ "level2.postalCode" | translate }} {{ "level2.requiredError" | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="form-group mt-30">
+              <label for="homeAddress">{{ "level2.homeAddress" | translate }}:</label>
+              <input type="text" class="form-control" id="homeAddress" [(ngModel)]="formData.homeAddress"
+                name="homeAddress" required>
+              <div *ngIf="myForm.submitted && myForm.controls.homeAddress.errors?.required" class="text-danger">
+                {{ "level2.homeAddress" | translate }} {{ "level2.requiredError" | translate }}
+              </div>
+            </div>
+            <!-- <div class="form-group mt-30">
+              <label for="homeAddress2">{{ "level2.homeAddress2" | translate }}:</label>
+              <input type="text" class="form-control" id="homeAddress2" [(ngModel)]="formData.homeAddress2"
+                name="homeAddress2">
+            </div> -->
+
+            <button type="submit" class="rounded-pill btn btn-primary mt-30 w-100" [disabled]="myForm.invalid">
+              {{ "level2.submit" | translate }}
+            </button>
+          </form>
+        </div>
+      </app-rounded-card>
+    </div>
+  </div>
+</div>

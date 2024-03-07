@@ -1,0 +1,65 @@
+.kycTitle {
+    font-size: 28px;
+    font-family: PingFangSC-Semibold, PingFang SC;
+    font-weight: 600;
+    color: #6A7FB0;
+    line-height: 50px;
+}
+
+.kycTitleSub {
+    justify-content: end;
+    display: flex;
+    align-items: center;
+}
+
+.kycDiv {
+    // max-width: 750px;
+}
+
+.kyvRow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (min-width:960px) {
+    .kycCon{
+        max-width: 512px !important;
+    }
+}
+
+.basicTitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: #273c67;
+    line-height: 20px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 400;
+    color: #8a94ab;
+    line-height: 20px;
+}
+
+.combobox-container,
+input {
+    border-color: #e7edfa;
+    font-size: 14px;
+    color: #273c67;
+    line-height: 16px;
+    height: 48px;
+    border-radius: 12px;
+}
+
+.mb-30 {
+    margin-bottom: 30px;
+}
+
+.mb-10{
+    margin-bottom: 10px;
+}
+
+.p-14{
+    padding: 14px;
+}

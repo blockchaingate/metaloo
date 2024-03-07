@@ -1,0 +1,17 @@
+<div class="tabCotainer">
+  <p>
+    <b>Express OTC</b> is a fast and easy way to buy cryptocurrency. You can buy Bitcoin, Ethereum, Litecoin, and more
+    with your credit
+  </p>
+
+  <div>
+    <tabset [justified]="true" *ngIf="fiats && coins && wallets">
+      <tab heading="Buy">
+        <app-otc-express-buy [fiats]="fiats" [coins]="coins" [wallets]="wallets"></app-otc-express-buy>
+      </tab>
+      <tab heading="Sell">
+        <app-otc-express-sell [fiats]="fiats" [coins]="coins" [wallets]="wallets"></app-otc-express-sell>
+      </tab>
+    </tabset>
+  </div>
+</div>

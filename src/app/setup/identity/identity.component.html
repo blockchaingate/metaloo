@@ -1,0 +1,83 @@
+<app-card 
+[title]="'Verify your identity'" 
+[action1Text]="'Confirm'"
+(action1Click)="click()">
+    <div class="pb-3">
+        Financial regulations require us to verify your identity. Once complete, you can buy, sell or transfer cryptocurrency. 
+    </div>
+    <div class="row">
+        <div class="col col-12 col-md-8">
+            <label for="basic-url">Date of birth</label>
+            <div class="row pb-3">
+                <div class="col col-12 col-md-4">
+                    <app-combobox name="month" [(ngModel)]="month" [items]="months"></app-combobox>    
+                </div>
+                <div class="col col-12 col-md-4">
+                    <app-combobox name="day" [(ngModel)]="day" [items]="days"></app-combobox>  
+                </div>
+                <div class="col col-12 col-md-4">
+                    <app-combobox name="year" [(ngModel)]="year" [items]="years"></app-combobox>  
+                </div>                
+            </div>
+
+            <label for="basic-url">Street address</label>
+            <div class="row pb-3">
+                <div class="col col-12 mb-2">
+                    <input type="text" class="form-control" placeholder="Address line 1" [(ngModel)]="homeAddress">
+                </div>
+                <div class="col col-12">
+                    <input type="text" class="form-control" placeholder="Address line 2" [(ngModel)]="homeAddress2">
+                </div>              
+            </div>   
+
+            <div class="row pb-3">
+                <div class="col col-12 col-md-6">
+                    <label for="basic-url">City</label>
+                    <input type="text" class="form-control" placeholder="City" [(ngModel)]="city">
+                </div>
+                <div class="col col-12 col-md-6">
+                    <label for="basic-url">Province</label>
+                    <input type="text" class="form-control" placeholder="Province" [(ngModel)]="province">
+                </div>
+            </div>
+ 
+            <div class="row pb-3">
+                <div class="col col-12 col-md-6">
+                    <label for="basic-url">Postal code</label>
+                    <input type="text" class="form-control" placeholder="Postal code" [(ngModel)]="postalCode">
+                </div>
+                <div class="col col-12 col-md-6">
+                    <label for="basic-url">Country</label>
+                    <p>
+                        {{countryName}}
+                    </p>
+                   
+                </div>
+            </div>            
+
+                
+        </div>
+        <div class="col col-12 col-md-4">
+            <div class="pb-3">
+                <label for="basic-url">The purpose of your KYC:</label>
+                <app-combobox name="intent" [(ngModel)]="intent" [items]="intents"></app-combobox>
+            </div>
+
+            <div class="pb-3">
+                <label for="basic-url">What is your source of funds?</label>
+                <app-combobox name="source" [(ngModel)]="source" [items]="sources"></app-combobox>      
+            </div>
+            <div class="pb-3">
+                <label for="basic-url">Employment status</label>
+                <app-combobox name="employmentStatus" [(ngModel)]="employmentStatus" [items]="employmentStatuses"></app-combobox>         
+            </div>
+        </div>
+    </div>
+
+</app-card>
+
+
+
+
+
+

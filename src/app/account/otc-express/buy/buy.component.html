@@ -1,0 +1,22 @@
+<div class="row pb-3">
+  <div class="col col-12">
+    <label for="basic-url">I want to pay</label>
+    <div class="inline">
+      <input type="number" class="form-control" name="amount" [(ngModel)]="amount" aria-label="Text input with dropdown button">
+      <app-combobox [(ngModel)]="fiat" [imageType]="'image'" [items]="fiats" [dropdownIcon]="'caret'"></app-combobox>
+    </div>
+  </div>
+
+  <div class="col col-12  mt-3 ">
+    <label for="basic-url">I will receive</label>
+    <div class="inline ">
+      <input type="number" class="form-control" name="quantity" [(ngModel)]="quantity" aria-label="Text input with dropdown button">
+      <app-combobox [(ngModel)]="coin" [imageType]="'image'" [items]="coins" [dropdownIcon]="'caret'"></app-combobox>
+    </div>
+    <div class="py-1">My available balance: {{available_balance}} {{coin.text}}</div>
+  </div>
+
+</div>
+<button type="button" class="btn-primary w-100 mainColor" (click)="next()">
+  BUY NOW
+</button>

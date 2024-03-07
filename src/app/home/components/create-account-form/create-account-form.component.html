@@ -1,0 +1,110 @@
+<div class="container">
+    <div class="row">
+        <div class="col col-12">
+            {{'mustFill'|translate}}
+        </div>
+    </div>
+
+    <div class="row pt-3">
+        <div class="col col-12">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email * </label>
+                <input type="email" class="form-control" [(ngModel)]="email" (blur)="onEmailBlurEvent($event)" placeholder="{{'Enter email'|translate}}">
+            </div>
+            <div *ngIf="!validEmail" class="red"> {{'Invalid Email'|translate}} !</div>
+            <div *ngIf="isEmailExist" class="red"> {{'Exist Email'|translate}} !</div>
+            
+        </div>
+    </div>
+
+    <div class="row pt-3">
+        <div class="col col-12">
+            <div class="form-group">
+                <label for="exampleInputEmail1">{{'Password'|translate}} *</label>
+                <input type="password" class="form-control" [(ngModel)]="password" (blur)="onPwdBlurEvent($event)" placeholder="{{'Enter password'|translate}}">
+            </div>
+            <div *ngIf="!validPwd" class="red"> {{'Invalid password'|translate}} !  <br> {{'pwdExplan'|translate}}</div>
+        </div>
+    </div>
+
+    <div class="row pt-3">
+        <div class="col col-12">
+            <div class="form-group">
+                <label for="exampleInputEmail1">{{'Repeat Password'|translate}} *</label>
+                <input type="password" class="form-control" [(ngModel)]="repassword" (blur)="onRePwdBlurEvent($event)" placeholder="{{'Repeat Password'|translate}}">
+            </div>
+            <div *ngIf="!pwdMatch" class="red"> {{'Password mismatch'|translate}} ! </div>
+        </div>
+    </div>
+
+    <!-- captcha section -->
+    <div class="captchaSection row pt-3">
+        <div class="col col-6 capHalf ">
+            <div class="form-group">
+                <label for="exampleInputEmail1">{{'Captcha'|translate}} *</label>
+                <input type="text" class="form-control" [(ngModel)]="captcha" placeholder="{{'Enter captcha'|translate}}">
+            </div>
+        </div>
+        <div class="col col-6 capHalf d-flex align-items-end">
+            <div class="captchaAll d-flex align-items-end" [ngStyle]="isCaptchaLoaded && {'background-color': '#f7f7f7'}">
+                <!-- <div *ngIf="isCaptchaLoaded"> -->
+                <div id="captchaContainer">
+                </div>
+                <!-- svg reload button -->
+                <div *ngIf="isCaptchaLoaded" (click)="refreshCaptcha()" class="p-l-10 pb-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="#777777"
+                            d="M13.5 2c-5.621 0-10.211 4.443-10.475 10h-3.025l5 6.625 5-6.625h-2.975c.257-3.351 3.06-6 6.475-6 3.584 0 6.5 2.916 6.5 6.5s-2.916 6.5-6.5 6.5c-1.863 0-3.542-.793-4.728-2.053l-2.427 3.216c1.877 1.754 4.389 2.837 7.155 2.837 5.79 0 10.5-4.71 10.5-10.5s-4.71-10.5-10.5-10.5z" />
+                    </svg>
+                </div>
+            
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row pt-3">
+        <div class="col col-12">
+            <div class="form-check">
+                <input class="form-check-input" [(ngModel)]="checkbox" type="checkbox" (click)="verifyData()" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    {{'certify18'|translate}}
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row my-3">
+        <div class="col col-12">
+            <!-- error message -->
+            <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+                {{errorMessage}}
+            </div>
+        </div>
+    </div>
+
+    <div class="row my-3">
+        <div class="col col-12">
+            <button type="button" [disabled]="!checkbox || !validEmail || !validPwd || !pwdMatch || !this.captcha || this.captcha.length<4" class="btn btn-primary btn-lg w-100" (click)="varifyCaptchaAndSignup()">{{'Sign up with email'|translate}}</button>
+        </div>
+    </div>
+
+    <!-- <div class="or-container">
+        <div class="line-separator"></div> 
+        <div class="or-label">or</div>
+        <div class="line-separator"></div>
+    </div>
+
+    <div class="row my-3">
+        <div class="col col-12">
+            <button type="button" class="btn-light btn-lg w-100" (click)="signupWithWallet()">Sign up with wallet</button>
+        </div>
+    </div> -->
+
+    <div class="text-center">
+        <a href="/signin">
+            {{'Sign in'|translate}}
+        </a>
+        {{'to your account'|translate}}
+    </div>
+</div>

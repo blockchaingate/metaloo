@@ -1,0 +1,150 @@
+// .kycTitle {
+//     font-size: 28px;
+//     font-family: PingFangSC-Semibold, PingFang SC;
+//     font-weight: 600;
+//     color: #273c67;
+//     line-height: 50px;
+// }
+
+// .kycTitleSub {
+//     justify-content: end;
+//     display: flex;
+//     align-items: center;
+// }
+
+// .kycDiv {
+//     max-width: 750px;
+// }
+
+.image-wrapper {
+    border: 1px solid rgb(219, 213, 213);
+    margin-top: 10px;
+    padding: 20px;
+}
+
+.proof-option {
+    cursor: pointer;
+    text-align: center;
+    // border: 1px solid rgb(219, 213, 213);
+    // margin: 2px;
+    padding: 5px 1px;
+    background: #fafcff;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #273c67;
+    line-height: 20px;
+    flex-grow: 1;
+}
+
+.colDoc {
+    padding: 0px 2px !important;
+    display: flex;
+    margin-top: 7px;
+}
+
+.proof-option:hover,
+.proof-option.checked {
+    background-color: #eef2fc;
+}
+
+.btn-info {
+    color: white;
+    padding: 10px 50px;
+}
+
+.kycTitle {
+    font-size: 28px;
+    font-family: PingFangSC-Semibold, PingFang SC;
+    font-weight: 600;
+    color: #6a7fb0;
+    line-height: 50px;
+}
+
+.kycTitleSub {
+    justify-content: end;
+    display: flex;
+    align-items: center;
+}
+
+.kycDiv {
+    // max-width: 750px;
+}
+
+.kyvRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (min-width: 960px) {
+    .kycCon {
+        max-width: 512px !important;
+    }
+}
+
+.basicTitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: #273c67;
+    line-height: 20px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 400;
+    color: #8a94ab;
+    line-height: 20px;
+}
+
+.combobox-container,
+input {
+    border-color: #e7edfa;
+    font-size: 14px;
+    color: #273c67;
+    line-height: 16px;
+    height: 48px;
+    border-radius: 12px;
+}
+
+.mb-30 {
+    margin-bottom: 30px;
+}
+
+.mt-30 {
+    margin-top: 30px;
+}
+
+.basicTitleSub {
+    padding-top: 27px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #8a94ab;
+    line-height: 20px;
+}
+
+button {
+    height: 48px;
+}
+
+.uploadDocBtn {
+    width: 106px;
+    height: 34px;
+    background: #0140ce;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #ffffff;
+    line-height: 20px;
+}
+
+.uploadDocTxt {
+    font-size: 14px;
+    font-weight: 400;
+    color: #8a94ab;
+    line-height: 20px;
+}
+
+.mt6p {
+    margin-top: 6px;
+}

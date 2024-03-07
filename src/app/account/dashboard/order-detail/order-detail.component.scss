@@ -1,0 +1,86 @@
+.flex-gap {
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+.flex-gap > button {
+    margin: 10px;
+}
+
+
+
+.orders {
+    padding: 18px 23px;
+}
+
+.orderTitle {
+    font-size: 22px;
+    font-weight: 500;
+    color: #6a7fb0;
+    line-height: 30px;
+}
+
+thead {
+    height: 74px;
+    th {
+        font-size: 14px;
+        font-weight: 400;
+        color: rgba(58, 79, 124, 0.5);
+        line-height: 20px;
+    }
+}
+
+table,
+tr,
+td {
+    border: none !important;
+    border-bottom: none !important;
+    border-bottom-width: 0px !important;
+}
+
+td{
+    padding-right: 30px;
+}
+
+tbody {
+    tr {
+        height: 55px;
+        font-size: 16px;
+        font-weight: 400;
+        color: #273c67;
+        line-height: 22px;
+        padding: 0 5px;
+        display: flex;
+    }
+
+    td {
+        a {
+            color: #0663c6;
+        }
+    }
+
+    tr:hover {
+        background: #eef2fc;
+        border-radius: 12px;
+    }
+
+    tr:hover td {
+        background: #eef2fc;
+    }
+
+    tr td:first-child {
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+    }
+
+    tr td:last-child {
+        border-top-right-radius: 12px;
+        border-bottom-right-radius: 12px;
+    }
+}
+
+.bondIcon {
+    width: 36px;
+    height: 36px;
+    margin-right: 5px;
+}

@@ -1,0 +1,96 @@
+<div class="row">
+    <div class="col-md-12 ">
+        <div class="infoCard f-c">
+            <!-- <div class="subTitle">
+                申请流程
+            </div> -->
+            <div class="steps">
+                <div class="step step1 active">
+                    <div class="borderShapre active" (click)="gotoPage(0)">
+                        <img src="/assets/images/iconApply1.svg" alt="">
+                    </div>
+                    <div class="stepTxt" (click)="gotoPage(0)">
+                        {{'immigration.onlineApplication'|translate}}
+                    </div>
+                </div>
+                <!-- svg arrow  right -->
+                <div class="arrow">
+                    <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <path d="M0 0 L50 50 L0 100" stroke-width="0"></path>
+                    </svg>
+                </div>
+                <div class="step step2">
+                    <div class="borderShapre" (click)="gotoPage(1)" [ngClass]="{active: step>0}">
+                        <img src="/assets/images/iconApply2.svg" alt="">
+                    </div>
+                    <div class="stepTxt" (click)="gotoPage(1)">
+                        {{'immigration.submittingDocumentsOnline'|translate}}
+                    </div>
+                </div>
+                <div class="arrow">
+                    <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <path d="M0 0 L50 50 L0 100" stroke-width="0"></path>
+                    </svg>
+                </div>
+                <div class="step step3">
+                    <div class="borderShapre" (click)="gotoPage(2)" [ngClass]="{active: step>1}">
+                        <img src="/assets/images/iconApply3.svg" alt="">
+                    </div>
+                    <div class="stepTxt" (click)="gotoPage(2)">
+                        {{'immigration.qualificationReview'|translate}}
+                    </div>
+                </div>
+                <div class="arrow">
+                    <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <path d="M0 0 L50 50 L0 100" stroke-width="0"></path>
+                    </svg>
+                </div>
+                <div class="step step4">
+                    <div class="borderShapre" (click)="gotoPage(3)" [ngClass]="{active: step>2}">
+                        <img src="/assets/images/iconApply4.svg" alt="">
+                    </div>
+                    <div class="stepTxt" (click)="gotoPage(3)">
+
+                        {{'immigration.mailingDocuments'|translate}}
+                    </div>
+                </div>
+                <div class="arrow">
+                    <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <path d="M0 0 L50 50 L0 100" stroke-width="0"></path>
+                    </svg>
+                </div>
+                <div class="step step5">
+                    <div class="borderShapre" (click)="gotoPage(4)" [ngClass]="{active: step>3}">
+                        <img src="/assets/images/iconApply5.svg" alt="">
+                    </div>
+                    <div class="stepTxt" (click)="gotoPage(4)">
+                        <div *ngIf="applicationType == 'PR' || applicationType == 'green-card'">
+                            {{'immigration.greenCardApproval'|translate}}
+                        </div>
+                        <div *ngIf="applicationType == 'passport'">
+                            {{'immigration.passportApproval'|translate}}
+                        </div>
+                    </div>
+                </div>
+                <div class="arrow">
+                    <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <path d="M0 0 L50 50 L0 100" stroke-width="0"></path>
+                    </svg>
+                </div>
+                <div class="step step6">
+                    <div class="borderShapre" (click)="gotoPage(5)" [ngClass]="{active: step>4}">
+                        <img src="/assets/images/iconApply6.svg" alt="">
+                    </div>
+                    <div class="stepTxt" (click)="gotoPage(5)">
+                        <div *ngIf="applicationType == 'PR' || applicationType == 'green-card'">
+                            {{'immigration.receivingTheGreenCard'|translate}}
+                        </div>
+                        <div *ngIf="applicationType == 'passport'">
+                            {{'immigration.receivingThePassport'|translate}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<app-rounded-card>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12 ">
+                <div class="my-3">Admin KYC List</div>
+                <ng-container *ngIf="isLoaded">
+                    <table class="table table-dark table-striped user-table">
+                        <thead>
+                            <tr>
+                                <th>user</th>
+                                <th>input_level</th>
+                                <th>kyc_level</th>
+                                <th>created_at</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of kycList">
+                                <td><a (click)="getKycDetail(data.user)">
+                                        {{ data.firstName + " " + data.lastName }}</a></td>
+                                <td>{{ data.input_level }}</td>
+                                <td>{{ data.kyc_level }}</td>
+                                <td>{{ data.created_at | date: 'yyyy-MM-dd HH:mm:ss' }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="d-flex justify-content-center">
+                        <div class="px-2" (click)="prev()">
+                            <a>{{'Prev'|translate}}</a>
+                        </div>
+                        <!-- display current page number -->
+                        <div class="px-2">
+                            <a>{{pageNum +1}}</a>
+                        </div>
+                        <div class="px-2" (click)="next()">
+                            <a>{{'Next'|translate}}</a>
+                        </div>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="!isLoaded">
+                    <p>Loading...</p>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</app-rounded-card>

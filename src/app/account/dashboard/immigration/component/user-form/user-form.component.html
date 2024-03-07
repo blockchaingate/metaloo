@@ -1,0 +1,355 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="infoCard f-c">
+            <div class="titleRow">
+                <div>
+                    <div class="subTitle">{{ 'onlineSubmitData.title' | translate }}</div>
+                    <div class="subTitle2 hint">{{ 'onlineSubmitData.hint' | translate }}</div>
+                </div>
+                <div *ngIf="!isUnderReview">
+                    <button type="button" class="btn btn-outline-primary btn-sm statusBtn rounded-pill"
+                        (click)="addUser()" [disabled]="userControls.length >= 10">{{ 'onlineSubmitData.addUserButton' |
+                        translate
+                        }}</button>
+                </div>
+            </div>
+
+            <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                <div formArrayName="users">
+                    <div *ngFor="let userControl of userControls.controls; let i = index" class="user-info"
+                        [formGroupName]="i">
+                        <div class="d-flex justify-content-between align-item-center">
+                            <div class="subTitle borderShapreTitle mt-3"
+                                applicantID="{{ userControls.controls[i].get('applicantID') }}">{{
+                                'onlineSubmitData.user' | translate }}
+                                {{ i + 1 }}</div>
+                            <!-- removeUser btn -->
+                            <div *ngIf="!isUnderReview" (click)="removeUser(i)" class="removeUserButton">
+                                <svg width="16px" height="16px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Blue circle border -->
+                                    <circle cx="8" cy="8" r="7.5" stroke="blue" stroke-width="1" fill="none" />
+
+                                    <!-- X mark in the middle -->
+                                    <line x1="5" y1="5" x2="11" y2="11" stroke="blue" stroke-width="1" />
+                                    <line x1="11" y1="5" x2="5" y2="11" stroke="blue" stroke-width="1" />
+                                </svg>
+
+
+                                <span>
+                                    {{ 'onlineSubmitData.removeUserButton' | translate }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="borderShapre row p-b-40">
+                            <!-- First Name -->
+                            <div class="form-group form-element">
+                                <div class="d-flex form-element-inner">
+                                    <label for="firstName-{{i}}">{{ 'onlineSubmitData.firstName' | translate }}</label>
+                                    <input type="text" id="firstName-{{i}}" formControlName="firstName"
+                                        (input)="onInputChange($event, i)">
+                                </div>
+                                <div *ngIf="userControls.controls[i].get('firstName').invalid && userControls.controls[i].get('firstName').touched"
+                                    class="error-message text-danger">
+                                    {{ 'onlineSubmitData.firstNameRequired' | translate }}
+                                </div>
+                            </div>
+                            <!-- Last Name -->
+                            <div class="form-group form-element">
+                                <div class="d-flex form-element-inner">
+                                    <label for="lastName-{{i}}">{{ 'onlineSubmitData.lastName' | translate }}</label>
+                                    <input type="text" id="lastName-{{i}}" formControlName="lastName"
+                                        (input)="onInputChange($event, i)">
+                                </div>
+                                <div *ngIf="userControls.controls[i].get('lastName').invalid && userControls.controls[i].get('lastName').touched"
+                                    class="error-message text-danger">
+                                    {{ 'onlineSubmitData.lastNameRequired' | translate }}
+                                </div>
+                            </div>
+
+                            <!-- Middle Name -->
+                            <div class="form-group form-element">
+                                <div class="d-flex form-element-inner">
+                                    <label for="middleName-{{i}}">{{ 'onlineSubmitData.middleName' | translate
+                                        }}</label>
+                                    <input type="text" id="middleName-{{i}}" formControlName="middleName"
+                                        (input)="onInputChange($event, i)">
+                                </div>
+                            </div>
+
+                            <!-- Age -->
+                            <div class="form-group form-element">
+                                <div class="d-flex form-element-inner">
+                                    <label for="age-{{i}}">{{ 'onlineSubmitData.age' | translate }}</label>
+                                    <input type="number" id="age-{{i}}" formControlName="age"
+                                        (input)="onInputChange($event, i)">
+                                </div>
+                                <div *ngIf="userControls.controls[i].get('age').invalid && userControls.controls[i].get('age').touched"
+                                    class="error-message text-danger">
+                                    {{ 'onlineSubmitData.ageRequired' | translate }}
+                                </div>
+                            </div>
+
+                            <!-- Nationality -->
+                            <div class="form-group form-element">
+                                <div class="d-flex form-element-inner">
+                                    <label for="nationality-{{i}}">{{ 'onlineSubmitData.nationality' | translate
+                                        }}</label>
+                                    <select id="nationality-{{i}}" formControlName="nationality"
+                                        (change)="checkUserValidity(i)">
+                                        <option *ngFor="let country of countries" [value]="country.value">{{
+                                            country.image }} {{ country.lang[lang] }}</option>
+                                    </select>
+                                </div>
+                                <div *ngIf="userControls.controls[i].get('nationality').invalid && userControls.controls[i].get('nationality').touched"
+                                    class="error-message text-danger">
+                                    {{ 'onlineSubmitData.nationalityRequired' | translate }}
+                                </div>
+                            </div>
+
+                            <!-- Relationship -->
+                            <div class="form-group form-element">
+                                <div class="d-flex form-element-inner">
+                                    <label for="relationship-{{i}}">{{ 'onlineSubmitData.relationship' | translate
+                                        }}</label>
+                                    <select id="relationship-{{i}}" formControlName="relationship"
+                                        (change)="setValidatorAngcheckValidity(i)">
+                                        <option value="Applicant">{{ 'onlineSubmitData.applicant' | translate }}
+                                        </option>
+                                        <option value="Spouse">{{ 'onlineSubmitData.spouse' | translate }}</option>
+                                        <option value="Child">{{ 'onlineSubmitData.child' | translate }}</option>
+                                    </select>
+                                </div>
+                                <div *ngIf="userControls.controls[i].get('relationship').invalid && userControls.controls[i].get('relationship').touched"
+                                    class="error-message text-danger">
+                                    {{ 'onlineSubmitData.relationshipRequired' | translate }}
+                                </div>
+                            </div>
+
+                            <!-- if userControls.controls[i].applicantID is null, hide following file inputs -->
+                            <div *ngIf="userControls.controls[i].get('applicantID').value">
+
+                                <!-- File Inputs (Example for one, repeat for others) -->
+                                <div class="form-group form-element2">
+                                    <div class="f-r-flex">
+                                        <div class="d-flex fromLeft">
+                                            <label for="formFile-{{i}}" class="form-label">{{
+                                                'onlineSubmitData.applicationForm' | translate }}</label>
+                                            <button class="btn btn-outline-primary btn-sm">{{
+                                                'onlineSubmitData.download' |
+                                                translate }}</button>
+                                            <button class="btn btn-outline-primary btn-sm">{{ 'onlineSubmitData.example'
+                                                |
+                                                translate }}</button>
+                                        </div>
+                                        <div>
+                                            <div class="d-flex">
+                                                <!-- file name -->
+                                                <div class="fileName"
+                                                    *ngIf="userControls.controls[i].get('applicationFormFile').value">
+                                                    {{ getFileName("applicationFormFile", i) }}
+                                                </div>
+                                                <!-- no file  -->
+                                                <div class="fileName"
+                                                    *ngIf="!userControls.controls[i].get('applicationFormFile').value">
+                                                    {{ 'onlineSubmitData.noFileUploaded' | translate }}
+                                                </div>
+
+                                                <button class="btn btn-outline-primary btn-sm" type="button"
+                                                    (click)="selectFile('formFile', i)">{{ 'onlineSubmitData.selectFile'
+                                                    |
+                                                    translate }}</button>
+                                                <input type="file" id="formFile-{{i}}" style="display: none;"
+                                                    accept="application/pdf"
+                                                    (change)="onFileChange($event, i, 'applicationFormFile')"
+                                                    class="formfile">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div *ngIf="userControls.controls[i].get('applicationFormFile').invalid && userControls.controls[i].get('applicationFormFile').touched"
+                                        class="error-message text-danger">
+                                        {{ 'onlineSubmitData.applicationFormRequired' | translate }}
+                                    </div>
+                                </div>
+
+                                <!-- Identity Document File -->
+                                <div class="form-group form-element2">
+                                    <div class="f-r-flex">
+                                        <div class="d-flex fromLeft">
+                                            <label for="identityDoc-{{i}}" class="form-label">{{
+                                                'onlineSubmitData.identityDocument' | translate }}</label>
+                                            <span>{{ 'onlineSubmitData.identityDocument' | translate }}</span>
+                                            <button class="btn btn-outline-primary btn-sm">{{ 'onlineSubmitData.example'
+                                                |
+                                                translate }}</button>
+                                        </div>
+                                        <div>
+                                            <div class="d-flex">
+                                                <!-- file name -->
+                                                <div class="fileName"
+                                                    *ngIf="userControls.controls[i].get('identityDocumentFile').value">
+                                                    {{ getFileName("identityDocumentFile", i) }}
+                                                </div>
+                                                <!-- no file  -->
+                                                <div class="fileName"
+                                                    *ngIf="!userControls.controls[i].get('identityDocumentFile').value">
+                                                    {{ 'onlineSubmitData.noFileUploaded' | translate }}
+                                                </div>
+
+                                                <button class="btn btn-outline-primary btn-sm" type="button"
+                                                    (click)="selectFile('identityDoc', i)">{{
+                                                    'onlineSubmitData.selectFile'
+                                                    | translate }}</button>
+                                                <input type="file" id="identityDoc-{{i}}" style="display: none;"
+                                                    accept="application/pdf"
+                                                    (change)="onFileChange($event, i, 'identityDocumentFile')"
+                                                    class="formfile">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div *ngIf="userControls.controls[i].get('identityDocumentFile').invalid && userControls.controls[i].get('identityDocumentFile').touched"
+                                        class="error-message text-danger">
+                                        {{ 'onlineSubmitData.identityDocumentRequired' | translate }}
+                                    </div>
+                                </div>
+
+                                <!-- Criminal Record File -->
+                                <div class="form-group form-element2">
+                                    <div class="f-r-flex">
+                                        <div class="d-flex fromLeft">
+                                            <label for="criminalRecord-{{i}}" class="form-label">{{
+                                                'onlineSubmitData.criminalRecord' | translate }}</label>
+                                            <button class="btn btn-outline-primary btn-sm">{{ 'onlineSubmitData.example'
+                                                |
+                                                translate }}</button>
+                                        </div>
+                                        <div>
+                                            <div class="d-flex">
+                                                <!-- file name -->
+                                                <div class="fileName"
+                                                    *ngIf="userControls.controls[i].get('criminalRecordFile').value">
+                                                    {{ getFileName("criminalRecordFile", i) }}</div>
+                                                <!-- no file  -->
+                                                <div class="fileName"
+                                                    *ngIf="!userControls.controls[i].get('criminalRecordFile').value">
+                                                    {{ 'onlineSubmitData.noFileUploaded' | translate }}</div>
+
+                                                <button class="btn btn-outline-primary btn-sm" type="button"
+                                                    (click)="selectFile('criminalRecord', i)">{{
+                                                    'onlineSubmitData.selectFile' | translate }}</button>
+                                                <input type="file" id="criminalRecord-{{i}}" style="display: none;"
+                                                    accept="application/pdf"
+                                                    (change)="onFileChange($event, i, 'criminalRecordFile')"
+                                                    class="formfile">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div *ngIf="userControls.controls[i].get('criminalRecordFile').invalid && userControls.controls[i].get('criminalRecordFile').touched"
+                                        class="error-message text-danger">
+                                        {{ 'onlineSubmitData.criminalRecordRequired' | translate }}
+                                    </div>
+                                </div>
+
+                                <!-- Marriage Certificate File -->
+                                <!-- display this only if relationship value is Spouse -->
+                                <div class="form-group form-element2"
+                                    *ngIf="userControls.controls[i].get('relationship').value == 'Spouse'">
+
+                                    <div class="f-r-flex">
+                                        <div class="d-flex fromLeft">
+                                            <label for="marriageCert-{{i}}" class="form-label">{{
+                                                'onlineSubmitData.marriageCertificate' | translate }}</label>
+                                            <button class="btn btn-outline-primary btn-sm">{{ 'onlineSubmitData.example'
+                                                |
+                                                translate }}</button>
+                                        </div>
+                                        <div>
+                                            <div class="d-flex">
+                                                <!-- file name -->
+                                                <div class="fileName"
+                                                    *ngIf="userControls.controls[i].get('marriageCertificateFile').value">
+                                                    {{ getFileName("marriageCertificateFile", i) }}</div>
+                                                <!-- no file  -->
+                                                <div class="fileName"
+                                                    *ngIf="!userControls.controls[i].get('marriageCertificateFile').value">
+                                                    {{ 'onlineSubmitData.noFileUploaded' | translate }}</div>
+
+                                                <button class="btn btn-outline-primary btn-sm" type="button"
+                                                    (click)="selectFile('marriageCert', i)">{{
+                                                    'onlineSubmitData.selectFile'
+                                                    | translate }}</button>
+                                                <input type="file" id="marriageCert-{{i}}" style="display: none;"
+                                                    accept="application/pdf"
+                                                    (change)="onFileChange($event, i, 'marriageCertificateFile')"
+                                                    class="formfile">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div *ngIf="userControls.controls[i].get('marriageCertificateFile').invalid && userControls.controls[i].get('marriageCertificateFile').touched"
+                                        class="error-message text-danger">
+                                        {{ 'onlineSubmitData.marriageCertificateRequired' | translate }}
+                                    </div>
+                                </div>
+
+                                <!-- birthCertificateFile -->
+                                <!-- display this only if relationship value is Child -->
+                                <div class="form-group form-element2 pb-5"
+                                    *ngIf="userControls.controls[i].get('relationship').value == 'Child'">
+
+                                    <div class="f-r-flex">
+                                        <div class="d-flex fromLeft">
+                                            <label for="birthCert-{{i}}" class="form-label">{{
+                                                'onlineSubmitData.birthCertificate' | translate }}</label>
+                                            <button class="btn btn-outline-primary btn-sm">{{ 'onlineSubmitData.example'
+                                                |
+                                                translate }}</button>
+                                        </div>
+                                        <div>
+                                            <div class="d-flex">
+                                                <!-- file name -->
+                                                <div class="fileName"
+                                                    *ngIf="userControls.controls[i].get('birthCertificateFile').value">
+                                                    {{ getFileName("birthCertificateFile", i) }}</div>
+                                                <!-- no file  -->
+                                                <div class="fileName"
+                                                    *ngIf="!userControls.controls[i].get('birthCertificateFile').value">
+                                                    {{ 'onlineSubmitData.noFileUploaded' | translate }}</div>
+
+                                                <button class="btn btn-outline-primary btn-sm" type="button"
+                                                    (click)="selectFile('birthCert', i)">{{
+                                                    'onlineSubmitData.selectFile' |
+                                                    translate }}</button>
+                                                <input type="file" id="birthCert-{{i}}" style="display: none;"
+                                                    accept="application/pdf"
+                                                    (change)="onFileChange($event, i, 'birthCertificateFile')"
+                                                    class="formfile">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div *ngIf="userControls.controls[i].get('birthCertificateFile').invalid && userControls.controls[i].get('marriageCertificateFile').touched"
+                                        class="error-message text-danger">
+                                        {{ 'onlineSubmitData.birthCertificateRequired' | translate }}
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- error message -->
+                <div *ngIf="hasError" class="error-message text-danger mt-3">
+                    {{ errorMessage | translate }}
+                </div>
+
+                <div class="mt-5 center">
+                    <button type="submit" class="btn btn-outline-primary btn-sm">{{ 'onlineSubmitData.submitButton' |
+                        translate }}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

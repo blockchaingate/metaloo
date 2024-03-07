@@ -1,0 +1,29 @@
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <label>Chain</label>
+            </th>  
+            <th>
+                <label>Coin</label>
+            </th>  
+            <th>
+                <label>ID</label>
+            </th>       
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of chainCoins">
+            <td>
+                {{item.chain.name}}
+            </td>    
+            <td>
+                {{item.coin.name}}
+            </td>      
+            <td>
+                {{item.id}}
+            </td>
+        </tr>
+    </tbody>
+</table>

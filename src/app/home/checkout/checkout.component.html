@@ -1,0 +1,333 @@
+<div class="checkout container-fluid bg-grey" *ngIf="loaded">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titleTxt">
+                    {{ 'checkout.title' | translate }}
+                </div>
+            </div>
+        </div>
+
+        <div class="row checkoutRow" *ngIf="step == 1">
+            <div class="col-md-8 checkoutCon">
+                <app-rounded-card>
+                    <div class="checkoutCardInner">
+                        <div class="">
+                            <h3 class="product-name">
+                                {{ 'checkout.selectType' | translate }}
+                            </h3>
+                            <div class="product-item">
+                                <div class="product-info">
+
+                                    <div class="bondType">
+
+                                        <div class="bondTypeBox" [ngClass]="{'active': bond_type == 'DNB'}"
+                                            (click)="changeBondType('DNB')">
+                                            <div class="d-flex bondTypeBoxInner">
+                                                <div class="bondImg d-flex">
+                                                    <img src="/assets/images/DNB.png" alt="bond">
+                                                    <div class="p-l-10">DNB</div>
+                                                </div>
+                                                <div class="bondInfo">
+
+                                                    <div>
+                                                        {{ 'checkout.faceValue' | translate }}
+                                                        <span>$15,000 USD</span>
+                                                    </div>
+                                                    <div>
+                                                        {{ 'checkout.interestRate' | translate }}
+                                                        <span>8.0%</span>
+                                                    </div>
+                                                    <div>
+                                                        {{ 'checkout.type' | translate }}: ERC-721
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <img class="checkImg" src="/assets/images/bondCheck.png" alt="">
+                                        </div>
+                                        <div class="bondTypeBox" [ngClass]="{'active': bond_type == 'XDNB'}"
+                                            (click)="changeBondType('XDNB')">
+                                            <div class="d-flex bondTypeBoxInner">
+                                                <div class="bondImg d-flex">
+                                                    <img src="/assets/images/XDNB.png" alt="bond">
+                                                    <div class="p-l-10">XDNB</div>
+                                                </div>
+                                                <div class="bondInfo">
+
+                                                    <div>
+                                                        {{ 'checkout.faceValue' | translate }}<span>$100 USD</span>
+                                                    </div>
+                                                    <div>
+                                                        {{ 'checkout.interestRate' | translate }}<span>7.5%</span>
+                                                    </div>
+                                                    <div>
+                                                        {{ 'checkout.type' | translate }}: ERC-20
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <img class="checkImg" src="/assets/images/bondCheck.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="product-price quantityTxt">{{ 'checkout.quantity' | translate }}</div>
+                                    <div class="product-detail">
+                                        <input type="number" [(ngModel)]="value" (ngModelChange)="onValueChange($event)"
+                                            name="product-quantity" class="product-quantity">
+
+
+                                    </div>
+                                    <div class="d-flex" *ngIf="isValueError">
+                                        <div class="errorTxt">
+                                            {{ 'checkout.error1' | translate }}
+                                        </div>
+                                    </div>
+                                    <!-- <div class="product-price mt-3">{{ 'checkout.total' | translate }}:</div> -->
+                                    <div class="product-summary">
+                                        <div class="d-flex">
+                                            <div class="product-price1">{{'checkout.orderDetails'| translate}} </div>
+                                            <div class="product-price p-l-20"> {{value + " " + bond_type }}</div>
+                                        </div>
+                                        <div class="d-flex ">
+                                            <div class="product-price1">{{'checkout.totalPay'| translate}} </div>
+                                            <div class="product-price p-l-20">{{ (bond_type === 'DNB' ? value * 15000 :
+                                                value * 100)
+                                                |
+                                                currency:'USD':true:'1.2-2' }} USD</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex mt-43 mb-3 bottomRow">
+                                <div class="d-flex">
+                                    <div class="grow1">
+                                        <input type="checkbox" [(ngModel)]="checkTerm">
+    
+                                    </div>
+                                    <div class="p-l-10 checktxt">
+                                        {{ 'checkout.agree' | translate }}
+                                    </div>
+                                </div>
+                                <button [disabled]="!checkTerm" class="btn btn-primary payBtn"
+                                    (click)="changeStep(2)">
+                                    {{ 'checkout.proceedToCheckout' | translate }}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </app-rounded-card>
+            </div>
+        </div>
+
+        <!-- <div class="row checkoutRow" *ngIf="step ==1"> -->
+        <div class="row checkoutRow" *ngIf="step == 2">
+            <div class="col-md-8  checkoutCon">
+                <app-rounded-card>
+                    <div class="product-price quantityTxt">{{ 'checkout.s1' | translate }}</div>
+
+                    <div>
+                        <div class="payment-dev d-flex">
+
+                            <div class="">
+                                <div class="d-flex">
+                                    <div class="payment-title">
+                                      {{'checkout.orderNumber'| translate}}&nbsp;
+                                    </div>
+                                    <div>
+                                        {{ orderID }}
+                                    </div>
+                                </div>
+                                <div class="d-flex iRowCon">
+                                    <div class="d-flex iRow">
+
+                                        <span class="payment-title"> {{ 'checkout.type' | translate }} </span>
+                                        <img class="bondIcon" *ngIf="bond_type == 'DNB'" src="/assets/images/DNB.png"
+                                            alt="bond">
+                                        <img class="bondIcon" *ngIf="bond_type == 'XDNB'" src="/assets/images/XDNB.png"
+                                            alt="bond">
+
+                                        <div class="">{{bond_type }}</div>
+                                    </div>
+                                    <div class="p-l-30">
+                                        <span class="payment-title"> {{ 'checkout.quantity' | translate }} </span>
+                                        {{
+                                        value }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grow1"></div>
+                            <div class="totalTxt">
+                                {{ 'checkout.total' | translate }} <span class="fs-20 pl-17">{{ bond_type == "XDNB" ?
+                                    value *
+                                    100 : value * 15000 | currency:'USD':true:'1.2-2' }} USD</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="product-name mt-36">{{ 'checkout.selectPaymentMethod' | translate }}</h3>
+                    <div class="">
+                        <div class="">
+                            <div class="payment-dev-1" *ngIf="checkModel.left">
+                                <div class=" mt-3">
+                                    <div class="row">
+                                        <div class="col-md-8 ">
+                                            <div class="payment-dev2">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="chainSelect">{{ 'checkout.selectChain' |
+                                                            translate
+                                                            }}</div>
+                                                        <div class="chainSelectSub">{{ 'checkout.s2' | translate }}
+                                                        </div>
+                                                        <div class="d-flex payType mt-2">
+                                                            <div class="bondTypeBox"
+                                                                [ngClass]="{'active': chain_name == 'ETH'}"
+                                                                (click)="changeChain('ETH')">
+                                                                <img src="/assets/images/ETH.png" alt="">
+                                                                <div class="payTypeTxt">
+                                                                    <div>
+                                                                        ETH
+                                                                    </div>
+                                                                    <div class="paySub">
+                                                                        Ethereum
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="bondTypeBox"
+                                                                [ngClass]="{'active': chain_name == 'BNB'}"
+                                                                (click)="changeChain('BNB')">
+                                                                <img src="/assets/images/BSC.png" alt="">
+                                                                <div class="payTypeTxt">
+                                                                    <div>
+                                                                        BSC
+                                                                    </div>
+                                                                    <div class="paySub">
+                                                                        Binance Smart Chain
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="bondTypeBox"
+                                                                [ngClass]="{'active': chain_name == 'KANBAN'}"
+                                                                (click)="changeChain('KANBAN')">
+                                                                <img src="/assets/logo/FAB.png" alt="">
+                                                                <div class="payTypeTxt">
+                                                                    <div>
+                                                                        FAB
+                                                                    </div>
+                                                                    <div class="paySub">
+                                                                        Fast Access Blockchain
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 ">
+                                            <div class="payment-dev2 center payType" (click)="gotoFiatPayment()">
+                                                <div class="chainSelect">
+                                                    {{ 'checkout.payUSD' | translate }}
+                                                </div>
+                                                <div class="chainSelectSub">&nbsp;</div>
+                                                <div class="bondTypeBox mt-2 ">
+                                                    <img src="/assets/images/contact.png" alt="">
+                                                    <div class="payTypeTxt">
+                                                        {{ 'contact.contactUs' | translate }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="col-md-3 ">
+                                            <div class="payment-dev2 center payType">
+                                                <div>
+                                                    {{ 'checkout.otherCurrency' | translate }}
+                                                </div>
+                                                <div class="bondTypeBox mt-2" (click)="contact(other)">
+                                                    {{ 'contact.contactUs' | translate }}
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12  mt-36" *ngIf="chain_name != ''">
+                                            <div class="chainSelect">{{ 'checkout.selectCoin' | translate
+                                                }}</div>
+                                            <div class="d-flex payType2 ">
+                                                <div class="bondTypeBox2 mt-2"
+                                                    [ngClass]="{'active': coin_name == 'USDT'}"
+                                                    (click)="changeCoin('USDT')">
+                                                    <img src="/assets/images/USDT.png" alt="">
+                                                    <div>USDT</div>
+                                                </div>
+                                                <div class="bondTypeBox2 mt-2"
+                                                    [ngClass]="{'active': coin_name == 'USDC'}"
+                                                    (click)="changeCoin('USDC')">
+                                                    <img src="/assets/images/USDC.png" alt="">
+                                                    <div>USDC</div>
+                                                </div>
+                                                <div class="bondTypeBox2 mt-2"
+                                                    [ngClass]="{'active': coin_name == 'DUSD'}"
+                                                    (click)="changeCoin('DUSD')" *ngIf="chain_name === 'KANBAN'">
+                                                    <img src="/assets/images/DUSD.png" alt="">
+                                                    <div>DUSD</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div *ngIf="chain_name != ''">
+                                    <div class="product-price mt-3">
+                                        {{ coin_name + " " }}
+                                        {{ 'checkout.on' | translate }}
+                                        {{ " " + chain_name + " "}}
+                                        {{'checkout.chain' | translate }}:</div>
+                                    <p class="product-price">{{ bond_type == "XDNB" ? value * 100 : value * 15000 |
+                                        currency:'USD':true:'1.2-2' }} {{ coin_name }}</p>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="d-flex mt-80">
+                            <button class="rounded-pill min-150 btn btn-primary mb-3" (click)="changeStep(1)">{{
+                                'checkout.goBack' |
+                                translate }}</button>
+                            <div class="grow1"></div>
+                            <button class="rounded-pill min-150 btn btn-primary mb-3" (click)="createOrderStep2()">{{
+                                'checkout.proceedToCheckout' | translate }}</button>
+                        </div>
+                    </div>
+                </app-rounded-card>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="checkout container-fluid bg-grey" *ngIf="!loaded">
+    <div class="center">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">{{ 'checkout.loading' | translate }}</span>
+        </div>
+    </div>
+</div>
+
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">{{ 'checkout.confirmOrderInformation' | translate }}</h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+            <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <app-order [userData]="userData" [bondType]="bond_type" [chainName]="chain_name" [coinName]="coin_name"
+            [quantity]="value" [buyWithKYC]="buyWithKYC"></app-order>
+        <div class="confirm">
+            <label class="">
+                <input type="checkbox" id="termsAndConditionsCheckbox">
+                {{ 'checkout.agreeToTerms' | translate }}
+            </label>
+            <br>
+            <button type="submit" (click)="submitOrder()" class="btn btn-primary btn-lg mt-3">{{
+                'checkout.confirmOrderInformation' | translate }}</button>
+        </div>
+    </div>
+</ng-template>

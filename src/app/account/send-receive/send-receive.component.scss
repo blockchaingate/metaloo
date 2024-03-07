@@ -1,0 +1,39 @@
+.tabCotainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 600px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 30px;
+    margin: 20px auto;
+    background-color: #ffffff66;
+}
+
+.inline {
+    display: flex;
+    width: 100%;
+    border: 1px solid #dee2e6;
+    padding: 5px;
+
+    input {
+        border: none;
+    }
+}
+
+button {
+    padding: 12px;
+}
+::ng-deep {
+    .tab-content {
+        background: #fff;
+        padding: 30px;
+        border: 1px solid #dee2e6;
+        border-top: none;
+    }
+
+    .nav-link {
+        font-size: 18px;
+        font-weight: 800;
+    }
+}

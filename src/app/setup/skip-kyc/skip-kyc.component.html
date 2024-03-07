@@ -1,0 +1,20 @@
+<div class="skipBtn">
+    <a href="javascript:void(0)" (click)="openModal(template)">{{'skipKYC' | translate}}</a>
+</div>
+
+<ng-template #template>
+    <h4 class="modal-title text-center my-3">{{'notice' | translate}}</h4>
+    <div class="modal-body my-3">
+        {{'kycRequiredForDNB' | translate}}
+    </div>
+    <div class="mb-3">
+        <div class="d-flex justify-content-between m-3">
+            <button type="submit" class="btn me-3 btn-primary  btn-block w-100" (click)="modalRef?.hide()">
+                {{ 'backtoKYC' | translate }}
+            </button>
+            <button type="submit" class="btn ms-3 btn-outline-dark btn-block w-100" (click)="skipKyc()">
+                {{ 'skipKYC' | translate }}
+            </button>
+        </div>
+    </div>
+</ng-template>

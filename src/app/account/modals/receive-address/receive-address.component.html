@@ -1,0 +1,25 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">Receive address</h4>
+    <button type="button" class="btn btn-close close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+
+    <div class="row pb-3">
+        <div class="col col-12">
+            <label for="basic-url">Channel</label>
+            <app-combobox name="channel" [(ngModel)]="channel" [items]="channels"></app-combobox>  
+        </div>
+    </div>
+
+    <div class="row pb-3">
+        <div class="col col-12">
+            <label for="basic-url">Address</label>
+            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+    </div>
+    <button type="button" class="my-2 btn-primary w-100" (click)="next()">
+        Next
+    </button>
+</div>

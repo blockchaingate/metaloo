@@ -1,0 +1,127 @@
+<div class="mb-5">
+    <app-steps [step]="3"></app-steps>
+<app-card *ngIf="step == 1" [title]="'Upload video'" >
+    <div class="pb-3 text-center">
+        Financial regulations require us to verify your identity.
+    </div>
+
+    <div class="d-flex justify-content-center flex-container align-items-center">
+        <div class="document-card d-flex flex-column justify-content-center align-items-center mb-3"
+            (click)="selectMethod('Webcam')">
+            <svg width="60" height="60" viewBox="0 0 60 60" class="UploadMethod__styleIcon-sc-1gq0q9h-5 ejaRYl">
+                <path
+                    d="M42.714 41.348l4.685 4.685c2.316 2.315 1.252 4.874-2.017 4.874H14.503c-3.275 0-4.332-2.56-2.018-4.874l4.685-4.685A18.854 18.854 0 0111.04 27.41c0-10.44 8.463-18.904 18.903-18.904s18.904 8.464 18.904 18.904c0 5.516-2.363 10.481-6.132 13.937zM19.05 42.863l-4.867 4.867c-.803.804-.814.777.321.777h30.879c1.133 0 1.122.025.32-.777l-4.867-4.867a18.817 18.817 0 01-10.893 3.452 18.817 18.817 0 01-10.893-3.452zm10.893 1.052c9.115 0 16.504-7.39 16.504-16.504 0-9.115-7.389-16.504-16.504-16.504-9.114 0-16.503 7.39-16.503 16.504 0 9.115 7.389 16.504 16.503 16.504zm0-7.54a7.364 7.364 0 110-14.728 7.364 7.364 0 010 14.728zm0-2.4a4.964 4.964 0 100-9.928 4.964 4.964 0 000 9.928zm0-15.123a1.6 1.6 0 110-3.2 1.6 1.6 0 010 3.2z">
+                </path>
+            </svg>
+            Webcam
+        </div>
+        <!--
+        <div class="document-card d-flex flex-column justify-content-center align-items-center mb-3" (click)="selectMethod('Mobile Camera')">
+            <svg width="60" height="60" viewBox="0 0 60 60" class="UploadMethod__styleIcon-sc-1gq0q9h-5 ejaRYl"><g fill-rule="evenodd" transform="translate(16.8 8)"><circle cx="13.621" cy="37.115" r="1.6"></circle><path fill-rule="nonzero" d="M2.851 5.347v33.156c0 1.109.896 2.004 2.004 2.004h17.533a1.999 1.999 0 002.003-2.004V5.347a2.002 2.002 0 00-2.003-2.005H4.855a1.999 1.999 0 00-2.004 2.005zm-2.4 0A4.399 4.399 0 014.855.942h17.533a4.402 4.402 0 014.403 4.405v33.156a4.399 4.399 0 01-4.403 4.404H4.855a4.402 4.402 0 01-4.404-4.404V5.347z"></path><path fill-rule="nonzero" d="M.687 12.052h25.479v-2.4H.687zM10.996 7.682h5.12v-2.4h-5.12zM.687 33.218h25.479v-2.4H.687z"></path></g></svg>
+            Mobile Camera
+            <span class="text-muted"><small>Recommended</small></span>
+        </div>
+        -->
+        <div class="document-card d-flex flex-column justify-content-center align-items-center mb-3"
+            (click)="selectMethod('File Upload')">
+            <svg width="60" height="60" viewBox="0 0 60 60" class="UploadMethod__styleIcon-sc-1gq0q9h-5 ejaRYl">
+                <path
+                    d="M43.934 21.699H33.016V10.925H17.534v36h9.53v2.4h-11.93v-40.8H34.43l11.903 11.903v28.897H34.652v-2.4h9.282V21.699zm-2.123-2.4l-6.395-6.395v6.395h6.395zM29.532 32.99l-3.606 3.607-1.698-1.697 6.506-6.505 6.505 6.505-1.697 1.697-3.61-3.61v20.245h-2.4V32.99z">
+                </path>
+            </svg>
+            File Upload
+        </div>
+    </div>
+
+
+    <div class="py-3 text-muted">
+        <small>Please upload a short video with real person holding ID moving left to right.</small>
+    </div>
+
+</app-card>
+
+<app-card *ngIf="step == 3" [title]="">
+    <div class="container">
+        <div class="row">
+            <div class="col col-12 col-xl-5">
+                <div>
+                    <div class="">
+                        <h2>Example</h2>
+                    </div>
+
+                    <video width="320" height="100%" controls class="exampleVideo">
+                        <source src="/assets/kyc.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <ul>
+                    <li>
+                        Click "Allow" if your browser asks to use your camera
+                    </li>
+                    <li>
+                        Turn up your brightness and avoid glare
+                    </li>
+                    <li>
+                        Fully in frame, not cut off on any side
+                    </li>
+                    <li>
+                        Holding your ID by your face steady
+                    </li>
+
+                    <li>
+                        Move your head up and down, then move your head left to right
+                    </li>
+
+                    <li>
+                        Max of 10 seconds video allowed
+                    </li>
+                </ul>
+            </div>
+            <div class="col col-12 col-xl-7 ">
+                <div >
+                    <h2>Live Camera</h2>
+                    <video class="video" #video autoplay></video>
+                    <span class="m-3"></span>
+                    <h2>Record Preview</h2>
+                    <video class="video" controls #recordedVideo></video>
+
+
+                </div>
+                <div class="d-flex justify-content-between" *ngIf="!recorded">
+                    <button class="btn btn-primary btn-lg" *ngIf="!isRecording" (click)="startRecording()">Start
+                        Recording</button>
+                    <button class="btn btn-warning btn-lg" *ngIf="isRecording">Recording...</button>
+                    <div *ngIf="isRecording">Video Duration: {{duration}}</div>
+                </div>
+                <div class="d-flex justify-content-between w-100" *ngIf="recorded">
+                    <button class="btn btn-primary btn-lg" (click)="rerecord()">Rerecord</button>
+                    <button class="btn btn-danger btn-lg" (click)="cancel()">Cancel</button>
+                    <button class="btn btn-success btn-lg" (click)="uploadRecording()">Upload</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-card>
+
+<app-card *ngIf="step == 4" [title]="'Mobile Camera'">
+    <div class="title text-center">Upload from your mobile phone</div>
+    <div class="text text-center">Click the link we just sent to +x xxx xxx xx90 and upload photos of your passport.
+    </div>
+    <div class="Spinner__Container-sc-1m1cr45-0 hjMqsJ"></div>
+    <p class="MobileUpload__WaitMessage-gds07o-0 hZpvUV">Please do not leave this page until you are done uploading.</p>
+</app-card>
+
+<app-card *ngIf="step == 5" [title]="'Upload video'" [action1Text]="'Upload'" (action1Click)="upload()"
+    [action2Text]="'Go back'" (action2Click)="goBack()">
+    <div class="pb-3 text-center">
+        Upload a few seconds video, real person holding ID moving left to right.
+    </div>
+    <div class="mx-3 d-flex justify-content-center">
+        <app-file-upload [type]="'video'" [(ngModel)]="videoFile" [title]="'Video'"></app-file-upload>
+    </div>
+    <div>
+        Please do not redact, watermark or otherwise obscure any part of your ID. This will help ensure we can verify
+        your identity document as quickly and accurately as possible.
+    </div>
+</app-card>
+</div>

@@ -1,0 +1,149 @@
+<!-- <app-steps  [step]="2"></app-steps> -->
+
+<div>
+    <div class="container kycDiv mt-2">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="kycTitle">
+                    KYC
+                </div>
+            </div>
+            <div class="col-md-6 kycTitleSub">
+                <app-skip-kyc />
+            </div>
+        </div>
+        <div class="row kyvRow">
+
+            <div class="col-md-8 kycCon step1" *ngIf="step == 1">
+
+                <app-rounded-card>
+                   <div class="cardInner">
+                    <div class="basicTitle">
+                        <div>{{'info.title' | translate}}</div>
+                    </div>
+                    <div class="pt-27">
+                        {{'id.requireID' | translate}}
+                    </div>
+                    <div class="pt-52 d-flex flex-container justify-content-center align-items-center idTypes">
+                        <div id='id-type1'
+                            class="document-card  d-flex flex-column justify-content-center align-items-center mb-3"
+                            (click)="selectIDType('passport', 'id-type1')">
+                            <img src="/assets/images/icon-pass.png" alt="passport">
+                            {{'id.passport' | translate}}
+                        </div>
+                        <div id='id-type2'
+                            class="document-card  d-flex flex-column justify-content-center align-items-center mb-3"
+                            (click)="selectIDType('driverLicense', 'id-type2')">
+                            <img src="/assets/images/icon-driver.png" alt="driver license">
+                            {{'id.driverLicense' | translate}}
+                        </div>
+                        <div id='id-type3'
+                            class="document-card  d-flex flex-column justify-content-center align-items-center mb-3"
+                            (click)="selectIDType('idCard', 'id-type3')">
+                            <img src="/assets/images/icon-id.png" alt="id card">
+                            {{'id.nationalIDCard' | translate}}
+                        </div>
+                    </div>
+                    <div class=" ">
+                        <!-- input id number -->
+                        <div class="pt-27">{{'id.enterIDNumber' | translate}}</div>
+                        <div class="input-group ">
+                            <input type="text" class="form-control" placeholder="{{'id.enterIDNumber' | translate}}"
+                                aria-label="{{'id.enterIDNumber' | translate}}" aria-describedby="basic-addon2"
+                                [(ngModel)]="idNumber">
+
+                        </div>
+                    </div>
+
+                    <div class="input-group-append pt-105">
+                        <button class="rounded-pill btn btn-primary btn-lg w-100" type="button" (click)="goBackToStep5()">
+                            {{'info.nextStep'|translate}}</button>
+                    </div>
+                   </div>
+                </app-rounded-card>
+            </div>
+
+            <div class="col-md-8 offset-md-2 step1" *ngIf="step == 2">
+                <app-rounded-card>
+                    <div class="row">
+                        <div class="col col-md-5 col-12 mb-2">
+                            <img class="rounded" src="/assets/id.png">
+                        </div>
+                        <div class="col col-md-7 col-12 mb-2">
+                            <div>
+                                {{'id.pleaseUploadPhoto' | translate :{type: getIDType()} }}
+                            </div>
+                            <div>
+                                {{'id.idClear' | translate}}
+                            </div>
+                            <div>
+                                {{'id.noCoverID' | translate}}
+                            </div>
+                            <div>
+                                {{'id.idValid' | translate}}
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-12 mb-2">
+                            <div class="mb-3">
+                                {{'id.pleasePut' | translate}}<span class="id-doc">{{getIDType()}}{{'id.informationPage'
+                                    | translate}}</span>{{'id.inFrame' | translate}}
+                            </div>
+                            <div class="text-center">
+                                <webcam *ngIf="!webcamImage" [width]="400" [trigger]="triggerObservable"
+                                    (imageCapture)="handleImage($event)"></webcam>
+
+                                <img *ngIf="webcamImage" style="width: 400px;" [src]="webcamImage.imageAsDataUrl" />
+                            </div>
+                            <div class="my-3">
+                                <div>
+                                    <button button class="rounded-pill btn btn-info btn-lg w-100" type="button"
+                                        *ngIf="takePhotoStep == 1" (click)="triggerSnapshot()">点击上传</button>
+                                </div>
+                                <div>
+                                    <button button class="rounded-pill btn btn-primary btn-lg w-100" type="button"
+                                        *ngIf="takePhotoStep == 2" (click)="takePhotoFinished()">完成</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </app-rounded-card>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-card class="container kycDiv" *ngIf="step == 22" [title]="'Verify your Identity'" [action2Text]="'Go back'"
+    (action2Click)="goBack()">
+
+</app-card>
+
+<app-card *ngIf="step == 5" [title]="'documentComponent.uploadImages'" [action1Text]="'documentComponent.upload'" (action1Click)="submitIDInfo()"
+    [action2Text]="'documentComponent.goBack'" (action2Click)="goBackToStep1()">
+    <div class="pb-3 text-center">
+        {{'documentComponent.uploadPictures'|translate}} {{type | translate}} (JPEG / PNG).
+    </div>
+    <div class="d-flex justify-content-center py-3 dropArea" *ngIf="type == 'passport'">
+        <app-file-upload [type]="'image'" [(ngModel)]="file"></app-file-upload>
+    </div>
+    <div class="d-flex flex-container justify-content-center py-3" *ngIf="type !== 'passport'">
+        <div class="mx-3">
+            <app-file-upload [type]="'image'" [(ngModel)]="frontFile" [title]="'documentComponent.front'"></app-file-upload>
+        </div>
+        <div class="mx-3">
+            <app-file-upload [type]="'image'" [(ngModel)]="backFile" [title]="'documentComponent.back'"></app-file-upload>
+        </div>
+    </div>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-6">
+                <img src="/assets/images/id.png" alt="id">
+            </div>
+        </div>
+    </div>
+</app-card>

@@ -1,0 +1,34 @@
+<div class="tabCotainer" *ngIf="order">
+    <h4 class="text-center">{{'Pay by Cash App' | translate}}</h4>
+    
+    <div>{{'Amount' | translate}}: {{order.amount}} {{order.fiat_currency}}</div>
+
+
+    <div class="form-group">
+        <small id="emailHelp" class="form-text text-muted">
+            {{'Not in Cash App yet? click' | translate}} <a target="_blank" href="https://cash.app/app/LGPXWPX">https://cash.app/app/LGPXWPX</a> 
+            {{'to register' | translate}}</small>
+    </div>
+
+    <div>
+        <div class="text-center my-2">
+            <img src="/assets/exchangily.png">
+        </div>
+        
+        <div>
+            {{'Scan to pay with Cash App, or pay to $exchangily directly with Cash App. Please click "Marked as paid" button after payment finished' | translate}}
+        </div>
+        <div class="pt-2 color-warning">
+            {{"CashAppRequiredNote"|translate}}{{order.code}}
+        </div>                
+    </div>
+
+
+    <button type="button" (click)="confirmPayment()" class="btn-primary w-100 mainColor my-2" *ngIf="order.status == 0">
+        {{'Marked as paid' | translate}}
+    </button>    
+    <div *ngIf="order.status == 1" class="text-success text-center">
+        {{'The order was marked paid' | translate}}
+    </div>
+</div>
+

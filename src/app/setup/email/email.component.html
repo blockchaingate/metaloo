@@ -1,0 +1,70 @@
+<div class="my-5 verifyEmail container">
+    <div class="center">
+        <h1 class="center">{{'Email.verifyEmailTitle' | translate}}</h1>
+    </div>
+    <div class="col-md-6 offset-md-3">
+        <app-rounded-card>
+
+            <div class="">
+                <div class="row">
+                    <div class="col col-12 text-center img-container">
+                        <div class="d-inline-block border">
+
+                            <svg width="67" class="s" height="49" viewBox="0 0 67 49" role="none" focusable="false"
+                                aria-hidden="true" class="ConfirmEmail__VerifyImage-sc-8qtjpe-2 gTxrkU">
+                                <g fill="none" fill-rule="evenodd" stroke="#0667D0" stroke-linecap="square"
+                                    stroke-width="2.4">
+                                    <path d="M9.997 10.309l22.937 18.246 22.938-18.246"></path>
+                                    <path
+                                        d="M2 6.09v36.82C2 45.167 3.88 47 6.2 47h54.6c2.32 0 4.2-1.832 4.2-4.09V6.09C65 3.833 63.12 2 60.8 2H6.2C3.88 2 2 3.832 2 6.09zm7.997 30.574l8.34-10.137m37.535 10.137l-8.34-10.137">
+                                    </path>
+                                </g>
+                            </svg>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col col-12 text-center py-2">
+                        {{"Email.verificationCodeSent" | translate}} {{email}}.
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col col-12 text-center py-2">
+                        <div class="form-group">
+                            <input type="text" class="form-control" [(ngModel)]="code"
+                                placeholder="{{'Email.verificationCodePlaceholder' | translate}}">
+                        </div>
+                        <!-- errorMsg -->
+                        <div *ngIf="errorMsg" class="alert alert-danger" role="alert">
+                            {{errorMsg}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col col-12 text-center py-2">
+                        <div class="form-group">
+                            <button type="button" class="btn btn-primary btn-lg w-100"
+                                (click)="confirm()">{{"Email.confirmButton" | translate}}</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col col-12 text-center py-2">
+                        {{"Email.emailDidntArrive" | translate}} <a (click)="sendEmailVerificationCode()">{{"Email.resendEmailLink" |
+                            translate}} </a>
+                    </div>
+                </div>
+            </div>
+
+        </app-rounded-card>
+
+    </div>
+
+
+</div>

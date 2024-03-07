@@ -1,0 +1,214 @@
+<div class="container-fluid bond-index">
+    <div class="container">
+        <div class="row">
+            <!-- <div class="col-md-12 center El-logo">
+                <img src="/assets/logo/sv-sheal.png" alt="Logo" class="bond-index-logo">
+            </div> -->
+            <div class="col-md-8 main-text homeTopBtns offset-md-2">
+                <div class=" t1">{{ 'did.salvador_digital_citizen_plan' | translate }}</div>
+                <!-- <h3>{{ 'index.bond-t2' | translate }}</h3> -->
+                <div class=" t2">{{ 'did.digital_citizen_plan_2_description' | translate }}</div>
+            </div>
+            <div class="col-md-12  mb-2">
+                <div class="d-flex homeTopBtns">
+                    <div class="">
+                        <a (click)="goBuyPage()">
+                            <button class="btn btn-bond1 btn-md btn-block">{{ 'bond-index.buyNow' | translate
+                                }}</button>
+                        </a>
+                    </div>
+                    <div class="p-l-20"></div>
+                    <div class="">
+                        <a href="/about-bond">
+                            <button class="btn btn-bond2 btn-md btn-block">{{ 'bond-index.learnMore' | translate
+                                }}</button>
+                        </a>
+                    </div>
+                    <!-- <div class="p-l-20"></div>
+                    <div *ngIf="currentLan === 'en'">
+                        <a href="/assets/pdf/9.20-Bond-Brochure-en.pdf" target="_blank"><button class="btn btn-bond2 btn-md btn-block">{{'Brochure' |translate }}</button></a>
+                    </div>
+                    <div *ngIf="currentLan === 'sc'">
+                        <a href="/assets/pdf/9.20-Bond-Brochure-cn.pdf" target="_blank"><button class="btn btn-bond2 btn-md btn-block">{{'Brochure' |translate }}</button></a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="container-fluid bondIntro wave">
+    <div class="container bondIntroMain">
+        <div class="row ">
+            <div class="col-lg-12 bondIntroMainInner">
+                <div class="bondImgDiv">
+                    <img class="bondImg" src="/assets/logo/El_Salvador_emblem.svg" alt="bond">
+                </div>
+                <div class="f-30">
+                    {{ 'did.salvador_digital_citizen_plan' | translate }}
+                </div>
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        <div class="f-14  mt-3">
+                            <p>{{ 'did.digital_citizen_plan_description' | translate }}</p>
+                      
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid feature wave">
+    <div class="container ">
+        <div class="f-40 center">{{ 'feature.keyFeatures' | translate }}</div>
+        <div class="row mt-5 ">
+            <div class="col-md-6 mo-center">
+                <img src="/assets/images/dnbFlat.png" alt="" class="featureImg">
+            </div>
+            <div class="col-md-6  feature-content">
+              
+                <h3 class="feature-content-title">
+                    {{ 'index.bond-name-detail' | translate }}
+                </h3>
+                <div classs="mt-5 feature-table">
+                    <div class="td-parent">
+                        <div class="td-left">{{ 'index.bond-code' | translate }}</div>
+                        <div class="td-right">{{ 'index.bond-code-detail' | translate }}</div>
+                    </div>
+                    <div class="td-parent">
+                        <div class="td-left">{{ 'index.bond-face-value' | translate }}</div>
+                        <div class="td-right td-large">{{ 'index.bond-face-value-detail' | translate }}</div>
+                    </div>
+                    <div class="td-parent">
+                        <div class="td-left">{{ 'index.bond-term' | translate }}</div>
+                        <div class="td-right">{{ 'index.bond-term-detail' | translate }}</div>
+                    </div>
+                    <div class="td-parent">
+                        <div class="td-left">{{ 'index.bond-yield' | translate }}</div>
+                        <div class="td-right">{{ 'index.bond-yield-detail' | translate }}</div>
+                    </div>
+                    <div class="td-parent">
+                        <div class="td-left">{{ 'index.interest-method' | translate }}</div>
+                        <div class="td-right">{{ 'index.interest-method-detail' | translate }}</div>
+                    </div>
+                    <div class="td-parent">
+                        <div class="td-left">{{ 'index.tax-treatment' | translate }}</div>
+                        <div class="td-right">{{ 'index.tax-treatment-detail' | translate }}</div>
+                    </div>
+                    <div class="td-parent">
+                        <div class="td-left">{{ 'index.purchase-method' | translate }}</div>
+                        <div class="td-right">{{ 'index.purchase-method-detail' | translate }}</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid payment">
+    <div class="container ">
+        <div class="row payment-title">
+            <div class="Equity">
+                {{ 'index2.bond-main' | translate }}
+            </div>
+        </div>
+
+        <div class="row mt-3 center">
+            <div class="col-md-6 ">
+                <div class="equity-card">
+                    <img src="/assets/images/icon-BondInterest.png" alt="Bond Interest" class="img-fea">
+                    <h2>{{ 'index2.bond-title1' | translate }}</h2>
+                    <p>{{ 'index2.bond-title1-detail' | translate }}</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="equity-card">
+                    <img src="/assets/images/icon-Exclusive.png" alt="Bond Exclusive" class="img-fea">
+                    <h2>{{ 'index2.bond-title2' | translate }}</h2>
+                    <p>{{ 'index2.bond-title2-detail' | translate }}</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="row p-t-30">
+            <div class="col-md-6 ">
+                <div class="equity-card">
+                    <img src="/assets/images/icon-ExclusiveDigital.png" alt="Bond Exclusive Digital" class="img-fea">
+                    <h2>{{ 'index2.bond-title3' | translate }}</h2>
+                    <p>{{ 'index2.bond-title3-detail' | translate }}</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="equity-card">
+                    <img src="/assets/images/icon-Limited.png" alt="Bond Limited" class="img-fea">
+                    <h2>{{ 'index2.bond-title4' | translate }}</h2>
+                    <p>{{ 'index2.bond-title4-detail' | translate }}</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container-fluid logos wave">
+   
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class=" center ">{{ 'index2.exclusive-underwriter' | translate }}</h2>
+                <div class=" mo-t-c center mt-3 py5">
+                    <a href="https://pay.cool">
+                        <img src="/assets/logo/PAYcool.png" alt="Pay.cool" class="img-fluid">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-48">
+            <div class="col-md-8 offset-md-2 center">
+                <p>
+                    {{ 'index2.exclusive-underwriter-detail' | translate }}
+                </p>
+            </div>
+        </div>
+
+        <div class="list_3">
+            <div class="list-items_1-0 flex-col">
+                <div class="box_4-0 flex-col"></div>
+                <span class="text_16-0">Sign bond issuance agreement</span>
+            </div>
+        <div class="list-items_1-1 flex-col">
+                <div class="box_4-1 flex-col"></div>
+                <span class="text_16-0">Sign technical support agreement</span>
+            </div>
+            <div class="list-items_1-2 flex-col">
+                <div class="box_4-2 flex-col"></div>
+                <span class="text_16-0">Establish cooperation</span>
+            </div>
+            <div class="list-items_1-3 flex-col">
+                <div class="box_4-3 flex-col"></div>
+                <span class="text_16-0">Establish cooperation</span>
+            </div>
+        </div>
+    
+
+    <div class="container-fluid box_5">
+        <div class="row mt-5 comLogosSection">
+            <div class="col-md-12">
+                <h2 class=" center ">{{ 'index3.t1' | translate }}</h2>
+                <div class=" mo-t-c center mt-5 row">
+                    <div class="col-md-4 comLogos">
+                        <img src="/assets/logo/FBB.png" alt="Fab Logo" class="img-fluid">
+                    </div>
+                    <div class="col-md-4 comLogos">
+                        <a href="https://pay.cool">
+                            <img src="/assets/logo/PAYcool.png" alt="Pay.cool" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="col-md-4 comLogos">
+                        <img src="/assets/logo/EXchangily.png" alt="exchangily logo" class="img-fluid">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div> -->

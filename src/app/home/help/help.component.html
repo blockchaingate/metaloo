@@ -1,0 +1,64 @@
+<!-- <div class="container">
+    <div>Help</div>
+</div> -->
+<!-- 
+{
+    "subject": "I have a question",
+    "name": "John Doe",
+    "email": "lawrence.fan@whatever.com",
+    "phone": "123-456-7890",
+    "message": "I have a question about my order"
+  } -->
+
+<!-- Ticket page UI -->
+<div class="container mt-5">
+    <h2>Submit a Help Ticket</h2>
+    <app-rounded-card>
+        
+
+        <!-- Ticket form -->
+        <form (submit)="submitTicket()" [formGroup]="form" novalidate>
+            <div class="form-group mt-3">
+                <label for="subject">Subject</label>
+                <input type="text" class="form-control" id="subject" formControlName="subject">
+                <div *ngIf="form.get('subject').invalid && (form.get('subject').dirty || form.get('subject').touched)"
+                    class="text-danger">
+                    Subject is required.
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" formControlName="name">
+                <div *ngIf="form.get('name').invalid && (form.get('name').dirty || form.get('name').touched)"
+                    class="text-danger">
+                    Name is required.
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" formControlName="email">
+                <div *ngIf="form.get('email').invalid && (form.get('email').dirty || form.get('email').touched)"
+                    class="text-danger">
+                    Email is required and must be a valid email address.
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                <label for="phone">Phone</label>
+                <input type="tel" class="form-control" id="phone" formControlName="phone">
+                <div *ngIf="form.get('phone').invalid && (form.get('phone').dirty || form.get('phone').touched)"
+                    class="text-danger">
+                    Phone is required.
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                <label for="message">Message</label>
+                <textarea class="form-control" id="message" formControlName="message" rows="4"></textarea>
+                <div *ngIf="form.get('message').invalid && (form.get('message').dirty || form.get('message').touched)"
+                    class="text-danger">
+                    Message is required.
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Submit Ticket</button>
+        </form>
+    </app-rounded-card>
+</div>

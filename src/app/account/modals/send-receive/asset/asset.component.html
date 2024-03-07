@@ -1,0 +1,13 @@
+<div class="d-flex justify-content-between p-2 asset">
+    <div class="d-flex">
+        <img class="coin-img" src="{{coin.icon}}">
+        <div class="ml-3">
+            <h6>{{coin.name}}</h6>
+            <div>{{coin.symbol}}</div>
+        </div>
+    </div>
+    <div>
+        <div>{{coin.available_balance}} {{coin.symbol}}</div>
+        <div>$ {{coin.available_balance * coin.price}}</div>
+    </div>
+</div>

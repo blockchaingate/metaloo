@@ -1,0 +1,11 @@
+<div class="m-3">
+  <div class="title text-center">
+    Select asset
+  </div>
+  
+  <div  *ngFor="let coin of coins">
+    <app-asset [coin]="coin" (click)="selectCoin(coin)"></app-asset>
+  </div>
+</div>
+
+

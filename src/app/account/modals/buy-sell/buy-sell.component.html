@@ -1,0 +1,62 @@
+<ul class="m-3 nav nav-pills nav-fill">
+    <li class="nav-item">
+      <a class="nav-link" [ngClass]="tab =='buy' ? 'active' : ''" (click)="changeTab('buy')">Buy</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [ngClass]="tab =='sell' ? 'active' : ''" (click)="changeTab('sell')">Sell</a>
+    </li>
+</ul>
+
+<div class="modal-body">
+    <div *ngIf="step == 1">
+        <div class="row pb-3">
+            <div class="col col-12" *ngIf="coins && coin">
+                <label for="basic-url">Coin</label>
+                <app-combobox name="coin" [(ngModel)]="coin" [items]="coins"></app-combobox>
+            </div>
+        </div>
+    
+        <div class="row pb-3">
+            <div class="col col-12" *ngIf="coins && coin">
+                <label for="basic-url">Fiat currency</label>
+                <app-combobox name="fiat_currency" [(ngModel)]="fiat_currency" [items]="fiat_currencies"></app-combobox>
+            </div>
+        </div>
+
+        <!--
+        <div class="row pb-3">
+            <div class="col col-12">
+                <label for="basic-url">Quantity</label>
+                <input type="number" class="form-control" name="quantity" [(ngModel)]="quantity">
+            </div>
+        </div>
+        -->
+        <div class="row pb-3">
+            <div class="col col-12">
+                <label for="basic-url">Fiat amount</label>
+                <input type="number" class="form-control" name="amount" [(ngModel)]="amount">
+            </div>
+        </div>
+
+        <!--
+        <div class="row pb-3" *ngIf="unit_price">
+            <div class="col col-12">
+                <label for="basic-url">Unit price</label>
+                {{unit_price}}
+            </div>
+        </div>
+-->
+        <button type="button" class="my-2 btn-primary w-100 btn-lg" (click)="next()">
+            Next
+        </button>
+    </div>
+    <div *ngIf="step == 2">
+        <div *ngIf="fiat_currency && coin && (['USDT', 'BTC', 'ETH'].indexOf(coin.text) >= 0) && fiat_currency.text == 'USD'">
+            <button type="button" class="my-2 btn-primary w-100 btn-lg" (click)="payWithGateFi()">
+                Pay with Gatefi
+            </button>
+            <iframe *ngIf="urlSafe" width="100%" height="600" frameBorder="0" [src]="urlSafe"></iframe>
+        </div>
+
+    </div>
+</div>

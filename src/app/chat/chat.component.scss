@@ -1,0 +1,15 @@
+.input-icons {
+    position: relative;
+    height: 150px;
+}
+
+.input-icons button {
+    position: absolute;
+    top: 30px;
+    right: 33px;
+}
+
+.messages-container {
+    height: calc(100vh - 150px);
+    overflow: scroll;
+}

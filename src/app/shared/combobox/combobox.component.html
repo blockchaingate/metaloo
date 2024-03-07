@@ -1,0 +1,45 @@
+<div class="d-flex flex-column flex-column">
+   <div class="d-flex combobox-container item" [ngClass]="dropdownIcon == 'svg' ? 'form-control' : 'btn btn-light'">
+      <div class="flex-fill" dropdown [isDisabled]="disabled">
+         <div role="button" dropdownToggle aria-label="country_select dropdown" aria-haspopup="listbox"
+            aria-expanded="false" class="h-100 d-flex justify-content-between align-items-center cSelect"
+            [ngClass]="dropdownIcon == 'caret' ? 'dropdown-toggle' : '' ">
+            <div class="d-flex align-items-center h-100">
+               <div class="flag" *ngIf="imageType == 'flag'">{{value?.image}}</div>
+               <img class="h-100" *ngIf="imageType == 'image'" [src]="value?.image">
+               <div id="comboxDiv" class="text mx-1" #comboxDiv>
+                  <!-- {{( value?.text) | translate}} -->
+                  <span *ngIf="!isCountry">
+                     {{( value?.text) | translate}}
+                  </span>
+                  <span *ngIf="isCountry" id="{{value?.text}}">
+                     {{( value?.lang[lang]) | translate}}
+                  </span>
+               </div>
+            </div>
+            <div role="button" class="icon-container" *ngIf="dropdownIcon == 'svg'">
+               <svg xmlns="http://www.w3.org/2000/svg" class="svg-icon"
+                  style="width: 1.001953125em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;"
+                  viewBox="0 0 1026 1024" version="1.1">
+                  <path
+                     d="M511.996621 679.29088l432.9472-432.77312a46.32064 46.32064 0 0 1 65.48992 0 46.27456 46.27456 0 0 1 0 65.4592l-465.69472 465.50528a46.32064 46.32064 0 0 1-65.4848 0L13.559501 311.97696a46.27456 46.27456 0 0 1 0-65.4592 46.32064 46.32064 0 0 1 65.4848 0L511.996621 679.29088z"
+                     fill="#8E98AF" />
+               </svg>
+            </div>
+
+         </div>
+         <ul *dropdownMenu class="dropdown-menu w-100" role="menu" aria-labelledby="button-basic">
+            <li role="menuitem" class="w-100 border-bottom" *ngFor="let item of items" (click)="writeValue(item)">
+               <div value="{{item.value}}" class="d-flex align-items-center item">
+                  <div class="flag" *ngIf="item.image && imageType == 'flag'">{{item.image}}</div>
+                  <img class="h-100" *ngIf="item.image && imageType == 'image'" [src]="item?.image">
+                  <span color="slateDark" class="comboxValue text mx-1">
+                     {{(isCountry?item.lang[lang] : item.text) | translate}}
+                  </span>
+               </div>
+            </li>
+         </ul>
+      </div>
+
+   </div>
+</div>

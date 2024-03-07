@@ -1,0 +1,33 @@
+<div class="container mt-5">
+    <div class="mb-3">
+        <h2>Ticket Request List</h2>
+    </div>
+    <app-rounded-card>
+        <div *ngIf="!isLoaded && !hasError" class="alert alert-info">
+            Loading...
+        </div>
+        <div *ngIf="hasError" class="alert alert-danger">
+            {{ errorMessage }}
+        </div>
+        <table *ngIf="isLoaded" class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Subject</th>
+                    <th>Status</th>
+                    <th>Created At</th>
+                    <th>Updated At</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let request of contactRequests">
+                    <td><a (click)="goToDetail(request.id )">{{ request.id }}</a></td>
+                    <td>{{ request.subject }}</td>
+                    <td>{{ request.status }}</td>
+                    <td>{{ request.createdAt | date: 'yyyy-MM-dd HH:mm:ss' }}</td>
+                    <td>{{ request.updatedAt | date: 'yyyy-MM-dd HH:mm:ss' }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </app-rounded-card>
+</div>

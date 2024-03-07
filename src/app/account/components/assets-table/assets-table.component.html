@@ -1,0 +1,42 @@
+<table class="table table-dark table-striped">
+    <thead>
+        <tr>
+            <th>
+                <label>Name</label>
+            </th>
+            <th>
+                <label>Available</label>
+            </th>
+            <th>
+                <label>Locked</label>
+            </th>
+            <th>
+                <label>Price</label>
+            </th>  
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let item of wallets'>
+            <td>
+                <div class="d-flex">
+                    <div class="pr-2">
+                        <img class="icon" [src]="item.coin.icon">
+                    </div>
+                    <div class="d-flex flex-column">
+                        <h4>{{item.coin.symbol}}</h4>
+                        <div class="text-muted">{{item.coin.name}}</div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                {{item.available_balance}}
+            </td>
+            <td>
+                {{item.locked_balance}}
+            </td>
+            <td>
+                {{item.price}}
+            </td>
+        </tr>
+    </tbody>
+</table>

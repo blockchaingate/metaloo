@@ -1,0 +1,180 @@
+.aboutBond {
+    padding-bottom: 50px;
+
+    .aboutMenu {
+        ul {
+            padding-left: 0 !important;
+        }
+
+        li,
+        a {
+            list-style: none;
+            margin-bottom: 20px;
+            cursor: pointer;
+            font-size: 18px;
+            font-family: PingFangSC-Regular, PingFang SC;
+            font-weight: 400;
+            color: #3a4f7c;
+            line-height: 24px;
+            text-decoration: none;
+            &:hover {
+                color: #273c67;
+            }
+        }
+    }
+
+    .aboutTitle {
+        font-size: 28px;
+        font-family: PingFangSC-Semibold, PingFang SC;
+        font-weight: 600;
+        color: #273c67;
+        line-height: 50px;
+        padding: 60px 0 86px;
+    }
+
+    .bondIcon {
+        width: 68px;
+        height: 68px;
+        background: linear-gradient(180deg, #94c9ff 0%, #0052ff 100%);
+        border-radius: 44px;
+
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        margin-left: 23px;
+        margin-right: 36px;
+    }
+
+    .t1 {
+        font-size: 28px;
+        font-weight: 600;
+        color: #273c67;
+        line-height: 50px;
+        padding-bottom: 20px;
+    }
+
+    .t1:not(:first-child) {
+        margin-top: 60px;
+    }
+
+    .infoTable {
+        border: 1px solid #e7edfa;
+        width: 100%;
+        font-size: 14px;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-weight: 400;
+        color: #3a4f7c;
+        line-height: 20px;
+        text-align: center;
+        border: 1px solid #e7edfa;
+
+        td,
+        th {
+            height: 58px;
+        }
+
+        .infoTd1 {
+            width: 17.5%;
+            background: #fafafa;
+            padding: 5px 10px;
+        }
+        .infoTd2 {
+            width: 30.25%;
+            background: #fff;
+            padding: 5px 10px;
+        }
+    }
+
+    .notes{
+        margin-top: 30px;
+
+        h3{
+            font-size: 20px;
+            font-weight: 600;
+            color: #273c67;
+            line-height: 28px;
+            padding-bottom: 20px;
+        }
+    }
+
+    .noteRow{
+        p{
+            width: 50%;
+        }
+    }
+
+    p {
+        font-size: 14px;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-weight: 400;
+        color: #3a4f7c;
+        line-height: 24px;
+    }
+
+    .pt-47 {
+        padding-top: 47px;
+    }
+
+    .pb-60 {
+        padding-bottom: 60px;
+    }
+
+    .pt-68 {
+        padding-top: 68px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .aboutBond {
+        padding: 20px ;
+
+
+        .aboutTitle {
+            // font-size: 20px;
+            line-height: 30px;
+            padding: 10px 10px 10px 10px;
+            // display: none;
+        }
+
+        .aboutMenu {
+            display: none;
+        }
+
+        .infoTableCon {
+            overflow-x: scroll;
+            max-width: 100%;
+        }
+
+        .infoTableCon2 {
+            overflow-x: scroll;
+            max-width: 100%;
+        }
+
+        .bondIcon {
+            width: 40px;
+            height: 40px;
+            margin-left: 0;
+            margin-right: 5px;
+
+            img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        .colOnMobile {
+            flex-direction: column;
+        }
+
+        table{
+            font-size: 12px;
+        }
+
+        .t1{
+            font-size: 20px;
+            line-height: normal;
+        }
+    }
+}

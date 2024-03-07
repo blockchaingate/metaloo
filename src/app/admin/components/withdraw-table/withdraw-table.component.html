@@ -1,0 +1,49 @@
+<table class="table">
+    <tbody>
+        <tr>
+            <td>ID:</td>
+            <td>{{withdraw._id}}</td>
+        </tr>
+        <tr>
+            <td>User:</td>
+            <td>{{withdraw.user.first_name}} {{withdraw.user.last_name}}({{withdraw.user.email}})</td>
+        </tr>
+        <tr>
+            <td>Code:</td>
+            <td>{{withdraw.code}}</td>
+        </tr>
+        <tr>
+            <td>Chain:</td>
+            <td>{{withdraw.chainCoin.chain.name}}</td>
+        </tr>
+        <tr>
+            <td>Coin:</td>
+            <td>{{withdraw.chainCoin.coin.symbol}}</td>
+        </tr>
+
+        <tr>
+            <td>Address:</td>
+            <td>{{withdraw.address}}</td>
+        </tr>
+
+        <tr>
+            <td>Withdraw amount(fee):</td>
+            <td>{{withdraw.amount}}({{withdraw.fee}})</td>
+        </tr>
+
+        <tr>
+            <td>Status:</td>
+            <td>{{getStatusText()}}</td>
+        </tr>
+
+        <tr>
+            <td>Created at:</td>
+            <td>{{withdraw.created_at | date}}</td>
+        </tr>
+
+        <tr>
+            <td>Updated at:</td>
+            <td>{{withdraw.updated_at | date}}</td>
+        </tr>
+    </tbody>
+</table>

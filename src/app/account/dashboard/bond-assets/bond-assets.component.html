@@ -1,0 +1,199 @@
+<app-rounded-card>
+    <div class="assets">
+        <div class="d-flex justify-content-between align-items-center ">
+            <div class="assetsTitle">{{"myAssets" | translate}}</div>
+            <!-- <h2>{{'Bond Assets Information'|translate}}</h2> -->
+            <!-- <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchChecker" [(ngModel)]="isRow">
+            <label class="form-check-label" for="flexSwitchCheckChecked">Table View</label>
+        </div> -->
+            <!-- <div class="p-l-10 ml-auto">
+        <button class="btn btn-primary" [routerLink]="['/buy']" routerLinkActive="router-link-active">
+          Create Order
+        </button>
+      </div> -->
+        </div>
+        <div class="assetsSum">
+            <div class="row mt-28 assetsSum">
+                <div class="col-md-4">
+                    <div class="assetsNum">
+                        {{investmentAmount | currency}}
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="d-flex align-items-center">
+                        <img class="bondIcon" src="/assets/images/DNB.png" alt="bond">
+                        <div>
+                            <div class="upperTitle">
+                                DNB
+                            </div>
+                            <div class="d-flex lowerTitle" *ngIf="assetLoaded">
+                                <div class="lowLeft">
+                                    {{assetAmount?.DNBtotalQuantity}}
+                                </div>
+                                <div class="lowRight">
+                                    {{assetAmount?.DNBtotalPaidAmount |currency  }}
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="d-flex  align-items-center">
+                        <img class="bondIcon" src="/assets/images/XDNB.png" alt="bond">
+                        <div>
+                            <div class="upperTitle">
+                                XDNB
+                            </div>
+                            <div class="d-flex lowerTitle"  *ngIf="assetLoaded">
+                                <div class="lowLeft">
+                                    {{assetAmount?.XDNBtotalQuantity}}
+                                </div>
+                                <div class="lowRight">
+                                    {{assetAmount?.XDNBtotalPaidAmount |currency  }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-3">
+            <div class="row" *ngIf="isLoaded">
+                <div class="col-md-12" *ngIf="!isRow">
+                    <div *ngFor="let item of bonds; let i = index" class="mb-3">
+                        <div class="card bg-dark text-white bondReceipt">
+                            <img class="card-img" src="/assets/images/bondReceiptBg.jpg" alt="Card image">
+                            <div class="card-img-overlay bondReceiptContent">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-baseline">
+                                        <img src="/assets/logo/dnb-logo.svg" alt="" class="svgLogo">
+                                        <h5 class="card-title m-l-10"> {{'bondIntro.title' | translate}}</h5>
+                                    </div>
+                                    <img src="/assets/logo/El_Salvador_emblem.svg" alt="" class="elLogo">
+                                </div>
+                                <div class="bondReceiptCenter">
+                                    <div>
+                                        <div class="value f-b-800">
+                                            {{'faceValue' | translate}}
+                                        </div>
+                                    </div>
+                                    <div class="f-60 f-b-800">{{item.purchaseAmount}}
+                                        <span class="f-30 f-b-800">{{item.paymentCoin}}</span>
+                                    </div>
+                                    <div>
+                                        <div class="quantity f-b-800">
+                                            {{ item.quantity }} {{ item.symbol }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div>
+                                        {{'Order ID'|translate}}
+                                        <span class="t-blue">
+                                            {{ item?.bondOrderId ?? "" }}
+                                        </span>
+                                    </div>
+                                    <div>
+                                        {{'Created At'|translate}}
+                                        <span class="t-blue">
+                                            {{ item.createdAt | date: 'medium' }}
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 order-table-con" *ngIf="isRow">
+                    <table id="order-table" class="table  order-table" *ngIf="bonds">
+                        <thead>
+                            <tr>
+                                <!-- <th scope="col">{{'No.'|translate}}</th> -->
+                                <th scope="col">{{'assets'|translate}}</th>
+                                <th scope="col">{{'Quantity'|translate}}</th>
+                                <!-- <th scope="col">{{'Bond ID'|translate}}</th>
+                            <th scope="col">{{'Order ID'|translate}}</th> -->
+                                <th scope="col">{{'value'|translate}}</th>
+                                <!-- <th scope="col">{{'Payment Coin'|translate}}</th> -->
+                                <th scope="col">{{'interestRate'|translate}}</th>
+                                <th scope="col">{{'Status'|translate}}</th>
+                                <th></th>
+                                <!-- <th scope="col">{{'Created At'|translate}}</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngIf="assetLoaded">
+                                <td>
+                                    <img class="bondIcon" src="/assets/images/DNB.png"
+                                        alt="bond">
+
+                                    DNB
+                                </td>
+                                <td>{{assetAmount?.DNBtotalQuantity}}</td>
+                                <td>{{assetAmount?.DNBtotalPaidAmount |currency  }}</td>
+                                <td>8.0%</td>
+                                <td>{{'unrelease'|translate}}</td>
+                                <td><button  [routerLink]="['/checkout']"[queryParams]="{vtype: 'DNB'}" routerLinkActive="router-link-active" 
+                                    class="btn btn-light btn-sm statusBtn rounded-pill">
+                                    {{"dashboard.buyDNB" | translate}}
+                                    </button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img class="bondIcon"  src="/assets/images/XDNB.png"
+                                        alt="bond">
+
+                                    XDNB
+                                </td>
+                                <td>{{assetAmount?.XDNBtotalQuantity}}</td>
+                                <td>{{assetAmount?.XDNBtotalPaidAmount |currency  }}</td>
+                                <td>7.5%</td>
+                                <td>{{'unrelease'|translate}}</td>
+                                <td><button  [routerLink]="['/checkout']" [queryParams]="{vtype: 'XDNB'}" routerLinkActive="router-link-active" 
+                                    class="btn btn-light btn-sm statusBtn rounded-pill">
+                                        {{"dashboard.buyXDNB" | translate}}
+                                    </button></td>
+                            </tr>
+                            <!-- <tr *ngFor="let item of bonds; let i = index">
+                                <td>
+                                    <img class="bondIcon" *ngIf="item.symbol == 'DNB'" src="/assets/images/DNB.png"
+                                        alt="bond">
+                                    <img class="bondIcon" *ngIf="item.symbol == 'XDNB'" src="/assets/images/XDNB.png"
+                                        alt="bond">
+
+                                    {{ item.symbol }}
+                                </td>
+                                <td>{{ item.quantity }}</td>
+                                <td>{{ item.purchaseAmount }}</td>
+                                <td>{{ item.symbol == "DNB" ? "8.0%":"7.5%" }}</td>
+                                <td><button class="btn btn-light btn-sm statusBtn rounded-pill">
+                                        购买DNB
+                                    </button></td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                    <!-- <div *ngIf="!bonds || bonds.length == 0" class="text-center">
+                        {{'No Data'|translate}}
+                    </div> -->
+
+                </div>
+                <div class="d-flex justify-content-center"
+                    *ngIf="bonds && (pageNumber>0 || (pageNumber==0 && bonds.length ==10))">
+                    <button class="px-2 btn btn-primary btn-sm" (click)="prev()">
+                        {{'Prev'|translate}}
+                    </button>
+                    <div class="px-2">
+                        <a>{{ pageNumber + 1 }}</a>
+                    </div>
+                    <button class="px-2 btn btn-primary btn-sm" (click)="next()">
+                        {{'Next'|translate}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-rounded-card>

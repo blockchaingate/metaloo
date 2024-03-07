@@ -1,0 +1,126 @@
+<!-- <app-steps [step]="1"></app-steps> -->
+<div class="container kycDiv mt-2">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="kycTitle">
+                KYC
+            </div>
+        </div>
+        <div class="col-md-6 kycTitleSub">
+            <app-skip-kyc />
+        </div>
+    </div>
+    <div class="row kyvRow">
+
+        <div class="col-md-8 kycCon">
+            <app-rounded-card>
+                <div class="p-14">
+                    <div class="mb-30">
+                        <div class="basicTitle">{{ 'info.title' | translate }}</div>
+                    </div>
+                    <form #userForm="ngForm" (ngSubmit)="onNextStep(userForm)">
+                        <div class="mb-30">
+    
+                            <!-- <input type="text" class="form-control" id="countryOfCitizenship" name="countryOfCitizenship"
+                                placeholder="{{ 'info.countryOfCitizenship' | translate }}"
+                                [(ngModel)]="userData.countryOfCitizenship" required>  -->
+                            <app-countries [label]="'info.countryOfCitizenship' | translate" [(ngModel)]="userData.countryOfCitizenship"></app-countries>
+                            <!-- Validation message -->
+                            <div *ngIf="countryHasError" class="text-danger">
+                                {{ 'info.validationRequired' | translate }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mb-30 col-md-6">
+                                <label for="firstName" class="form-label">{{ 'info.firstName' | translate }}</label>
+                                <input type="text" class="form-control" id="firstName" name="firstName"
+                                    placeholder="{{ 'info.firstName' | translate }}" [(ngModel)]="userData.firstName"
+                                    required>
+                                <!-- Validation message -->
+                                <div *ngIf="userForm.submitted && userForm.controls.firstName?.errors?.required"
+                                    class="text-danger">
+                                    {{ 'info.validationRequired' | translate }}
+                                </div>
+                            </div>
+                            <div class="mb-30 col-md-6">
+                                <label for="lastName" class="form-label">{{ 'info.lastName' | translate }}</label>
+                                <input type="text" class="form-control" id="lastName" name="lastName"
+                                    placeholder="{{ 'info.lastName' | translate }}" [(ngModel)]="userData.lastName"
+                                    required>
+                                <!-- Validation message -->
+                                <div *ngIf="userForm.submitted && userForm.controls.lastName?.errors?.required"
+                                    class="text-danger">
+                                    {{ 'info.validationRequired' | translate }}
+                                </div>
+                            </div>
+                            <div class="mb-30 col-md-6">
+                                <label for="middleName" class="form-label">{{ 'info.middleName' | translate }}</label>
+                                <input type="text" class="form-control" id="middleName" name="middleName"
+                                    placeholder="{{ 'info.middleName' | translate }}" [(ngModel)]="userData.middleName">
+                                <!-- Middle Name field can be empty, no validation message -->
+                            </div>
+                        </div>
+                        
+    
+                        <div class="mb-30">
+                            <label class="form-label">{{ 'info.dateOfBirth' | translate }}</label>
+                            <div class="row">
+                                <div class="col">
+                                    <!-- <label for="year" class="form-label">{{ 'info.dateOfBirthYear' | translate }}</label> -->
+                                    <input type="number" class="form-control" id="year" name="year"
+                                        placeholder="{{ 'info.dateOfBirthYear' | translate }}" [(ngModel)]="userData.year"
+                                        required>
+                                    <div *ngIf="userForm.submitted && userForm.controls.year?.errors?.required"
+                                        class="text-danger">
+                                        {{ 'info.validationRequired' | translate }}
+                                    </div>
+                                    <div *ngIf="userForm.submitted  && !isYearValid " class="text-danger">
+                                        {{ 'info.validationInvalidDate' | translate }}
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <!-- <label for="month" class="form-label">{{ 'info.dateOfBirthMonth' | translate }}</label> -->
+                                    <input type="number" class="form-control" id="month" name="month"
+                                        placeholder="{{ 'info.dateOfBirthMonth' | translate }}" [(ngModel)]="userData.month"
+                                        required>
+                                    <div *ngIf="userForm.submitted && userForm.controls.month?.errors?.required"
+                                        class="text-danger">
+                                        {{ 'info.validationRequired' | translate }}
+                                    </div>
+                                    <div *ngIf="userForm.submitted  && !isMonthValid" class="text-danger">
+                                        {{ 'info.validationInvalidDate' | translate }}
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <!-- <label for="day" class="form-label">{{ 'info.dateOfBirthDay' | translate }}</label> -->
+                                    <input type="number" class="form-control" id="day" name="day"
+                                        placeholder="{{ 'info.dateOfBirthDay' | translate }}" [(ngModel)]="userData.day"
+                                        required>
+                                    <div *ngIf="userForm.submitted && userForm.controls.day?.errors?.required"
+                                        class="text-danger">
+                                        {{ 'info.validationRequired' | translate }}
+                                    </div>
+                                    <div *ngIf="userForm.submitted  && !isDayValid " class="text-danger">
+                                        {{ 'info.validationInvalidDate' | translate }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="mb-10">
+                            <!-- Next Step button -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="d-flex justify-content-end">
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block w-100 rounded-pill">{{ 'Next' |
+                                            translate }}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </app-rounded-card>
+        </div>
+    </div>
+</div>

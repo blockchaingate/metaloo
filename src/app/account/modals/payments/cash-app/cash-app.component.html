@@ -1,0 +1,38 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">Cash App</h4>
+    <button type="button" class="btn btn-close close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+
+    <div>Cash App Account Name</div>
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Cash App Account Name" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    <small class="mb-3">
+        Not in Cash App yet? click <a href="https://cash.app/app/LGPXWPX" target="_blank">https://cash.app/app/LGPXWPX</a> to register
+    </small>
+    <div>
+        Amount: {{order.totalToPay}} USD
+    </div>
+    <div class="text-center py-2">
+        <img src="/assets/images/exchangily.png">
+    </div>
+    <div>
+        Scan to pay with Cash App, or pay to $exchangily directly with Cash App.
+    </div>
+    <div>
+        Please transfer with memo: 
+    </div>
+    <div class="text-danger">
+        otc order-{{order._id}}
+    </div>
+    <div>
+        Please click "Marked as paid" button after payment finished
+    </div>
+
+    <button type="button" class="my-2 btn-primary w-100" (click)="markedAsPaid()">
+        Marked as paid
+    </button>
+</div>

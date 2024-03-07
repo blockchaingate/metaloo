@@ -1,0 +1,85 @@
+h2 {
+    font-size: 28px;
+    font-family: PingFangSC-Semibold, PingFang SC;
+    font-weight: 600;
+    color: #273c67;
+    line-height: 50px;
+}
+
+.topBox {
+    background: #fafcff;
+    box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.04);
+    border-radius: 24px;
+    padding: 15px;
+    height: 100%;
+    flex: 1;
+
+    .topBoxTitle {
+        font-size: 22px;
+        font-family: PingFangSC-Medium, PingFang SC;
+        font-weight: 500;
+        color: #3a4f7c;
+        line-height: 30px;
+        margin: 20px 0;
+    }
+
+    p {
+        font-size: 14px;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-weight: 400;
+        color: #8a94ab;
+        line-height: 20px;
+    }
+}
+
+.titleP {
+    padding: 63px 0 29px;
+}
+
+.titleP2 {
+    padding-top: 90px;
+    padding-bottom: 36px;
+}
+
+.title1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #6A7FB0;
+    line-height: 50px;
+}
+
+.pb-193{
+    padding-bottom: 193px;
+}
+
+.cardRow {
+    gap: 37px;
+}
+
+.fBox {
+    font-size: 16px;
+    font-weight: 500;
+    color: #3a4f7c;
+    line-height: 22px;
+}
+
+.aBox {
+    font-size: 14px;
+    font-weight: 400;
+    color: #8a94ab;
+    line-height: 20px;
+    border-bottom: 1px solid rgba(138,148,171,0.2);
+    padding-bottom: 18px;
+}
+
+.lightBg {
+    background-color: #e7edfa;
+}
+
+@media screen and (max-width: 767px) {
+    .cardRow {
+        flex-flow: column!important;
+    }
+}
+
+

@@ -1,0 +1,21 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="center">
+      <h1>{{ 'thank-you.thank-you' | translate }}</h1>
+      <p>{{ 'thank-you.thank-you-message' | translate }}</p>
+    </div>
+    <div class="col-md-8 offset-md-2">
+      <app-rounded-card>
+        <div class="container mt-4 center">
+          <!-- <h2>{{ 'thank-you.thank-you-page-title' | translate }}</h2> -->
+          <!-- Add your thank you page content here -->
+          <p>{{ 'thank-you.thank-you-content' | translate }}</p>
+
+          <!-- Button to go to the home page -->
+          <button type="button" class="btn btn-primary mt-3" (click)="goToPurchasePage()">{{ 'bond-index.buyNow' |
+            translate }}</button>
+        </div>
+      </app-rounded-card>
+    </div>
+  </div>
+</div>

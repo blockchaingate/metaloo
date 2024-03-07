@@ -1,0 +1,25 @@
+.rounded-card-container {
+    padding: 16px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(91, 97, 110, 0.1);
+    border-radius: 10px;
+}
+
+.rounded-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // margin-bottom: 16px;
+    border:none;
+    background: rgb(33, 110, 205);
+    background: linear-gradient(40deg, rgba(33, 110, 205, 1) 0%, rgba(19, 33, 255, 1) 51%, rgba(91, 0, 255, 1) 100%);
+}
+
+@media screen and ( max-width : 767px) {
+    .rounded-card-header {
+        flex-direction: column;
+        align-items: center;
+
+    }
+    
+}

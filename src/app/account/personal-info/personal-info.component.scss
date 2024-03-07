@@ -1,0 +1,83 @@
+.personal{
+    padding: 18px 23px;
+}
+
+.personInfo {
+    font-size: 22px;
+    font-weight: 500;
+    color: #6a7fb0;
+    line-height: 30px;
+}
+
+.pCard {
+    border-radius: 12px;
+    border: 1px solid #eef2fc;
+    padding: 10px;
+}
+
+.pRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.ren {
+    font-size: 14px;
+    font-weight: 500;
+    color: #3a4f7c;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.t1 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #3d527e;
+    line-height: 22px;
+}
+
+.t2 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #8a94ab;
+    line-height: 20px;
+}
+
+.kycLevel {
+    width: 44px;
+    height: 20px;
+    background: linear-gradient(90deg, #9ea4b7 0%, #cfd3dd 100%);
+    border-radius: 4px;
+    text-align: center;
+
+    div {
+        width: 16px;
+        height: 18px;
+        font-size: 14px;
+        font-family: "Roboto", sans-serif;
+        font-style: italic;
+        font-weight: 800;
+        color: #ffffff;
+        line-height: 18px;
+        text-align: center;
+        margin: 0 auto;
+    }
+}
+
+.go.btn {
+    width: 138px;
+    height: 48px;
+    border-radius: 24px !important;
+    border: 1px solid #0140ce;
+    color: #0140ce;
+    background-color: #fff;
+    font-size: 14px;
+    margin: 20px auto;
+}
+
+td{
+    overflow-wrap: anywhere;
+    vertical-align: middle;
+}

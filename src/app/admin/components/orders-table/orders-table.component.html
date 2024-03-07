@@ -1,0 +1,53 @@
+<table class="table table-dark table-striped order-table" *ngIf="loaded && !hasError">
+    <thead>
+        <tr>
+            <th>
+                <label>Order ID</label>
+            </th>
+            <th>
+                <label>User</label>
+            </th>
+            <th>
+                <label>Bond ID</label>
+            </th>
+            <th>
+                <label>Quantity</label>
+            </th>
+            <th>
+                <label>Status</label>
+            </th>
+            <th>
+                <label>KYC Verified</label>
+            </th>
+            <th>
+                <label>Created At</label>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of Orders">
+            <td>
+                <a [routerLink]="['/admin/order', item._id]" >{{item._id}}</a>
+            </td>
+            <td>
+                {{item.user}}
+            </td>
+            <td>
+                {{item.bondId}}
+            </td>
+            <td>
+                {{item.quantity}}
+            </td>
+            <td>
+                {{item.status}}
+            </td>
+            <td>
+                {{item.KYCverified}}
+            </td>
+            <td>
+                {{item.created_at}}
+            </td>
+
+        </tr>
+    </tbody>
+</table>

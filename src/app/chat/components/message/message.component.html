@@ -1,0 +1,10 @@
+<div [ngClass]="message.user == 'M' ? 'bg-grey' : ''">
+    <div class="p-3 d-flex">
+        <app-square-icon [text]="message.user"></app-square-icon>
+        <div class="ps-3" *ngIf="message.type=='text' || !message.type">{{message.text}}</div>
+        <div class="ps-3" *ngIf="message.type=='image'">
+            <img class="w-100" src="{{message.text}}">
+        </div>
+    </div>
+    
+</div>

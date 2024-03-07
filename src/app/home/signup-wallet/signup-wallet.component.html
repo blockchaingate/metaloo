@@ -1,0 +1,66 @@
+<div class="container">        
+    <div class="row">
+        <div class="col col-12">
+            {{'mustFill'|translate}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-12 col-md-6">
+            <div class="form-group">
+                <label for="exampleInputEmail1">{{'info.firstName'|translate}} *</label>
+                <input type="email" class="form-control" [(ngModel)]="first_name"  placeholder="Enter first name">
+            </div>           
+        </div>
+        <div class="col col-12 col-md-6">
+            <div class="form-group">
+                <label for="exampleInputEmail1">{{'info.lastName'|translate}} *</label>
+                <input type="email" class="form-control" [(ngModel)]="last_name"  placeholder="Enter last name">
+            </div>           
+        </div>        
+    </div>
+
+    <div class="row">
+        <div class="col col-12">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email *</label>
+                <input type="email" class="form-control" [(ngModel)]="email"  placeholder="Enter email">
+            </div>              
+        </div>
+    </div>
+    
+
+    <div class="row">
+        <div class="col col-12">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    {{'certify18'|translate}}
+                </label>
+              </div>
+        </div>
+    </div>
+    <div class="row my-3">
+        <div class="col col-12">
+            <button type="button" class="btn-primary btn-lg w-100" (click)="signup()">{{'Sign up with wallet'|translate}}</button>
+        </div>
+    </div>
+
+    <div class="or-container">
+        <div class="line-separator"></div> 
+        <div class="or-label">or</div>
+        <div class="line-separator"></div>
+    </div>
+
+    <div class="row my-3">
+        <div class="col col-12">
+            <button type="button" class="btn-light btn-lg w-100" (click)="signup_email()">{{'Sign up with email'|translate}}</button>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <a href="/signin">
+            {{'Sign in'|translate}}
+        </a>
+        {{'to your account'|translate}}
+    </div>
+</div>

@@ -1,0 +1,26 @@
+.phone{
+    font-size: 14px;
+    font-weight: 400;
+    color: #8a94ab;
+    line-height: 20px;
+}
+
+.phoneTry{
+    display: flex;
+    justify-content: space-between;
+
+    .phoneTrySub{
+        
+        cursor: pointer;
+    }
+
+    .phoneTrySub:hover{
+        text-decoration: underline;
+        color: #0140ce;
+    }
+
+    .inactive{
+        color: #8a94ab;
+        text-decoration: none;
+    }
+}

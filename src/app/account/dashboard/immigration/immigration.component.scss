@@ -1,0 +1,68 @@
+.accountMain {
+    padding: 18px 23px;
+    
+}
+
+.accountMainTitle {
+    font-size: 22px;
+    font-weight: 500;
+    color: #6a7fb0;
+    line-height: 30px;
+}
+
+.t1 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #3d527e;
+    line-height: 22px;
+}
+
+.t2 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #8a94ab;
+    line-height: 20px;
+}
+
+.infoCard {
+    display: flex;
+    justify-content: space-between;
+    // align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid #eef2fc;
+    margin-top: 30px;
+}
+
+.f-c {
+    flex-direction: column;
+}
+
+span {
+    font-size: 14px;
+    font-weight: 400;
+    color: #3a4f7c80;
+    line-height: 20px;
+}
+
+.apply {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.subTitle {
+    // margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.infoRow {
+    display: flex;
+}
+
+.border1{
+    border-bottom: 1px solid #eef2fc;
+}

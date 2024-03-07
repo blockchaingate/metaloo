@@ -1,0 +1,11 @@
+<div *ngIf="kyc">
+    <div class="pb-2 text-right">
+        <button type="button" class="btn btn-secondary mx-3" (click)="reject()">Reject</button>
+        <button type="button" class="btn btn-primary" (click)="approve()">Approve</button>
+    </div>
+    <app-kyc-table [kyc]="kyc"></app-kyc-table>
+    <div class="pt-2 text-right">
+        <button type="button" class="btn btn-secondary mx-3" (click)="reject()">Reject</button>
+        <button type="button" class="btn btn-primary" (click)="approve()">Approve</button>
+    </div>
+</div>

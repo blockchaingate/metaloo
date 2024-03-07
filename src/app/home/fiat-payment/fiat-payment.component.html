@@ -1,0 +1,48 @@
+<div class="checkout container-fluid bg-grey">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="titleTxt">
+            {{'fiatPaymentComponent.orderPayment'|translate}}
+          </div>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <app-rounded-card>
+            <div class="">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div>{{'fiatPaymentComponent.paymentInstruction'|translate}}</div>
+                  </div>
+                  <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+                    <div class="form-group mt-3">
+                      <label for="name">{{'fiatPaymentComponent.name'|translate}}</label>
+                      <input type="text" class="form-control" id="name" name="name" [(ngModel)]="formData.name" required>
+                      <div class="alert alert-danger" *ngIf="nameInvalid && contactForm.controls['name'].touched">
+                        {{'fiatPaymentComponent.validName'|translate}}
+                      </div>
+                    </div>
+  
+                    <div class="form-group mt-3">
+                      <label for="phoneNumber">{{'fiatPaymentComponent.phoneNumber'|translate}}</label>
+                      <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" [(ngModel)]="formData.phoneNumber" pattern="[0-9]{9,13}" required>
+                      <div class="alert alert-danger" *ngIf="phoneNumberInvalid && contactForm.controls['phoneNumber'].touched">
+                        {{'fiatPaymentComponent.validPhoneNumber'|translate}}
+                      </div>
+                    </div>
+                   <div class="alert alert-success mt-3" *ngIf="isSubmitted">
+                      {{'fiatPaymentComponent.successMessage'|translate}}
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3" [disabled]="contactForm.invalid || isSubmitted">{{'fiatPaymentComponent.submit'|translate}}</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </app-rounded-card>
+        </div>
+      </div>
+    </div>
+  </div>

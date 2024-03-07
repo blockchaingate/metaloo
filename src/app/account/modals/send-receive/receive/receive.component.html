@@ -1,0 +1,21 @@
+<div *ngIf="coin">
+    <div class="wallet" (click)="changePage('select-asset')">
+        <h3 >{{coin.name}} > </h3>
+        <div class="mb-3">{{coin.symbol}} wallet</div>
+    </div>
+
+    <div class="border d-flex justify-content-center align-items-center" *ngIf="address">
+        <qrcode [qrdata]="address" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+    </div>
+    <div class="border-left border-right border-bottom p-3">
+        <div class="d-flex justify-content-between">
+            <div>{{coin.symbol}} address</div>
+            <div (click)="copy()"><i class="fa-solid fa-copy"></i></div>
+        </div>
+        <div class="text-muted">{{address}}</div>
+    </div>
+
+    <div class="alert alert-secondary mt-3" role="alert">
+        <i class="fa-solid fa-circle-info"></i> Only send {{coin.name}} ({{coin.symbol}}) to this address
+      </div>
+</div>

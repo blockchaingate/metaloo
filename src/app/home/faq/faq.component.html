@@ -1,0 +1,45 @@
+<div class="lightBg">
+  <div class="container ">
+    <div class="row titleP">
+      <div class="col-md-12">
+        <div class="text-left title1">{{ 'faq.title1' | translate }}</div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="d-flex cardRow">
+
+        <div class="topBox">
+          <img src="/assets/images/f1.png" alt="">
+          <div class="topBoxTitle">{{ 'faq.title2' | translate }}</div>
+          <p>{{ 'faq.content2' | translate }}</p>
+          <p>{{ 'faq.btcPrice2' | translate }}</p>
+        </div>
+        <div class="topBox">
+          <img src="/assets/images/f2.png" alt="">
+          <div class="topBoxTitle">{{ 'faq.title3' | translate }}</div>
+          <p>{{ 'faq.content3' | translate }}</p>
+        </div>
+        <div class="topBox">
+          <img src="/assets/images/f3.png" alt="">
+          <div class="topBoxTitle">{{ 'faq.title4' | translate }}</div>
+          <p>{{ 'faq.content4' | translate }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row pb-193">
+
+      <div class="col-md-12 titleP2">
+        <div class="text-left title1 ">{{'Frequently asked questions'|translate}}</div>
+      </div>
+      <div class="col-md-12 my-3" *ngFor="let f of getFAQlist(currentLanguage)">
+        <div class=" fBox">{{f.question}}
+        </div>
+        <div id="collapseBasic">
+          <div class="well well-lg aBox">{{f.answer}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

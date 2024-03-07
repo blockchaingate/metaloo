@@ -1,0 +1,24 @@
+<div class="tabCotainer" *ngIf="order">
+    <h4 class="text-center">{{'Pay by Zelle' | translate}}</h4>
+    
+    <div>{{'Amount' | translate}}: {{order.amount}} {{order.fiat_currency}}</div>
+
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">{{'Receiving Account' | translate}}: <span class="text-warning">216-233-4316</span></label>
+    </div>  
+
+    <div>
+        {{'Pay to 216-233-4316 directly with Zelle. Please click "Marked as paid" button after payment finished' | translate}}
+    </div>
+    <div class="pt-2 color-warning">
+        {{"CashAppRequiredNote"|translate}}{{order.code}}
+    </div>  
+
+    <button type="button" (click)="confirmPayment()" class="btn-primary w-100 mainColor my-2" *ngIf="order.status == 0">
+        {{'Marked as paid' | translate}}
+    </button>    
+    <div *ngIf="order.status == 1" class="text-success text-center">
+        {{'The order was marked paid' | translate}}
+    </div>
+</div>

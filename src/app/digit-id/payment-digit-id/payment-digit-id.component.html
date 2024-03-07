@@ -1,0 +1,246 @@
+<div class="container kycDiv pt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="kycTitle">
+                {{ "orderPage.paymentHeader" | translate }}
+            </div>
+        </div>
+        <!-- <div class="col-md-6 kycTitleSub">
+            <app-skip-kyc />
+        </div> -->
+    </div>
+    <div class="row kyvRow">
+
+        <div class="col-md-8 kycCon">
+            <app-rounded-card *ngIf="!orderStatus || (orderStatus == 'Confirmed by User')">
+                <div class="container mt-4 center">
+                    <p>{{ "orderPage.appreciationMessage" | translate }}</p>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3>{{ "orderPage.orderDetailsHeader" | translate }}</h3>
+                            <div class="order-info">
+                                <table class="table order-table">
+                                    <!-- <thead>
+                                        <tr>
+                                            <th scope="col">{{ "orderPage.orderDetailsTableKey" | translate }}</th>
+                                            <th scope="col">{{ "orderPage.orderDetailsTableValue" | translate }}</th>
+                                        </tr>
+                                    </thead> -->
+                                    <tbody>
+                                        <tr>
+                                            <td>{{ "orderPage.email" | translate }}</td>
+                                            <td>{{email}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ "orderPage.chain" | translate }}</td>
+                                            <td>{{chain}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ "orderPage.coin" | translate }}</td>
+                                            <td>{{coin}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ "orderPage.type" | translate }}</td>
+                                            <td>{{type}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ "orderPage.amount" | translate }}</td>
+                                            <td>{{amount}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ "orderPage.amountToPay" | translate }}</td>
+                                            <td>{{getFinalAmount() + " " + coin}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 d-flex" *ngIf="!isPayClicked && !isPaySuccess && !isPayProcessing">
+                            <button type="submit " (click)="payLater()" class="btn btn-light btn-lg mt-3">{{
+                                "orderPage.payLaterButton" | translate }}</button>
+                            <div class="flex-fill"></div>
+                            <button type="submit " (click)="openModal(template)" class="btn btn-primary btn-lg mt-3">{{
+                                "orderPage.payNowButton" | translate }}</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div *ngFor="let item of progressSet" class="mt-3">
+                    <div class="alert alert-{{item.type}}" role="alert">
+                        {{item.text}}
+                    </div>
+                </div>
+            </app-rounded-card>
+
+            <app-rounded-card *ngIf="orderStatus && (orderStatus != 'Confirmed by User')">
+            <!-- <app-rounded-card> -->
+                <div class="allCon">
+                    <div class="center" *ngIf="orderStatus == 'Payment Processing'">
+                        <div class="d-flex center payTop">
+                            <img src="/assets/images/Su.png" alt="">
+                            <div class="payTxt">
+                                {{ "orderPage.paymentProcessingMessage" | translate }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="center" *ngIf="orderStatus == 'Failed'">
+                        <div class="d-flex center payTop">
+                            <!-- <img src="/assets/images/Su.png" alt=""> -->
+                            <div class="payTxt">
+                                {{ "orderPage.paymentFailedMessage" | translate }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="center" *ngIf="orderStatus == 'Confirmed Payment'">
+                    <!-- <div class="center"> -->
+                        <div class="d-flex center payTop">
+                            <img src="/assets/images/Su.png" alt="">
+                            <div class="payTxt">
+                                {{ "orderPage.paymentSuccessMessage" | translate }}
+                            </div>
+                        </div>
+                        <div class="paySub pb-3">
+                            {{ "orderPage.congratsMessageSecondary" | translate }}
+                        </div>
+                    </div>
+                    <div class="pingzheng" id="pingzheng">
+                        <div class="center payTitle">
+                            {{ "orderPage.paymentVoucher" | translate }}
+                        </div>
+                        <div class="row mt-41">
+                            <div class="col-md-12 payInfoRow">
+                                <div class="payleft">
+                                    {{ "orderPage.orderNumber" | translate }}
+                                </div>
+                                <div class="payright">
+                                    {{orderId}}
+                                </div>
+                            </div>
+                            <div class="col-md-6 payInfoRow">
+                                <div class="payleft">
+                                    {{ "orderPage.purchaseType" | translate }}
+                                </div>
+                                <div class="payright">
+                                    <img class="bondIcon" *ngIf="type == 'DNB'" src="/assets/images/DNB.png" alt="bond">
+                                    <img class="bondIcon" *ngIf="type == 'XDNB'" src="/assets/images/XDNB.png"
+                                        alt="bond">
+                                    <span> {{type}}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 payInfoRow">
+                                <div class="payleft">
+                                    {{ "orderPage.purchaseQuantity" | translate }}
+                                </div>
+                                <div class="payright">
+                                    {{amount}}
+                                </div>
+                            </div>
+                            <div class="col-md-12 payInfoRow">
+                                <div class="payleft">
+                                    {{ "orderPage.paymentMethod" | translate }}
+                                </div>
+                                <div class="payright">
+                                    {{ "orderPage.paymentCurrencyCrypto" | translate }}
+                                </div>
+                            </div>
+                            <div class="col-md-12 payInfoRow">
+                                <div class="payleft">
+                                    {{ "orderPage.paymentHash" | translate }}
+                                </div>
+                                <div class="payright">
+                                    {{ txid }}
+                                </div>
+                            </div>
+                            <div class="col-md-12 payInfoRow">
+                                <div class="payleft">
+                                    {{ "orderPage.paymentCurrency" | translate }}
+                                </div>
+                                <div class="payright">
+                                    <img class="bondIcon" *ngIf="coin == 'USDT'" src="/assets/images/USDT.png"
+                                        alt="bond">
+                                    <img class="bondIcon" *ngIf="coin == 'USDC'" src="/assets/images/USDC.png"
+                                        alt="bond">
+                                    <img class="bondIcon" *ngIf="coin == 'DUSD'" src="/assets/images/DUSD.png"
+                                        alt="bond">
+                                    <span>
+                                        {{coin}}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-12 payInfoRow">
+                                <div class="payleft">
+                                    {{ "orderPage.paymentAmount" | translate }}
+                                </div>
+                                <div class="payright">
+                                    {{getFinalAmount() + " " + coin}}
+                                </div>
+                            </div>
+                            <div class="col-md-12 payInfoRow">
+                                <div class="payleft">
+                                    {{ "orderPage.transactionStatus" | translate }}
+                                </div>
+                                <div class="payright">
+                                    {{orderStatus | translate}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 d-flex justify-content-center">
+                            <button type="button" [routerLink]="['/']" routerLinkActive="router-link-active"
+                                class="btn btn-outline-primary rounded-pill btnOverOut mt-26">{{
+                                "orderPage.returnButton"
+                                | translate }}</button>
+                            <div class="p-l-10"></div>
+                            <button type="button" (click)="captureDivAsPDF()"
+                                class="btn btn-primary rounded-pill btnOver mt-26">{{
+                                "orderPage.downloadVoucherButton" |
+                                translate }}</button>
+                        </div>
+                    </div>
+                </div>
+            </app-rounded-card>
+            <div class="p-t-100"></div>
+        </div>
+    </div>
+</div>
+
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">{{ "orderPage.paymentDetails" | translate }}</h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+            <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="d-flex justify-content-between payMethodSelect">
+            <div *ngIf="chain != 'KANBAN'" (click)="metamask()"
+                class="item border p-3 d-flex flex-column align-items-center m-2">
+                <img class="img" src="/assets/images/MetaMask_Fox.svg.png">
+                <div>Metamask</div>
+            </div>
+            <div (click)="walletConnect()" class="item border p-3 d-flex flex-column align-items-center m-2">
+                <img class="img" src="/assets/images/walletconnect-logo.png">
+                <div>WalletConnect</div>
+            </div>
+
+            <div *ngIf="chain != 'KANBAN'" (click)="tokenPocket()" class="item border p-3 d-flex flex-column align-items-center m-2">
+                <img class="img" src="/assets/images/tp.png">
+                <div>Token pocket</div>
+            </div>
+
+            <div *ngIf="chain != 'KANBAN'" (click)="okxWallet()" class="item border p-3 d-flex flex-column align-items-center m-2">
+                <img class="img" src="/assets/images/ok.png">
+                <div>OKX wallet</div>
+            </div>
+
+            <div (click)="fabWallet()" class="item border p-3 d-flex flex-column align-items-center m-2">
+                <img class="img" src="/assets/images/ok.png">
+                <div>Fab wallet</div>
+            </div>
+        </div>
+    </div>
+</ng-template>

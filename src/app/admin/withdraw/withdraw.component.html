@@ -1,0 +1,13 @@
+<div *ngIf="withdraw">
+    <div class="pb-2 text-right" *ngIf="withdraw.status === 0">
+        <button type="button" class="btn btn-primary mx-3" (click)="confirmWithdraw()">Confirm withdraw</button>
+        <button type="button" class="btn btn-danger mx-3" (click)="rejectWithdraw()">Reject withdraw</button>
+    </div>
+
+    <div class="form-group">
+        <label for="memo">Memo(txid or reason for rejection)</label>
+        <textarea class="form-control" id="memo" [(ngModel)]="memo" rows="3"></textarea>
+      </div>
+
+    <app-withdraw-table [withdraw]="withdraw"></app-withdraw-table>
+</div>

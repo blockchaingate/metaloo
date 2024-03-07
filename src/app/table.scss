@@ -1,0 +1,46 @@
+table {
+    width: 100%;
+    padding: 0px;
+    border-spacing: 0px;
+    border-collapse: separate;
+    caption-side: top;
+}
+
+thead {
+    border: none;
+}
+
+tbody tr {
+    user-select: none;
+    border-left: none;
+    border-right: none;
+    cursor: pointer;
+    animation: 0.5s ease 0s 1 normal none running jBcSpD;
+}
+
+
+th {
+    padding: 16px 48px 16px 0px;
+    border-bottom: none;
+    text-align: left;
+}
+
+label {
+    color: rgb(91, 97, 110);
+}
+
+th {
+    padding-right: 16px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+th:first-child {
+    padding-left: 32px;
+}
+
+tbody {
+    padding: 0px;
+    border: none;
+    transition: opacity 300ms ease 0s;
+}

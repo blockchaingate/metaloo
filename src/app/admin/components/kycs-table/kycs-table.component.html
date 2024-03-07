@@ -1,0 +1,50 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <label>Name</label>
+            </th>
+            <th>
+                <label>Citizenship</label>
+            </th>
+            <th>
+                <label>countryOfResidency</label>
+            </th>
+            <th>
+                <label>Phone</label>
+            </th>
+            <th>
+                <label>Date Created</label>
+            </th>    
+            <th>
+                <label>Status</label>
+            </th>         
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of kycs">
+            <td>
+                <a href="/admin/kyc/{{item._id}}">
+                    {{item.first_name + ' ' + item.last_name}}
+                </a>
+            </td>
+            <td>
+                {{item.countryOfCitizenship}}
+            </td>
+            <td>
+                {{item.countryOfResidency}}
+            </td>
+            <td>
+                {{item.phone}}
+            </td>
+            <td>
+                {{item.created_at | date}}
+            </td>
+            <td>
+                <span class="badge badge-primary" *ngIf="item.status == 0">New</span>
+                <span class="badge badge-success" *ngIf="item.status == 1">Approved</span>
+                <span class="badge badge-danger" *ngIf="item.status == -1">Rejected</span>
+            </td>
+        </tr>
+    </tbody>
+</table>

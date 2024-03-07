@@ -1,0 +1,16 @@
+<div class="main-container">
+    <h1 class="text-center">
+        {{title | translate}}
+    </h1>
+    <div class="d-flex flex-column card-container kycDiv">
+        <ng-content></ng-content>
+        <div class="mt-3">
+            <button type="button" *ngIf="action1Text" (click)="action1Click.emit()" class="my-2 btn btn-primary btn-lg w-100">
+                {{action1Text | translate}}
+            </button>
+            <button type="button" *ngIf="action2Text" (click)="action2Click.emit()" class="btn btn-light btn-lg w-100">
+                {{action2Text | translate}}
+            </button>
+        </div>
+    </div>
+</div>

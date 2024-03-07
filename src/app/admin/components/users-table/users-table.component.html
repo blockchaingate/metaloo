@@ -1,0 +1,42 @@
+<!-- export interface User {
+    id: number;
+    email: string;
+    role: string;
+    created_at: string;
+} -->
+<table class="table table-dark table-striped user-table" *ngIf="hasData">
+    <thead>
+        <tr>
+            <th>
+                <label>ID</label>
+            </th> 
+            <th>
+                <label>Email</label>
+            </th>
+            <th>
+                <label>Role</label>
+            </th>
+            <th>
+                <label>Created at</label>
+            </th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of users">
+            <td>
+                {{item.id}}
+            </td>
+            <td>
+                {{item.email}}
+            </td>
+            <td>
+                {{item.role}}
+            </td>
+            <td>
+                {{item.created_at}}
+            </td>
+        </tr>
+    </tbody>
+</table>

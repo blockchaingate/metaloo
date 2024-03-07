@@ -1,0 +1,105 @@
+<div class="main-container d-flex">
+    <nav class="sidebar  d-sm-block" [ngClass]="{'d-none':isOpenMenu}">
+        <!-- <div class="d-flex justify-content-start pt-3">
+            <img src="/assets/images/default-user.png" alt="avatar" class="logo">
+        </div> -->
+        <div class="menuMain">
+            <ul class="menu">
+                <li class="d-flex justify-content-start align-items-center">
+                    <img class="menuIcon" src="/assets/images/d1.svg" alt="">
+                    <div class="menuItem" (click)="menuClick('/account/dashboard')">{{ 'dashboard.dashboard' | translate
+                        }}
+                    </div>
+                </li>
+                <li class="d-flex justify-content-start align-items-center">
+                    <img class="menuIcon" src="/assets/images/d2.svg" alt="">
+                    <div class="menuItem" (click)="menuClick('/account/personal-info')">{{ 'Personal Info' | translate
+                        }}
+                    </div>
+                </li>
+                <!-- <li class="d-flex justify-content-start align-items-center">
+                <div class="menuItem" (click)="menuClick('/account/kyc')">KYC</div>
+            </li> -->
+                <li class="d-flex justify-content-start align-items-center">
+                    <img class="menuIcon" src="/assets/images/d3.svg" alt="">
+                    <div class="menuItem" (click)="menuClick('/account/assets')">{{ 'dashboard.assets' | translate }}
+                    </div>
+                </li>
+                <li class="d-flex justify-content-start align-items-center">
+                    <img class="menuIcon" src="/assets/images/d4.svg" alt="">
+                    <div class="menuItem" (click)="menuClick('/account/orders')">{{ 'dashboard.orders' | translate }}
+                    </div>
+                </li>
+                <!-- <li class="d-flex justify-content-start align-items-center">
+                    <img class="menuIcon" src="/assets/images/d5.svg" alt="">
+                    <div class="menuItem" (click)="menuClick('/account/2fa')">{{ 'dashboard.2fa' | translate }}
+                    </div>
+                </li> -->
+                <li class="d-flex justify-content-start align-items-center">
+                    <img class="menuIcon" src="/assets/images/d6.svg" alt="">
+                    <div class="menuItem" (click)="menuClick('/account/immigration')">{{ 'dashboard.immigration' | translate }}
+                    </div>
+                </li>
+                <!-- <li class="d-flex justify-content-start align-items-center">
+                <div class="menuItem" (click)="menuClick('/account/tickets')">{{ 'dashboard.tickets' | translate }}
+                </div>
+            </li> -->
+                <li class="d-flex justify-content-start align-items-center">
+                    <div></div>
+                </li>
+                <!-- <li class="d-flex justify-content-start align-items-center">
+                <div class="menuItem" (click)="menuClick('/account/settings')">{{ 'settings' | translate }}</div>
+            </li> -->
+                <li class="d-flex justify-content-start align-items-center">
+                    <div class="menuItem" (click)="logout()">{{ 'dashboard.logout' | translate }}</div>
+                </li>
+                <li class="d-flex justify-content-start align-items-center">
+                    <div></div>
+                </li>
+                <li class="d-flex justify-content-start align-items-center">
+                    <div>
+                        <button class="btn btn-primary closeBtn" (click)="openOrCloseMenu()">
+                            <!--font awesome close icon -->
+                            <i class="fa fa-times"></i>
+                        </button>
+
+                    </div>
+                </li>
+
+                <!-- ... -->
+                <li class="d-flex justify-content-start align-items-center" *ngIf="kycStatus == 1">
+                    <app-rounded-icon-button (click)="menuClick('/account/send-receive')"
+                        [title]="'dashboard.sendReceive' | translate" [icon]="'fa-coin'"></app-rounded-icon-button>
+                </li>
+                <li class="d-flex justify-content-start align-items-center" *ngIf="kycStatus == 1">
+                    <app-rounded-icon-button (click)="menuClick('/account/express')"
+                        [title]="'dashboard.express' | translate" [icon]="'fa-coin'"></app-rounded-icon-button>
+                </li>
+                <li class="d-flex justify-content-start align-items-center" *ngIf="kycStatus == 1">
+                    <app-rounded-icon-button (click)="menuClick('/account/withdraw')"
+                        [title]="'dashboard.withdraw' | translate" [icon]="'fa-coin'"></app-rounded-icon-button>
+                </li>
+                <li class="d-flex justify-content-start align-items-center" *ngIf="kycStatus == 1">
+                    <app-rounded-icon-button (click)="menuClick('/account/transactions')"
+                        [title]="'dashboard.transactions' | translate" [icon]="'fa-coin'"></app-rounded-icon-button>
+                </li>
+                <!-- ... -->
+            </ul>
+        </div>
+    </nav>
+
+    <div class="w-100">
+        <div class="content">
+            <div class="pt-3 pb-3 openMenu mobileMenu " (click)="openOrCloseMenu()">
+                <div class="d-flex align-items-center">
+                    <img src="/assets/images/default-user.png" alt="avatar" class="logo">
+                    <div class="accountMenu p-l-10">
+                        Account Menu
+                    </div>
+                </div>
+            </div>
+            <!-- <alert class="pt-1"></alert> -->
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

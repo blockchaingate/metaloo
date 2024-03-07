@@ -1,0 +1,49 @@
+<table class="table">
+    <tbody>
+        <tr>
+            <td>ID:</td>
+            <td>{{order._id}}</td>
+        </tr>
+        <tr>
+            <td>User:</td>
+            <td>{{order.user.first_name}} {{order.user.last_name}}({{order.user.email}})</td>
+        </tr>
+        <tr>
+            <td>Code:</td>
+            <td>{{order.code}}</td>
+        </tr>
+        <tr>
+            <td>Coin:</td>
+            <td>{{order.coin}}</td>
+        </tr>
+        <tr>
+            <td>Coin Amount:</td>
+            <td>{{order.amount / order.unit_price}}</td>
+        </tr>
+        <tr>
+            <td>Fiat currency:</td>
+            <td>{{order.fiat_currency}}</td>
+        </tr>
+        <tr>
+            <td>Fiat Amount:</td>
+            <td>{{order.amount}}</td>
+        </tr>
+        <tr>
+            <td>Unit price:</td>
+            <td>{{order.unit_price}}</td>
+        </tr>
+        <tr>
+            <td>Payment method:</td>
+            <td *ngIf="order.payment_method">
+                {{order.payment_method.type}}
+                <span *ngIf="order.payment_method.id">, {{order.payment_method.id}}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>Status:</td>
+            <td>
+               {{getStatusText()}}           
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,10 @@
+<app-card
+[title]="'Verify your identity'"
+[action1Text]="'Complete verification'"
+(action1Click)="complete()"
+>
+    <div class="pb-3 text-center">
+        To verify your identity, please complete the following.
+    </div>
+    <app-take-photo></app-take-photo>
+</app-card>

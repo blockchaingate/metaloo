@@ -1,0 +1,79 @@
+<div class="">
+    <app-rounded-card>
+        <div class="accountMain">
+            <div class="d-flex">
+                <h2 class="accountMainTitle">{{'applyComponent.immigrationManagement'|translate}} - {{(kind ==
+                    "green-card" ? 'applyComponent.greenCard' : 'applyComponent.passport')|translate}}
+                    {{'applyComponent.application'|translate}}</h2>
+            </div>
+            <div class="">
+                <app-progress></app-progress>
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <div class="infoCard">
+                            <form [formGroup]="applyForm" (ngSubmit)="submit()">
+                                <div class="subTitle">{{'applyComponent.onlineApplication'|translate}}</div>
+                                <div class="info">
+                                    <div class="infoRow">
+                                        <span>{{'applyComponent.applicationType'|translate}}：</span>
+                                        <div class="label">
+                                            {{(kind == "green-card" ? 'applyComponent.greenCard' :
+                                            'applyComponent.passport')|translate}}
+                                        </div>
+                                    </div>
+                                    <div class="infoRow">
+                                        <span>{{'applyComponent.applicant'|translate}}：</span>
+                                        <div class="d-flex nameInfo">
+                                            <div class="formBlock">
+                                                <div class="d-flex nameInfo">
+                                                    <div class="label">{{'applyComponent.name'|translate}}</div>
+                                                    <input type="text" formControlName="firstName" value="{{fName}}">
+                                                </div>
+                                                <div *ngIf="applyForm.controls.firstName.invalid && applyForm.controls.firstName.touched"
+                                                    class="text-danger error">
+                                                    {{'applyComponent.firstNameRequired'|translate}}
+                                                </div>
+                                            </div>
+                                            <div class="formBlock">
+                                                <div class="d-flex nameInfo">
+                                                    <div class="label">{{'applyComponent.lastName'|translate}}</div>
+                                                    <input type="text" formControlName="lastName" value="{{lName}}">
+                                                </div>
+                                                <div *ngIf="applyForm.controls.lastName.invalid && applyForm.controls.lastName.touched"
+                                                    class="text-danger error">
+                                                    {{'applyComponent.lastNameRequired'|translate}}
+                                                </div>
+                                            </div>
+                                            <div class="label">{{'applyComponent.middleName'|translate}}</div>
+                                            <input type="text" formControlName="middleName" value="{{mName}}">
+                                        </div>
+                                    </div>
+                                    <div class="infoRow">
+                                        <span>{{'applyComponent.nationality'|translate}}：</span>
+                                        <div>
+                                            <app-combobox name="country" [disabled]="applied"  [ngModel]="value" [isCountry]="true" [default]="nation"
+                                             [checkBrowserLang]="checkBrowserLang"   (ngModelChange)="writeValue($event)" [items]="countries"></app-combobox>
+                                            <div *ngIf="countryHasError" class="error text-danger ">
+                                                {{'applyComponent.countryRequired'|translate}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- error message after submit -->
+                                    <div *ngIf="submitError" class="error text-danger ">
+                                        {{submitError}}
+                                    </div>
+                                </div>
+                                <div class="m-t-40 center w-100">
+                                    <button type="submit" *ngIf="!applied" class="btn btn-outline-primary btn-sm statusBtn rounded-pill">
+                                        <!-- 保存 -->
+                                        {{'applyComponent.save'|translate}}
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </app-rounded-card>
+</div>

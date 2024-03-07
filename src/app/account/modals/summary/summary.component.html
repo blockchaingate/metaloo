@@ -1,0 +1,32 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">Summary</h4>
+    <button type="button" class="btn btn-close close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="d-flex py-1 justify-content-between">
+        <div>Coin:</div>
+        <div class="font-weight-bold">0.1BTC</div>
+    </div>
+    <div class="d-flex py-1 justify-content-between">
+        <div>Payable amount:</div>
+        <div class="font-weight-bold">$1200</div>
+    </div>
+    <div class="d-flex py-1 justify-content-between">
+        <div>Channel:</div>
+        <div class="font-weight-bold">Mainnet</div>
+    </div>
+    <div class="d-flex py-1 justify-content-between">
+        <div>Address:</div>
+        <div class="font-weight-bold">1xxxxxxxxxx</div>
+    </div>
+    <div class="d-flex py-1 justify-content-between">
+        <div>Payment method:</div>
+        <div class="font-weight-bold">credit card(xxxxx 8876)</div>
+    </div>
+
+    <button type="button" class="my-2 btn-primary w-100" (click)="confirm()">
+        Confirm
+    </button>    
+</div>

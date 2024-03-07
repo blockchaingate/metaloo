@@ -1,0 +1,525 @@
+.checkout {
+  padding: 50px 0 100px;
+}
+
+select {
+  height: 38px;
+  width: 200px;
+  border-radius: 10px;
+  appearance: revert !important;
+}
+
+// input number
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+  margin: 0;
+  height: 38px;
+  border-radius: 10px;
+  padding: 10px;
+  width: 200px;
+}
+
+.product-info {
+  width: 100%;
+}
+
+.product-list {
+  margin-bottom: 20px;
+}
+.product-item {
+  display: flex;
+  align-items: center;
+  padding: 0 0 10px;
+  // border: 1px solid #6a6a6a;
+  // border-radius: 5px;
+  // background-color: #111111;
+}
+
+.product-detail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.product-image {
+  width: 180px;
+  height: 180px;
+  margin-right: 10px;
+}
+.product-name {
+  font-weight: bold;
+}
+.product-quantity {
+  width: 100% !important;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e7edfa;
+}
+.product-delete {
+  margin-left: auto;
+}
+
+.product-price1 {
+  font-size: 14px;
+  // font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #8a94ab;
+  line-height: 20px;
+}
+
+.product-summary {
+  background: #fff9ef;
+  border-radius: 12px;
+  border: 1px solid rgba(206, 173, 1, 0.09);
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  justify-self: center;
+  padding: 10px;
+  margin-top: 25px;
+}
+
+.product-method {
+  display: flex;
+  // align-items: center;
+  padding: 10px;
+  border: 1px solid #6a6a6a;
+  border-radius: 5px;
+  background-color: #111111;
+  flex-direction: column;
+}
+.bondType {
+  display: flex;
+  gap: 60px;
+
+  
+
+  .bondTypeBox.active {
+    background: #ffffff;
+    box-shadow: 0px 2px 10px 0px rgba(1, 64, 206, 0.1);
+    border-radius: 12px;
+    border: 2px solid rgba(1, 64, 206, 0.4);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .bondType {
+    flex-direction: column;
+    gap: 10px;
+
+    .bondTypeBox {
+      width: 100%;
+    }
+  }
+}
+
+.bondTypeBox {
+  width: 150px;
+  max-width: 100%;
+  min-height: 142px;
+  flex-grow: 1;
+  cursor: pointer;
+  background: #ffffff;
+  box-shadow: 0 2px 10px #0140ce0a;
+  border-radius: 12px;
+  border: 1px solid #e7edfa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.payment-dev-1 {
+  .bondTypeBox {
+    height: 82px;
+    background: #fafcff;
+    border-radius: 12px;
+    border: none !important;
+    min-height: auto !important;
+  }
+
+  .bondTypeBox.active {
+    height: 82px;
+    background: #eef2fc;
+    border-radius: 12px;
+  }
+}
+
+.quantityTxt {
+  padding-top: 26px;
+  padding-bottom: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #273c67;
+  line-height: 20px;
+}
+
+.bondTypeBoxInner {
+  flex-grow: 1;
+
+  .bondImg,
+  .bondInfo {
+    flex-grow: 1;
+    flex-direction: row;
+    // justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 400;
+    color: #9ca6bd;
+    line-height: 34px;
+
+    span {
+      padding-left: 5px;
+      font-size: 16px;
+      font-weight: 400;
+      color: #3a4f7c;
+      line-height: 34px;
+    }
+  }
+}
+
+.payType {
+  gap: 20px;
+
+  .bondTypeBox {
+    // background-color: #cddcfa;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .bondTypeBox{
+    img{
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+
+.payType2 {
+  gap: 15px;
+
+  .bondTypeBox2 {
+    width: 125px;
+    height: 41px;
+    background: #ffffff;
+    border-radius: 12px;
+    display: flex;
+    padding: 0 5px;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+  }
+
+  .bondTypeBox2.active {
+    background: #eef2fc;
+  }
+}
+
+.errorTxt {
+  color: red;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  margin-top: 5px;
+}
+
+.payTypeTxt {
+  text-align: left;
+  font-size: 14px;
+  font-weight: 400;
+  color: #273c67;
+  line-height: 16px;
+  padding-left: 10px;
+}
+
+.paySub {
+  font-size: 11px;
+  font-weight: 400;
+  color: #8a94ab;
+  line-height: 20px;
+}
+
+.bank-info {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: space-between;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.payment-method {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  // border: 1px solid #ccc;
+  background-color: #282828;
+  border-radius: 10px;
+}
+
+.payment-method:hover {
+  background-color: #3e53a6;
+}
+
+.payment-image {
+  width: 80px;
+  height: 80px;
+  margin-right: 10px;
+  border-radius: 100px;
+}
+.payment-info {
+  flex-grow: 1;
+}
+.payment-name {
+  font-weight: bold;
+}
+.payment-amount {
+  margin-top: 5px;
+}
+
+.payment-title {
+  font-size: 14px;
+  font-weight: 400;
+  color: #8a94ab;
+  line-height: 20px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mt-36 {
+  margin-top: 36px;
+}
+
+.payment-dev {
+  padding: 20px;
+  // background-color: #3e475d;
+  // background-color: #f7f7f7;
+  // border-radius: 10px;
+  gap: 30px;
+  background: #fff9ef;
+  border-radius: 12px;
+  border: 1px solid rgba(206, 173, 1, 0.09);
+  align-items: center;
+}
+
+.payment-dev2 {
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0px 1px 10px 0px rgba(1, 64, 206, 0.08);
+  border-radius: 12px;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+}
+
+.block {
+  display: block;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+
+.checkoutCon{
+  background: #fff;
+  padding: 5px 30px;
+  border-radius: 35px;
+}
+
+
+.checkImg {
+  display: none;
+}
+
+.active .checkImg {
+  display: block;
+  float: right;
+  margin-top: 92px;
+  width: 22px;
+  height: 22px;
+}
+
+.orderModal {
+  .flex-child {
+    flex-grow: 1;
+  }
+}
+
+::ng-deep {
+  .flex-child {
+    flex-grow: 1;
+  }
+}
+
+.confirm {
+  padding: 0 30px;
+}
+
+.checkoutRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkoutCardInner {
+  padding: 20px 32px;
+}
+
+@media screen and (min-width: 960px) {
+  .checkoutCon {
+    width: 960px !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  select {
+    width: 130px;
+    max-width: 100%;
+  }
+
+  input[type="number"] {
+    width: 130px;
+    max-width: 100%;
+  }
+
+  .product-item {
+    flex-direction: column;
+  }
+}
+
+.titleTxt {
+  font-size: 28px;
+  font-weight: 600;
+  color: #6a7fb0 !important;
+  line-height: 50px;
+  margin-bottom: 41px;
+}
+
+.checktxt {
+  font-size: 14px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #273c67;
+  line-height: 20px;
+}
+
+.payBtn {
+  min-width: 150px;
+  max-width: 100%;
+  border-radius: 24px !important;
+  margin-left: 20px;
+}
+
+h3 {
+  font-size: 14px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #273c67;
+  line-height: 20px;
+}
+
+.mt-43 {
+  margin-top: 43px;
+}
+
+.mt-80 {
+  margin-top: 80px;
+}
+
+.pl-17 {
+  padding-left: 17px;
+}
+
+.chainSelect {
+  font-size: 14px;
+  font-weight: 400;
+  color: #273c67;
+  line-height: 20px;
+}
+
+.chainSelectSub {
+  font-size: 12px;
+  font-weight: 400;
+  color: #8a94ab;
+  line-height: 17px;
+}
+
+.min-150 {
+  min-width: 150px;
+}
+
+.totalTxt {
+  height: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #273c67;
+  line-height: 20px;
+}
+
+.bondIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.iRow {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+@media screen and (max-width: 1000px) {
+  .bondType {
+    flex-direction: column;
+
+    .bondTypeBox {
+      width: 100%;
+    }
+  }
+
+  .payment-dev {
+    flex-direction: column;
+    gap:10px;
+    align-items: flex-start;
+  }
+
+  .bondTypeBoxInner {
+    flex-grow: 1;
+    flex-direction: column;
+    padding: 10px 0;
+  }
+
+  .bottomRow {
+    flex-direction: column;
+  }
+
+  .payBtn {
+    margin-top: 30px;
+    margin-left: 0px;
+  }
+
+  .iRowCon{
+    padding-top: 20px;
+  }
+}
+
+@media screen and (max-width: 959px){
+  .checkoutCon{
+    width: 100% !important;
+
+  }
+}
+
+
+
+@media screen and (max-width: 500px) {
+  .payType {
+    gap: 20px;
+    flex-direction: column;
+  }
+}

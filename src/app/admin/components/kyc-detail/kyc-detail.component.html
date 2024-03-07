@@ -1,0 +1,99 @@
+<app-rounded-card>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>User Basic Information</h1>
+                <table class="table table-dark table-striped user-table" *ngIf="isLoaded">
+                    <tr>
+                        <th>Property</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr *ngFor="let pair of getKeyValuePairs()">
+                        <td>{{ pair[0] }}</td>
+                        <td>{{ pair[1] }}</td>
+                    </tr>
+                </table>
+                <div *ngIf="!isLoaded">
+                    <p>Loading...</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</app-rounded-card>
+<app-rounded-card>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>KYC Level 1 Information</h1>
+                <table class="table table-dark table-striped user-table" *ngIf="isL1Loaded">
+                    <tr>
+                        <th>Property</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr *ngFor="let pair of getL1KeyValuePairs()">
+                        <td>{{ pair[0] }}</td>
+                        <td *ngIf="pair[0] != 'selfieUrls'">{{ pair[1] }}</td>
+                        <td *ngIf="pair[0] == 'selfieUrls'">
+                                <!-- image -->
+                                <img *ngFor="let url of pair[1]" src="{{ url }}" alt="address proof" width="200" height="200">
+                      
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row" *ngIf="isL1Loaded">
+            <div class="col-md-6">
+                <div class="mt-3">
+                    <button type="button" class="btn btn-success mr-3" (click)="confirmL1()">Confirm L1</button>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mt-3">
+
+                    <button type="button" class="btn btn-danger" (click)="rejectL1()">Reject L1</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-rounded-card>
+<app-rounded-card>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>KYC Level 2 Information</h1>
+                <table class="table table-dark table-striped user-table" *ngIf="isL2Loaded">
+                    <tr>
+                        <th>Property</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr *ngFor="let pair of getL2KeyValuePairs()">
+                        <td>{{ pair[0] }}</td>
+                        <td *ngIf="pair[0] != 'addressProofUrls'">{{ pair[1] }}</td>
+                        <td *ngIf="pair[0] == 'addressProofUrls'">
+                                <!-- image -->
+                                <img *ngFor="let url of pair[1]" src="{{ url }}" alt="address proof" width="200" height="200">
+                         
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row" *ngIf="isL2Loaded">
+            <div class="col-md-6">
+                <div class="mt-3">
+                    <button type="button" class="btn btn-success mr-3" (click)="confirmL2()">Confirm L2</button>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mt-3">
+
+                    <button type="button" class="btn btn-danger" (click)="rejectL2">Reject L2</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-rounded-card>

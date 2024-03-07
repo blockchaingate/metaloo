@@ -1,0 +1,238 @@
+@import "/src/variables.scss";
+
+.header-top {
+    background-color: #fff;
+    // background-color: #1a7bca;
+    // background-color: #311b66;
+    color: $c-blue;
+    display: block;
+
+    transition: all 0.3s ease-in-out;
+    // padding: 10px 0;
+}
+
+.homepage {
+    z-index: 100;
+    background-color: transparent;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.sticky-header {
+    background-color: white;
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.homepage:not(.sticky-header) {
+    background-color: transparent;
+}
+
+.dnb-logo {
+    width: 300px;
+    height: auto;
+    margin-top: 0px;
+    position: relative;
+    max-width: 80%;
+    // filter: brightness(0) invert(1) brightness(1);
+}
+
+.digital-id-logo{
+    width: 50px;
+    height: auto;
+    margin-top: 0px;
+    position: relative;
+    max-width: 80%;
+
+}
+
+.btn-header {
+    background: #0140ce;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+    padding: 10px 20px;
+    line-height: 19px;
+    border: none;
+}
+
+li a {
+    // color: white;
+    color: #3a4f7c;
+
+    img {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+.lagBtn {
+    border: none;
+    background: transparent;
+    margin-right: 5px;
+    margin-top: 4px;
+    color: #3a4f7c;
+
+    img {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+.login-button {
+    background-color: #781bca;
+    color: #fff;
+    border-radius: 30px;
+    padding: 5px 20px;
+    font-size: 20px;
+    font-weight: 600;
+    // margin-top: 20px;
+    margin-left: 20px;
+    text-transform: uppercase;
+    border: none;
+    box-shadow: 0px 0px 10px 0px #333333;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        box-shadow: 0px 0px 20px 0px #333333;
+    }
+}
+
+.login-button:hover {
+    background-color: #914acf;
+}
+
+.thebond {
+    font-family: sans-serif;
+    font-size: 23px;
+    font-weight: 800;
+    color: #212529;
+    padding-left: 10px;
+}
+
+.LangBtn {
+    margin-left: 10px;
+}
+
+.btn-main-s {
+    background-color: $btn-bg;
+    color: #fff;
+    border-radius: 30px;
+    padding: 5px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: none;
+    box-shadow: 0 0 2px #ccc;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-main-s:hover {
+    background-color: #781bca;
+    color: #fff;
+}
+
+.hide-on-mobile {
+    display: block;
+}
+
+@media screen and (min-width: 992px) {
+    #navbarSupportedContent {
+        display: flex;
+        //space-between
+        justify-content: space-between;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    // .hide-on-mobile {
+    //     display: none;
+    // }
+    .LangBtn {
+        margin-top: 10px;
+        margin-left: 0px;
+    }
+    .login-button {
+        margin-left: 0px;
+    }
+    .homepage:not(.sticky-header) {
+        background-color: white;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .dnb-logo {
+        width: 180px;
+        height: auto;
+        margin-top: 0px;
+        position: relative;
+        max-width: 80%;
+    }
+    .thebond {
+        font-size: 12px;
+    }
+    .homepage:not(.sticky-header) {
+        background-color: white;
+    }
+}
+
+.nav-link:hover {
+    color: #8b9cf4 !important;
+}
+
+.nav-link.selected {
+    color: #1f3fe9;
+    // font-weight: 600;
+    // text-decoration-line: underline;
+}
+
+.bond-nav {
+    padding-right: 3rem;
+    padding-left: 3rem;
+}
+
+.navbar-brand{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 1200px) {
+    .bond-nav {
+        padding-right: 2.5rem;
+        padding-left: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .bond-nav {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .bond-nav {
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+    }
+
+    .nav-link {
+        font-size: 14px;
+    }
+    
+    .navbar-brand {
+        padding: 0;
+    }
+
+    .navbar-brand img {
+        width: 160px;
+    }
+
+    .navbar-toggler{
+        padding: 2px 5px !important;
+    }
+}

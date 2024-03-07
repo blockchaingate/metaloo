@@ -1,0 +1,16 @@
+<div class="tabCotainer">
+    <button type="button" class="btn-primary w-100 mainColor my-2" (click)="payWith('zelle')">
+        Pay with Zelle
+    </button>
+
+    <button type="button" class="btn-primary w-100 mainColor my-2" (click)="payWith('cashapp')">
+        Pay with Cashapp
+    </button>
+
+    <button *ngIf="order && (order.fiat_currency == 'USD') && (['BTC', 'ETH', 'USDT'].indexOf(order.coin) >= 0)" type="button" class="btn-primary w-100 mainColor my-2" (click)="payWith('gatefi')">
+        Pay with Gatefi
+    </button>
+</div>
+
+
+  

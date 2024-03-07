@@ -1,0 +1,92 @@
+<app-rounded-card>
+    <div>
+        <h1>KYC</h1>
+        <p>
+            {{'kychead'|translate}}'
+        </p>
+    </div>
+    <div *ngIf="kycLoaded">
+        <div class="bg-dark darkBorder p-3">
+            <div class="row">
+                <div class="col-md-12 d-flex align-items-center">
+                    <button type="button" [disabled]="input_level > -1" class="btn btn-primary"
+                        (click)="isCollapsed1 = !isCollapsed1" [attr.aria-expanded]="!isCollapsed1"
+                        aria-controls="collapseBasic">
+                        {{'kycstep1'|translate}}
+                    </button>
+
+                    <ng-container *ngIf="input_level == -1; else verifiedTemplate">
+                        <p>{{'kycstep1c'}}</p>
+                    </ng-container>
+
+                    <div id="collapseBasic" [collapse]="isCollapsed1" [isAnimated]="true">
+                        <div class="well well-lg card card-block card-header">
+                            <app-identity></app-identity>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-dark darkBorder p-3 mt-3">
+            <div class="row">
+                <div class="col-md-12 d-flex align-items-center">
+                    <button type="button" [disabled]="input_level > 0" class="btn btn-primary"
+                        (click)="isCollapsed2 = !isCollapsed2" [attr.aria-expanded]="!isCollapsed2"
+                        aria-controls="collapseBasic">
+                        {{'kycstep2'|translate}}
+                        <!-- arrow down icon -->
+                    </button>
+
+
+                    <ng-container *ngIf="input_level < 1; else verifiedTemplate">
+                        <p>{{'kycstep2c'}}</p>
+                    </ng-container>
+                    <div id="collapseBasic" [collapse]="isCollapsed2" [isAnimated]="true">
+                        <div class="well well-lg card card-block card-header">
+                            <app-email></app-email>
+                            <app-phone></app-phone>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-dark darkBorder p-3 mt-3">
+            <div class="row">
+                <div class="col-md-12 d-flex align-items-center">
+                    <button type="button" [disabled]="input_level > 1" class="btn btn-primary"
+                        (click)="isCollapsed3 = !isCollapsed3" [attr.aria-expanded]="!isCollapsed3"
+                        aria-controls="collapseBasic">
+                        {{'kycstep3'|translate}}
+                        <!-- arrow down icon -->
+                    </button>
+                    <ng-container *ngIf="input_level < 2; else verifiedTemplate">
+                        <p>{{'kycstep3c'}}</p>
+                    </ng-container>
+                    <div id="collapseBasic" [collapse]="isCollapsed3" [isAnimated]="true">
+                        <div class="well well-lg card card-block card-header">
+                            <app-nationality></app-nationality>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button *ngIf="input_level < 2" class="btn btn-primary" 
+        (click)="goToKyc()">{{'Proceed to KYC'|translate}}</button>
+    </div>
+
+    <div *ngIf="!kycLoaded">
+        {{'Loading'|translate}}...
+    </div>
+</app-rounded-card>
+
+<ng-template #verifiedTemplate>
+    <div class="verified d-flex justify-content-center align-items-center p-l-30">
+        <div class="verified-icon">
+            <i class="fa fa-check-circle" aria-hidden="true"></i>
+        </div>
+        <div class="verified-text p-l-10">
+            {{'Verified'|translate}}
+        </div>
+    </div>
+</ng-template>

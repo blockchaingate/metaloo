@@ -1,0 +1,46 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">Reject kyc</h4>
+    <button type="button" class="btn btn-close close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="row pb-3">
+        <div class="col col-12">
+            <label for="basic-url">Reason</label>
+            <textarea class="form-control" name="reason" [(ngModel)]="reason" rows="3"></textarea>
+        </div>
+    </div>
+    <div class="row pb-3">
+        <div class="col col-12">
+            <label for="basic-url">Actions required * </label>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" [(ngModel)]="nationality">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Nationality
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" [(ngModel)]="identity">
+                <label class="form-check-label" for="flexCheckChecked">
+                    Identity
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" [(ngModel)]="customerDueDiligence">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Customer due diligence
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" [(ngModel)]="document">
+                <label class="form-check-label" for="flexCheckChecked">
+                    Document
+                </label>
+            </div>            
+        </div>
+    </div>
+    <button type="button" class="my-2 btn-primary w-100" (click)="reject()">
+        Reject
+    </button>
+</div>

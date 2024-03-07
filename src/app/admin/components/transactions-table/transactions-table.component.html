@@ -1,0 +1,53 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <label>Type</label>
+            </th>
+            <th>
+                <label>User</label>
+            </th>
+            <th>
+                <label>Coin</label>
+            </th>
+            <th>
+                <label>Avaliable balance</label>
+            </th>
+            <th>
+                <label>Avaliable balance change</label>
+            </th>
+            <th>
+                <label>Linked data</label>
+            </th>     
+            <th>
+                <label>Created at</label>
+            </th>        
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of transactions">
+            <td>
+                {{item.type}}
+            </td>
+            <td>
+                {{item.user.email}}
+            </td>
+            <td>
+                {{item.coin.symbol}}
+            </td>
+
+            <td>
+                {{item.available_balance}}
+            </td>
+            <td>
+                {{item.available_balance_change}}
+            </td>
+            <th>
+                {{showText(item.linked_data)}}
+            </th>  
+            <td>
+                {{item.created_at | date}}
+            </td>
+        </tr>
+    </tbody>
+</table>

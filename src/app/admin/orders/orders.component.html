@@ -1,0 +1,23 @@
+<app-rounded-card>
+    <div class="d-flex justify-content-between py-3">
+        <div>Orders</div>
+    </div>
+    <!-- search -->
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Search something..." aria-label="Search"
+            aria-describedby="button-addon2">
+        <button class="btn btn-secondary" type="button" id="button-addon2">Search</button>
+    </div>
+    <app-orders-table [orders]="orders"></app-orders-table>
+    <div class="d-flex justify-content-center">
+        <div class="px-2" (click)="prev()">
+            <a>Prev</a>
+        </div>
+        <div class="px-2">
+            <a>{{pageNum +1}}</a>
+        </div>
+        <div class="px-2" (click)="next()">
+            <a>Next</a>
+        </div>
+    </div>
+</app-rounded-card>

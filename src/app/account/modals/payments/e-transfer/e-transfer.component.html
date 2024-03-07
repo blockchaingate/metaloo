@@ -1,0 +1,28 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">Interac e-Transfer</h4>
+    <button type="button" class="btn btn-close close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+
+    <div>
+        Amount: {{order.totalToPay}} USD
+    </div>
+    <div>
+        Please email transfer to <span class="text-danger">hotsell@gmail.com</span>
+    </div>
+    <div>
+        Please transfer with memo: 
+    </div>
+    <div class="text-danger">
+        otc order-{{order._id}}
+    </div>
+    <div>
+        Please click "Marked as paid" button after payment finished
+    </div>
+
+    <button type="button" class="my-2 btn-primary w-100" (click)="markedAsPaid()">
+        Marked as paid
+    </button>
+</div>

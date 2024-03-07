@@ -1,0 +1,16 @@
+<app-card 
+[title]="'Verify your info'" 
+[action1Text]="'Confirm'"
+(action1Click)="click()">
+    <div class="pb-3">
+        Fundark is legally required to collect this information.
+    </div>
+    <div class="pb-3">
+        <label for="basic-url">How much crypto do you expect to trade per year?</label>
+        <app-combobox name="revenue" [(ngModel)]="revenue" [items]="revenues"></app-combobox>
+    </div>    
+    <div class="pb-3">
+        <label for="basic-url">What industry do you work in?</label>
+        <app-combobox name="industry" [(ngModel)]="industry" [items]="industries"></app-combobox>
+    </div> 
+</app-card>

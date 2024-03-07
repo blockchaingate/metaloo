@@ -1,0 +1,53 @@
+<div *ngIf="step == 1">
+  <app-card [title]="'phone.setupTwoStepVerification'" [action1Text]="'phone.sendCode'" (action1Click)="click()">
+
+    <app-countries [default]="defaultCountry.text" [label]="'Country'" [(ngModel)]="country"></app-countries>
+
+    <label class="phone mt-3">{{'phone.PhoneNumber' | translate}}</label>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">{{country?.dial_code}}</span>
+      </div>
+      <input type="text" class="form-control" placeholder="{{'phone.PhoneNumber' | translate}}" [(ngModel)]="phone">
+    </div>
+    <div>
+      {{'phone.Security' | translate}}
+    </div>
+    <!-- error -->
+    <div *ngIf="resendTimer" class="inactive">
+      {{'phone.waitMessage' | translate}}: {{resendTimer}} {{'phone.seconds' | translate}}
+    </div>
+  </app-card>
+
+</div>
+
+
+
+<div *ngIf="step == 2">
+<!-- <div> -->
+  <app-card [title]="'phone.setupTwoStepVerification'" [action1Text]="'phone.submit'" (action1Click)="confirm()">
+    <div>
+      {{'phone.enterCode'|translate}} {{country.dial_code}}{{this.phone}}</div>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="{{'phone.phoneCode' | translate}}" [(ngModel)]="phoneCode">
+    </div>
+    <div class="phoneTry ">
+      <div class="phoneTrySub" (click)="resend()" [ngClass]="{inactive: resendTimer}">
+
+        {{'phone.resendTextMessage'|translate}} {{resendTimer? "(" + resendTimer + ")": ""}}
+      </div>
+      <div class="phoneTrySub" (click)="changeStep1()">
+
+        {{'phone.useAnotherPhoneNumber'|translate}}
+      </div>
+    </div>
+  </app-card>
+</div>
+
+
+<!-- {{'phone.submit'|translate}}
+{{'phone.sendCode'|translate}}
+{{'phone.enterCode'|translate}}
+{{'phone.phoneCodePlaceholder'|translate}}
+{{'phone.resendTextMessage'|translate}}
+{{'phone.useAnotherPhoneNumber'|translate}} -->

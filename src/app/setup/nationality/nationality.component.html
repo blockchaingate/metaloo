@@ -1,0 +1,15 @@
+<app-card 
+[title]="'Select your citizenship'" 
+[action1Text]="'Submit'"
+(action1Click)="submit()"
+>
+
+    <div class="pb-3">
+        Fundark is legally required to collect this information. If you're a citizen of more than one country, please pick one.
+    </div>
+
+   
+    <app-countries [label]="'Select your citizenship'" [(ngModel)]="country"></app-countries>
+    
+    <div></div>
+</app-card >

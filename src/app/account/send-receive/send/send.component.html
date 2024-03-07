@@ -1,0 +1,19 @@
+<div class="form-group">
+    <label for="chainSelect">Email</label>
+    <input type="text" class="form-control" [(ngModel)]="email">
+</div>
+
+<div class="form-group">
+    <label for="chainSelect">Coin</label>
+    <app-combobox [(ngModel)]="coin" [imageType]="'image'" [items]="coins"></app-combobox>
+    <div *ngIf="coin">Balance: {{coin.value}}</div>
+</div>
+
+<div class="form-group">
+    <label for="chainSelect">Amount</label>
+    <input type="number" class="form-control" [(ngModel)]="amount">
+</div>
+
+<div class="form-group">
+  <button type="button" class="btn btn-primary btn-lg btn-block" (click)="send()">Send</button>
+</div>

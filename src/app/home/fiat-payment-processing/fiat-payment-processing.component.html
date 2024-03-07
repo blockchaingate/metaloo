@@ -1,0 +1,77 @@
+<div class="checkout container-fluid bg-grey" *ngIf="order">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h4 class="text-center">
+            {{'fiatPaymentProcessingComponent.paymentDetails'|translate}}
+          </h4>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <app-rounded-card>
+              <div class="container">
+                <div class="row my-1">
+                  <div class="col-md-2">
+                    <div>{{'fiatPaymentProcessingComponent.orderNumber'|translate}}</div>
+                  </div>
+                  <div class="col-md-10">
+                    <div>{{orderId}}</div>
+                  </div>
+                </div>
+
+                <div class="row my-1">
+                    <div class="col-md-2">
+                      <div>{{'fiatPaymentProcessingComponent.purchaseType'|translate}}</div>
+                    </div>
+                    <div class="col-md-4">
+                      <div>{{order.bondId.symbol}}</div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div>{{'fiatPaymentProcessingComponent.purchaseQuantity'|translate}}</div>
+                    </div>
+                    <div class="col-md-4">
+                        <div>{{order.quantity}}</div>
+                    </div>
+                </div>
+
+                <div class="row my-1">
+                    <div class="col-md-2">
+                      <div>{{'fiatPaymentProcessingComponent.paymentMethod'|translate}}</div>
+                    </div>
+                    <div class="col-md-10">
+                      <div>{{'fiatPaymentProcessingComponent.usdOrOther' | translate}}</div>
+                    </div>
+                </div>
+
+
+                <div class="row my-1">
+                    <div class="col-md-2">
+                      <div>{{'fiatPaymentProcessingComponent.paymentAmount'|translate}}</div>
+                    </div>
+                    <div class="col-md-10">
+                      <div>{{order.paymentAmount}}</div>
+                    </div>
+                </div>
+
+
+                <div class="row my-1">
+                    <div class="col-md-2">
+                      <div>{{'fiatPaymentProcessingComponent.transactionStatus'|translate}}</div>
+                    </div>
+                    <div class="col-md-10">
+                      <div>{{order.status | translate}}</div>
+                    </div>
+                </div>
+              </div>
+          </app-rounded-card>
+
+          <button type="button" [routerLink]="['/']" routerLinkActive="router-link-active"
+          class="btn btn-outline-primary rounded-pill btnOverOut mt-3">{{'fiatPaymentProcessingComponent.return'|translate}}</button>
+      <div class="p-l-10"></div>
+        </div>
+      </div>
+    </div>
+</div>

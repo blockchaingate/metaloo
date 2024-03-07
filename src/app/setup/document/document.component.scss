@@ -1,0 +1,187 @@
+.kycTitle {
+    font-size: 28px;
+    font-family: PingFangSC-Semibold, PingFang SC;
+    font-weight: 600;
+    color: #6a7fb0;
+    line-height: 50px;
+}
+
+.kycTitleSub {
+    justify-content: end;
+    display: flex;
+    align-items: center;
+}
+
+.kycDiv {
+    // max-width: 750px;
+}
+
+.kyvRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (min-width: 960px) {
+    .kycCon {
+        max-width: 512px !important;
+    }
+}
+
+.idTypes {
+    gap: 10px;
+}
+
+.id-doc {
+    color: rgb(233, 162, 62);
+}
+.document-card {
+    width: 100%;
+    height: 120px;
+    // margin: 0px 15px;
+    background: #fafcff;
+    border-radius: 12px;
+}
+
+.document-card:hover {
+    border-color: #eee;
+    transition: border-color 0.25s ease 0s;
+}
+
+.document-card img {
+    width: auto;
+    height: 80px;
+    // margin-bottom: 10px;
+}
+
+.dropArea {
+    background: #eef2fc;
+    border-radius: 18px;
+}
+
+.decList {
+    font-size: 14px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #8a94ab;
+    line-height: 24px;
+}
+
+path {
+    fill: #c7cbfc;
+}
+
+.selected {
+    background: #eef2fc;
+}
+
+ul {
+    list-style: square;
+    padding-inline-start: 18px;
+}
+
+ul li {
+    padding-bottom: 6px;
+    color: rgba(134, 137, 143);
+}
+
+.ExampleGuide__styleIcon {
+    width: 240px;
+    height: 153px;
+}
+
+.actionBtn {
+    position: relative;
+    width: auto;
+    min-width: 124px;
+    padding: 10px 20px;
+    margin: 0px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 80ms ease-in-out 0s;
+    padding: 12px 16px;
+    font-size: 14px;
+    border: 1px solid var(--primary);
+    background-color: var(--primary);
+}
+
+.title {
+    margin: 0px 0px 20px;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.text {
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    max-width: 450px;
+}
+
+.hjMqsJ {
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    border-width: 3px;
+    border-style: solid;
+    border-right-color: rgba(6, 103, 208, 0.05);
+    border-bottom-color: rgba(6, 103, 208, 0.05);
+    border-left-color: rgba(6, 103, 208, 0.05);
+    border-image: initial;
+    border-top-color: var(--primary);
+    animation: 1s linear 0s infinite normal none running GLFYz;
+}
+
+.hZpvUV {
+    margin-top: 20px;
+    text-align: center;
+    color: var(--primary);
+}
+
+@media screen and (max-width: 768px) {
+    .flex-container {
+        flex-direction: column;
+    }
+}
+
+.btn-info {
+    color: white;
+}
+
+.pt-27 {
+    padding-top: 27px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #8a94ab;
+    line-height: 20px;
+}
+
+.pt-52{
+    padding-top: 52px;
+}
+
+.pt-105{
+    padding-top: 105px;
+}
+
+.cardInner{
+    padding:4px 10px;
+}
+
+
+.basicTitle {
+    font-size: 16px !important;
+    font-weight: 400 ;
+    color: #273c67 !important;
+    line-height: 20px;
+}
+
+input {
+    border-color: #e7edfa;
+    font-size: 14px;
+    color: #273c67;
+    line-height: 16px;
+    height: 48px;
+    border-radius: 12px;
+    margin-top:5px ;
+}

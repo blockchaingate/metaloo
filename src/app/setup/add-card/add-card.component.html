@@ -1,0 +1,44 @@
+<app-card [title]="'Add card'">
+    <div class="container">
+        <div class="row">
+            <div class="col col-12">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Card number" aria-label="Card number" aria-describedby="Card number">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-md-4 col-12">
+                <div class="input-group mb-3">
+                    <div class="btn-group" dropdown>
+                        <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+                                aria-controls="dropdown-basic">
+                          Month <span class="caret"></span>
+                        </button>
+                        <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                            role="menu" aria-labelledby="button-basic">
+                          <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+                          <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+                          <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+                          <li class="divider dropdown-divider"></li>
+                          <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
+                          </li>
+                        </ul>
+                      </div>
+               </div>
+            </div>
+            <div class="col col-md-4 col-12">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Year" aria-label="Card number" aria-describedby="Card number">
+                </div>
+            </div>    
+            <div class="col col-md-4 col-12">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="cvv" aria-label="Card number" aria-describedby="Card number">
+                </div>
+            </div>           
+        </div>
+    </div>
+
+    
+</app-card>

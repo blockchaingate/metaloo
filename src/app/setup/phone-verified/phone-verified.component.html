@@ -1,0 +1,35 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="center mb-2">
+      <h1>{{ 'phone-verify.phone-number-verified' | translate }}</h1>
+
+    </div>
+    <div class="col-md-8 offset-md-2">
+      <app-rounded-card>
+        <div class="container mt-4 center">
+          <!-- <h2>{{ 'phone-verify.thank-you-page-title' | translate }}</h2> -->
+          <!-- Add your thank you page content here -->
+          <p>{{ 'phone-verify.phone-number-verified-message' | translate }}</p>
+          <p>{{ 'phone-verify.thank-you-content' | translate }}</p>
+
+          <!-- Button to go to the home page -->
+          <div class="btnDiv">
+            <button type="button" class="btn btn-light mt-3" (click)="goToHomePage()">{{ 'phone-verify.go-to-home' |
+              translate }}</button>
+  
+            <!-- Additional button for KYC Level 1 -->
+            <button type="button" class="btn btn-primary mt-3" (click)="startKYCLevel1()">{{
+              'phone-verify.start-kyc-level1' | translate }}</button>
+          </div>
+        </div>
+        <!-- Link for "What is KYC?" in a new row -->
+
+      </app-rounded-card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 mt-1  mb-5 center">
+      <a href="/kyc-info">{{ 'phone-verify.what-is-kyc' | translate }}</a>
+    </div>
+  </div>
+</div>

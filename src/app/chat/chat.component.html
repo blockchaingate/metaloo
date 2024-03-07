@@ -1,0 +1,11 @@
+<div class="messages-container mb-3" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+    <app-chat-overview *ngIf="!messages || (messages.length == 0)"></app-chat-overview>
+    <app-messages *ngIf="messages && (messages.length > 0)" [messages]="messages"></app-messages>                
+</div>
+<div class="input-icons p-3">
+    <input type="text" class="form-control" placeholder="发消息" [(ngModel)]="prompt" (keyup.enter)="sendMessage()">
+    <button type="button" class="btn" (click)="sendMessage()">
+        <app-svg [name]="'send'"></app-svg>
+    </button>
+</div>
+

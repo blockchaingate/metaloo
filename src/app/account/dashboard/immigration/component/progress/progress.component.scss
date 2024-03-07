@@ -1,0 +1,55 @@
+.infoCard {
+    justify-content: space-between;
+    // align-items: center;
+    margin-bottom: 10px;
+    padding: 30px 20px;
+    border-radius: 12px;
+    border: 1px solid #eef2fc;
+    margin-top: 30px;
+}
+
+.borderShapre {
+    
+    img{
+        opacity: 0.3;
+    }
+}
+
+.borderShapre.active {
+    img{
+        opacity: 1;
+    }
+}
+
+.active .borderShapre {
+    // background: #c2f2dc;
+}
+
+.steps {
+    // margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.stepTxt {
+    font-size: 14px;
+    font-weight: 500;
+    color: #8a94ab;
+    line-height: 20px;
+}
+
+.arrow {
+    svg {
+        height: 10px;
+        width: 10px;
+        fill: #6a7fb0;
+    }
+}

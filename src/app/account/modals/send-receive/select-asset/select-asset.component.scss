@@ -1,0 +1,30 @@
+.title {
+    position: relative;
+}
+
+.icon {
+    position: absolute;
+    left: 0;
+}
+
+i:hover {
+    color: #6e7480;
+}
+
+.search-box {
+    position: relative;
+}
+
+.search-box i{
+    position: absolute;
+    left: 10px;
+    top: 25px;
+}
+
+.search-box input {
+    border: none;
+}
+
+.search-box input:focus-visible {
+    outline: none!important;
+}

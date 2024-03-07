@@ -1,0 +1,20 @@
+<ng-template #paymentTemplate>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Payment methods</h4>
+      <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="d-flex justify-content-between">
+        <div (click)="metamask()" class="item border p-3 d-flex flex-column align-items-center">
+            <img class="img" src="/assets/images/MetaMask_Fox.svg.png">
+            <div>Metamask</div>
+        </div>
+        <div (click)="purchase()" class="item border p-3 d-flex flex-column align-items-center">
+            <img class="img" src="/assets/images/walletconnect-logo.png">
+            <div>Wallet connect</div>
+        </div>
+      </div>
+    </div>
+</ng-template>

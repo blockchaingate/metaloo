@@ -1,0 +1,39 @@
+.main-container {
+    position: relative;
+}
+
+.sidebar {
+    min-height: 100vh;
+    overflow: visible;
+    // width: 64px;
+    border-right: 1px solid rgba(91, 97, 110, 0.2);
+    // background: rgb(var(--gray0));
+}
+
+.logo{
+    width: 50px;
+    height: 50px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0px;
+}
+ul.menu {
+    margin: 18px 8px;
+}
+
+
+ul.menu li {
+    height: 50px;
+}
+
+.content-header {
+    border-bottom: 1px solid rgba(91, 97, 110, 0.2 );
+    height: 68px;
+}
+
+.content {
+    padding: 24px;
+    background: rgba(0, 62, 193, 0.03);
+}

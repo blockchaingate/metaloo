@@ -1,0 +1,100 @@
+.document-card {
+    width: 160px;
+    height: 160px;
+    margin: 0px 15px;
+    border: 1px solid rgba(91,97,110,0.2);
+}
+
+.document-card:hover {
+    border-color: rgb(91,97,110);
+    transition: border-color 0.25s ease 0s;
+}
+
+.document-card svg {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+h2{
+    color: #333;
+}
+
+.exampleVideo{
+    max-width: 100%;
+}
+
+ul {
+    list-style: square;
+    padding-inline-start: 18px;
+}
+
+ul li {
+    padding-bottom: 6px;
+    color: #666;
+}
+
+.ExampleGuide__styleIcon {
+    width: 240px;
+    height: 153px;
+}
+
+.actionBtn {
+    color: white;
+    position: relative;
+    width: auto;
+    min-width: 124px;
+    padding: 10px 20px;
+    margin: 0px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 80ms ease-in-out 0s;
+    padding: 12px 16px;
+    font-size: 14px;
+    border: 1px solid var(--primary);
+    background-color: var(--primary);
+}
+
+.video{
+    width: 100%;
+    max-width: 100%;
+}
+
+.title {
+    margin: 0px 0px 20px;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.text {
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    max-width: 450px;
+}
+
+.hjMqsJ {
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    border-width: 3px;
+    border-style: solid;
+    border-right-color: rgba(6, 103, 208, 0.05);
+    border-bottom-color: rgba(6, 103, 208, 0.05);
+    border-left-color: rgba(6, 103, 208, 0.05);
+    border-image: initial;
+    border-top-color: var(--primary);
+    animation: 1s linear 0s infinite normal none running GLFYz;
+}
+
+.hZpvUV {
+    margin-top: 20px;
+    text-align: center;
+    color: var(--primary);
+}
+
+@media screen and (max-width: 768px) {
+    .flex-container {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,67 @@
+<div class="container kycDiv mt-2">
+  <div class="row">
+      <div class="col-md-6">
+          <div class="kycTitle">
+              KYC
+          </div>
+      </div>
+      <div class="col-md-6 kycTitleSub">
+          <app-skip-kyc />
+      </div>
+  </div>
+  <div class="row kyvRow">
+
+      <div class="col-md-8 kycCon">
+        <app-rounded-card>
+          <div class="container mt-4">
+            <div class="basicTitle">{{ "level2.l2" | translate }}</div>
+            <div class="basicTitleSub">{{ 'proof-address.address-proof' | translate }}</div>
+            <form novalidate (ngSubmit)="onSubmit()">
+              <!-- Other fields for personal information (omitted for brevity) -->
+              
+
+              <div class="form-group mt6p">
+                <div class="row">
+                  <div class="col col-md-4 col-12 colDoc" *ngFor="let item of addressProofTypes">
+                    <div class="proof-option" [ngClass]="formData.addressProofType == item.value ? 'checked' : ''" (click)="changeAddressProffType(item.value)">
+                      {{item.text | translate }}
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              
+              <div class="form-group mt-3">
+                <label for="addressProofImage1">{{ 'proof-address.upload-image-1' | translate }}</label>
+
+                <div class="d-flex mt6p">
+                  <button type="button" class="btn btn-primary uploadDocBtn" (click)="fileUpload.click()">
+                    <!-- 上传 -->
+                    {{ 'proof-address.upload' | translate }}
+                  </button>
+                  <div *ngIf="!uploadedFile" class="uploadDocTxt mt-2 p-l-10">
+                    <!-- 不超过10MB的.jpg/.png/.pdf格式的文件 -->
+                    {{ 'proof-address.uploadDesc' | translate }}
+                  
+                  </div>
+
+                  <div *ngIf="uploadedFile">
+                    {{uploadedFile.name}}
+                  </div>
+                </div>
+                
+
+                <input type="file" #fileUpload class="form-control invisible" (change)="onImageSelected($event)" required>
+
+              </div>
+              
+
+  
+              <button type="submit" class="rounded-pill btn btn-outline-primary mt-3 w-100">{{ 'proof-address.submit-btn' | translate }}</button>
+            </form>
+          </div>
+        </app-rounded-card>
+      </div>
+    </div>
+  </div>
+  

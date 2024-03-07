@@ -1,0 +1,115 @@
+<table class="table">
+    <tbody>
+        <tr>
+            <td>User id:</td>
+            <td>{{kyc.user_id}}</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>{{kyc.email}}</td>
+        </tr>
+        <tr>
+            <td>First name:</td>
+            <td>{{kyc.first_name}}</td>
+        </tr>
+        <tr>
+            <td>Last name:</td>
+            <td>{{kyc.last_name}}</td>
+        </tr>
+        <tr>
+            <td>Citizenship:</td>
+            <td>{{kyc.countryOfCitizenship}}</td>
+        </tr>
+
+        <tr>
+            <td>DateCreated:</td>
+            <td>{{kyc.created_at | date}}</td>
+        </tr>
+        <tr>
+            <td>DateOfBirth:</td>
+            <td>{{kyc.year + '-' + kyc.month + '-' + kyc.day}}</td>
+        </tr>
+
+        <tr>
+            <td>employmentStatus:</td>
+            <td>{{kyc.employmentStatus}}</td>
+        </tr>
+        <tr>
+            <td>idType:</td>
+            <td>{{kyc.idType}}</td>
+        </tr>
+
+        <tr>
+            <td>industry:</td>
+            <td>{{kyc.industry}}</td>
+        </tr>
+        <tr>
+            <td>Intent:</td>
+            <td>{{kyc.intent}}</td>
+        </tr>
+        <tr>
+            <td>phone:</td>
+            <td>{{kyc.phone}}</td>
+        </tr>
+
+        <tr>
+            <td>homeAddress:</td>
+            <td>{{kyc.homeAddress}}</td>
+        </tr>
+        <tr>
+            <td>homeAddress2:</td>
+            <td>{{kyc.homeAddress2}}</td>
+        </tr>
+        <tr>
+            <td>City:</td>
+            <td>{{kyc.city}}</td>
+        </tr>
+        <tr>
+            <td>CountryOfResidency:</td>
+            <td>{{kyc.countryOfResidency}}</td>
+        </tr>
+        <tr>
+            <td>postalCode:</td>
+            <td>{{kyc.postalCode}}</td>
+        </tr>
+        <tr>
+            <td>province:</td>
+            <td>{{kyc.province}}</td>
+        </tr>
+        <tr>
+            <td>revenue:</td>
+            <td>{{kyc.revenue}}</td>
+        </tr>
+        <tr>
+            <td>source:</td>
+            <td>{{kyc.source}}</td>
+        </tr>
+        <tr>
+            <td>status:</td>
+            <td>
+                <span class="badge badge-primary" *ngIf="kyc.status == 0">New</span>
+                <span class="badge badge-success" *ngIf="kyc.status == 1">Approved</span>
+                <span class="badge badge-danger" *ngIf="kyc.status == -1">Rejected</span>                
+            </td>
+        </tr>
+        <tr>
+            <td>Images:</td>
+            <td>
+                <div *ngFor="let item of kyc.selfieUrls" class="py-2">
+                    <img class="img-responsive" [src]="item">
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Video:</td>
+            <td>
+                <video width="320" height="240" controls>
+                    <source src="{{kyc.videoUrl}}" type="video/mp4">
+                  Your browser does not support the video tag.
+                  </video>
+            </td>
+        </tr>
+
+    </tbody>
+</table>

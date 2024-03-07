@@ -1,0 +1,3 @@
+<label for="basic-url" class="form-label">{{label | translate}}</label>
+<app-combobox name="country" [ngModel]="value" (ngModelChange)="writeValue($event)" [isCountry]="true"
+    [items]="countries" [default]="default" [checkBrowserLang]="default?false:true"></app-combobox>

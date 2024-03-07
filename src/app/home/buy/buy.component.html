@@ -1,0 +1,142 @@
+<div class="container-fluid bg-dark text-white">
+
+    <div class="container product " *ngIf="bond_info">
+        <app-rounded-card>
+            <div class="product-container">
+                <div class="row">
+                    <div class="col-md-4 d-flex">
+                        <!-- <img src="/assets/logo/dnb-coin.jpg"
+                            alt="Product Image" class="product-image"> -->
+                        <img src="https://media.discordapp.net/attachments/1095192969340014632/1132056496834883704/jatoplay_high_realistic_crypto_coin_fantacy_background_blackcha_bd7d5e42-54de-4705-96ec-21d372259865.png?width=594&height=594"
+                            alt="Product Image" class="product-image">
+                    </div>
+                    <div class="col-md-8">
+                        <h1 class="product-title  text-white">{{bond_info.issuer + " " + bond_info.name}}</h1>
+                        <p class="product-description  text-grey">
+                            {{bond_info.description}}
+
+                        </p>
+                        <div class="row">
+                            <div class="col-md-6" *ngIf="isBondLoaded">
+                                <div class="product-amount">
+                                    <h3>DNB</h3>
+                                    <pre>Face Value: {{bond_info.face_value}}</pre>
+                                    <pre>Interest Rate: {{bond_info.coupon_rate}}% (per year)</pre>
+                                    <pre>Issue price: {{bond_info.issue_price}}</pre>
+                                    <pre>Total Supply: {{bond_info.total_supply}}</pre>
+                                    <pre>Remaining Supply: {{bond_info.total_supply}}</pre>
+                                    <pre>Maturity: {{bond_info.maturity}} years</pre>
+                                    <!-- <label for="amount ">Enter unit(s) of bond: </label>
+                                <input type="number" id="amount" name="amount" min="1"> -->
+                                </div>
+                            </div>
+                            <div class="col-md-6" *ngIf="isSBondLoaded">
+                                <div class="product-amount">
+                                    <h3>SDND</h3>
+                                    <pre>Face Value: {{gbond_info.face_value}}</pre>
+                                    <pre>Interest Rate: {{gbond_info.coupon_rate}}% (per year)</pre>
+                                    <pre>Issue price: {{gbond_info.issue_price}}</pre>
+                                    <pre>Total Supply: {{gbond_info.total_supply}}</pre>
+                                    <pre>Remaining Supply: {{gbond_info.total_supply}}</pre>
+                                    <pre>Maturity: {{gbond_info.maturity}} years</pre>
+                                    <!-- <label for="amount ">Enter unit(s) of bond: </label>
+                                    <input type="number" id="amount" name="amount" min="1"> -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="product-currency">
+                        <label for="currency">Select Type: </label>
+                        <select id="BOND" name="BOND">
+                            <option value="BOND1">BOND</option>
+                            <option value="BOND2">BOND + NFT</option>
+                          </select>
+                    </div> -->
+
+
+                    </div>
+                </div>
+            </div>
+
+        </app-rounded-card>
+    </div>
+
+    <div class="container info-div">
+        <app-rounded-card>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="product-title  text-white">Purchase Options</h3>
+                    <p class="text-grey">While shopping, you have the flexibility to complete KYC now or later. However,
+                        please be aware that choosing to do KYC later may carry problem. If you do not pass KYC later on, you could be refused with refund.</p>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <h5>With KYC</h5>
+                    <div class="text-grey">Buy now after you complete KYC level 2</div>
+                    <button class="buy-button btn " (click)="buyBond()">BUY NOW</button>
+                </div>
+                <div class="col-md-6">
+                    <h5>Without KYC</h5>
+                    <div class="text-grey">Buy now and do KYC level 2 later</div>
+                    <button class="buy-button btn " (click)="buyBondNoKYC()">BUY NOW</button>
+                </div>
+            </div>
+        </app-rounded-card>
+        <app-rounded-card>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="product-title  text-white">EL Salvador Digital National Bond</h3>
+                </div>
+                <div class="col-md-12">
+                    <p class="product-description  text-grey">
+
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="product-title  text-white">EL Salvador Golden Market</h3>
+                </div>
+                <div class="col-md-4">
+                    <!-- image, title, desc -->
+                    <div class="intro-card">
+                        <img src="/assets/images/isometric_startup_exp-01.jpg" alt="marketing image">
+                        <h4 class="intro-card-title">Marketing Text 01</h4>
+                        <p class="product-description  text-grey">
+                            Dummy text is text that is used in the publishing industry or by web designers to occupy the
+                            space. Dummy text is text that is used in the publishing industry or by web designers to
+                            occupy the space.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <!-- image, title, desc -->
+                    <div class="intro-card">
+                        <img src="/assets/images/isometric_startup_exp-02.jpg" alt="marketing image">
+                        <h4 class="intro-card-title">Marketing Text 02</h4>
+                        <p class="product-description  text-grey">
+                            Dummy text is text that is used in the publishing industry or by web designers to occupy the
+                            space. Dummy text is text that is used in the publishing industry or by web designers to
+                            occupy
+                            the space.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <!-- image, title, desc -->
+                    <div class="intro-card">
+                        <img src="/assets/images/isometric_startup_exp-04.jpg" alt="marketing image">
+                        <h4 class="intro-card-title">Marketing Text 03</h4>
+                        <p class="product-description  text-grey">
+                            Dummy text is text that is used in the publishing industry or by web designers to occupy the
+                            space. Dummy text is text that is used in the publishing industry or by web designers to
+                            occupy
+                            the space.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </app-rounded-card>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+
+
+.item {
+    // height: 38px;
+    min-width: 100px;
+    padding: .375rem .75rem;
+}
+
+.combobox-container {
+    position: relative;
+    border-color: #e7edfa;
+    font-size: 14px;
+    color: #273c67;
+    line-height: 16px;
+    height: 48px;
+    border-radius: 12px;
+    width: 100%;
+    min-width:260px;
+    max-width: 100%;
+}
+
+
+.dropdown-menu {
+    padding: 0;
+}
+
+.flag {
+    line-height: 1;
+    margin-right: 14px;
+    font-size: 32px;
+}
+
+.text {
+    display: inline-block;
+    font-family: CoinbaseSans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    font-size: 16px;
+    color: rgb(var(--gray100));
+    word-break: break-word;
+}
+
+.icon {
+    width: 10px;
+    height: 14px;
+}
+
+@media (max-width: 768px) {
+    .icon {
+        width: 16px;
+        height: 22px;
+    }
+}
+
+.icon-container {
+    display: flex;
+    cursor: pointer;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    flex-direction: row;
+    width: 24px;
+    border-bottom-right-radius: 4px;
+    border-left: none;
+}
+
+@media (max-width: 768px) {
+    .icon-container {
+        width: 48px;
+    }
+    
+}
+
+ul.dropdown-menu {
+    max-height: 350.5px;
+    overflow: auto;
+}
+
+ul.dropdown-menu li:hover {
+    color: #16181b;
+    text-decoration: none;
+    background-color: #f8f9fa;
+    cursor: pointer;
+}
+
+.cSelect{
+    border-color: #e7edfa;
+    font-size: 14px;
+    color: #273c67;
+    line-height: 16px;
+    height: 48px;
+    border-radius: 12px;
+}
