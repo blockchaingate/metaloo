@@ -37,10 +37,10 @@ export class ThreeSceneComponent implements OnInit {
     directionalLight.position.set(1, 1, 1);
     this.scene.add(directionalLight);
 
-    this.loadTreeModel(); // Load the tree model
+    this.loadModel(); // Load the tree model
 
     this.camera.position.z = 5;
-    this.camera.position.y = 1;
+    this.camera.position.y = 0;
     this.camera.position.x = -2;
 
     this.animate();
@@ -53,19 +53,34 @@ export class ThreeSceneComponent implements OnInit {
     this.renderer.setSize(window.innerWidth, window.innerHeight);
   }
 
-  private loadTreeModel(): void {
+  // private loadModel(): void {
+  //   const mtlLoader = new MTLLoader();
+  //   mtlLoader.load('assets/model/tree/Lowpoly_tree_sample.mtl', (materials) => {
+  //     materials.preload();
+  //     const objLoader = new OBJLoader();
+  //     objLoader.setMaterials(materials);
+  //     objLoader.load('assets/model/tree/Lowpoly_tree_sample.obj', (object) => {
+  //       this.tree = object;
+  //       this.tree.scale.set(0.1, 0.1, 0.1);
+  //       this.scene.add(this.tree);
+  //     });
+  //   });
+  // }
+
+  private loadModel(): void {
     const mtlLoader = new MTLLoader();
-    mtlLoader.load('assets/model/tree/Lowpoly_tree_sample.mtl', (materials) => {
+    mtlLoader.load('assets/model/coin/MetCoin2.mtl', (materials) => {
       materials.preload();
       const objLoader = new OBJLoader();
       objLoader.setMaterials(materials);
-      objLoader.load('assets/model/tree/Lowpoly_tree_sample.obj', (object) => {
+      objLoader.load('assets/model/coin/MetCoin2.obj', (object) => {
         this.tree = object;
-        this.tree.scale.set(0.1, 0.1, 0.1);
+        this.tree.scale.set(1, 1, 1);
         this.scene.add(this.tree);
       });
     });
   }
+  
 
   private animate(): void {
     requestAnimationFrame(() => this.animate());
