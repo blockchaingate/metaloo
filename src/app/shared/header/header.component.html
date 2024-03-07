@@ -1,4 +1,4 @@
-<header class="header-top" [ngClass]="{homepage: isHomePage , 'sticky-header': isScrolled}">
+<header class="header-top" [ngClass]="{homepage: isHomePage , 'sticky-header': isScrolled, 'non-sticky-header': !isScrolled}">
 
 
     <!-- Navbar -->
@@ -9,8 +9,8 @@
                 <!-- <span class="thebond"> {{'bondIntro.title' | translate}}</span> -->
             </a>
             <a *ngIf="isDigitId" class="navbar-brand" href="#"><img
-                    src="/assets/images/digital-id-img/digital-id-logo2.png" class="digital-id-logo" alt="dnb-logo">
-                <span class="thebond"> {{'Digital ID' | translate}}</span>
+                    src="/assets/images/met/metLogoColor.svg" class="digital-id-logo" alt="dnb-logo">
+                <!-- <span class="thebond"> {{'Digital ID' | translate}}</span> -->
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true"
@@ -25,6 +25,11 @@
                         <a class="nav-link" (click)="linkTo('/');selectedItem=1" [class.selected]="selectedItem==1"
                             routerLinkActive="selected"
                             [routerLinkActiveOptions]="{exact: true}">{{'Home'|translate}}</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" (click)="linkTo('/digital-id');selectedItem=2"
+                            [class.selected]="selectedItem==2" routerLinkActive="selected"
+                            [routerLinkActiveOptions]="{exact: true}">{{'Digital ID'|translate}}</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav mb-2 mb-lg-0 align-items-center" *ngIf="isInit && !isDigitId">
@@ -78,19 +83,19 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="nav-item" *ngIf="!isLogin && !isDigitId">
+                    <li class="nav-item" *ngIf="!isLogin">
                         <a class="nav-link" (click)="linkTo('/signin');selectedItem=7"
                             [class.selected]="selectedItem==7" routerLinkActive="selected"
                             [routerLinkActiveOptions]="{exact: true}">
                             <img src="/assets/images/icon-sign.png" alt="sign">
                             {{'Sign in'|translate}}</a>
                     </li>
-                    <li class="nav-item" *ngIf="!isLogin && !isDigitId">
+                    <li class="nav-item" *ngIf="!isLogin">
                         <a class="nav-link" (click)="linkTo('/signup')">
                             <button class="btn-header">{{'Create Account'|translate}}</button>
                         </a>
                     </li>
-                    <li class="nav-item" *ngIf="isLogin && !isDigitId">
+                    <li class="nav-item" *ngIf="isLogin">
                         <a class="nav-link" (click)="linkTo('/account/dashboard')">
                             <button class="btn-header">{{'Account'|translate}}</button>
                         </a>

@@ -7,12 +7,17 @@ const routes: Routes = [
     path: '',
     loadChildren: () => {
       if (environment.Is_Digital_Id_Project) {
-        return import('./digit-id/digit-id.module').then(w => w.DigitIdModule)
+        return import('./met/met.module').then(w => w.MetModule)
       } else {
         return import('./home/home.module').then(w => w.HomeModule)
       }
     }
+  }, 
+  {
+    path: 'digital-id',
+    loadChildren: () => import('./digit-id/digit-id.module').then(w => w.DigitIdModule)
   },
+
   {
     path: 'chat',
     loadChildren: () => import('./chat/chat.module').then(w => w.ChatModule)

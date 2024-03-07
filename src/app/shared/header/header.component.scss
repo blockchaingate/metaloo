@@ -27,6 +27,19 @@
     top: 0;
 }
 
+.non-sticky-header {
+    li {
+
+        a,
+        button {
+            color: white;
+            img{
+                filter: brightness(0) invert(1);
+            }
+        }
+    }
+}
+
 .homepage:not(.sticky-header) {
     background-color: transparent;
 }
@@ -40,8 +53,8 @@
     // filter: brightness(0) invert(1) brightness(1);
 }
 
-.digital-id-logo{
-    width: 50px;
+.digital-id-logo {
+    width: 120px;
     height: auto;
     margin-top: 0px;
     position: relative;
@@ -96,6 +109,7 @@ li a {
     border: none;
     box-shadow: 0px 0px 10px 0px #333333;
     transition: all 0.3s ease-in-out;
+
     &:hover {
         box-shadow: 0px 0px 20px 0px #333333;
     }
@@ -148,6 +162,7 @@ li a {
 }
 
 @media screen and (max-width: 991px) {
+
     // .hide-on-mobile {
     //     display: none;
     // }
@@ -155,9 +170,11 @@ li a {
         margin-top: 10px;
         margin-left: 0px;
     }
+
     .login-button {
         margin-left: 0px;
     }
+
     .homepage:not(.sticky-header) {
         background-color: white;
     }
@@ -171,9 +188,11 @@ li a {
         position: relative;
         max-width: 80%;
     }
+
     .thebond {
         font-size: 12px;
     }
+
     .homepage:not(.sticky-header) {
         background-color: white;
     }
@@ -194,7 +213,7 @@ li a {
     padding-left: 3rem;
 }
 
-.navbar-brand{
+.navbar-brand {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -223,7 +242,7 @@ li a {
     .nav-link {
         font-size: 14px;
     }
-    
+
     .navbar-brand {
         padding: 0;
     }
@@ -232,7 +251,7 @@ li a {
         width: 160px;
     }
 
-    .navbar-toggler{
+    .navbar-toggler {
         padding: 2px 5px !important;
     }
 }

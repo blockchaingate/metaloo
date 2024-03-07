@@ -1,0 +1,14 @@
+.upBanner{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 80vh;
+    // background-color: #77770033;
+    top: 56px;
+    z-index: 99;
+
+    .display-4{
+        font-size: 60px;
+        font-weight: 700;
+    }
+}
