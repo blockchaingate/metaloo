@@ -52,6 +52,8 @@ export class IndexDigitIdComponent {
 
   goBuyPage() {
     // check if token is set
+    // this.router.navigate(['/checkout']);
+
     try {
       const token = this.tokenService.getToken();
       this.logServ.log('token: ', token);
@@ -59,12 +61,9 @@ export class IndexDigitIdComponent {
       if (token) {
         this.router.navigate(['/checkout']);
       } else {
-        // alert(this.translate.instant('Please login first'));
-        this.storage.set('return_url', '/checkout').subscribe(
-          () => {
-            this.router.navigate(['/signin']);
-          }
-        );
+        //alert(this.translate.instant('Please login first'));
+       
+        alert('Please login first');
         
       }
     } catch (e) {

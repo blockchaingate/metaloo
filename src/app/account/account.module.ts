@@ -64,6 +64,8 @@ import { UserFormComponent } from './dashboard/immigration/component/user-form/u
 import { ReactiveFormsModule } from '@angular/forms';
 import { SubmitDataComponent } from './dashboard/immigration/steps/submit-data/submit-data.component';
 import { UnderReviewComponent } from './dashboard/immigration/steps/under-review/under-review.component';
+import { DigitIdModule } from '../digit-id/digit-id.module';
+
 @NgModule({
   declarations: [
     AccountComponent,
@@ -113,23 +115,26 @@ import { UnderReviewComponent } from './dashboard/immigration/steps/under-review
     SubmitDataComponent,
     UnderReviewComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    FormsModule,
-    TranslateModule,
-    AlertModule,
-    SharedModule,
-    QRCodeModule,
-    HomeModule,
-    BsDropdownModule.forRoot(),
-    CollapseModule.forRoot(),
-    ModalModule.forRoot(),
-    TabsModule.forRoot(),
-    AccountRoutingModule,
-    SetupModule,
-    ReactiveFormsModule,
-  ],
+  // ...
+
+    imports: [
+      CommonModule,
+      RouterModule,
+      FormsModule,
+      TranslateModule,
+      AlertModule,
+      SharedModule,
+      QRCodeModule,
+      HomeModule,
+      BsDropdownModule.forRoot(),
+      CollapseModule.forRoot(), // Use the CollapseModule from the correct package
+      ModalModule.forRoot(),
+      TabsModule.forRoot(),
+      AccountRoutingModule,
+      SetupModule,
+      ReactiveFormsModule,
+      DigitIdModule
+    ],
   exports: [
     BuySellComponent,
   ]

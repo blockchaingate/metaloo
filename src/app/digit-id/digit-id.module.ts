@@ -29,10 +29,13 @@ import { SharedModule } from '../shared/shared.module';
     DigitIdRoutingModule,
     SharedModule,
     RouterModule,
-    TranslateModule, 
+    TranslateModule,
     PopoverModule.forRoot(),
     BsDropdownModule.forRoot(),
     RouterModule.forChild([])
-  ]
+  ],
+  exports: [
+    FooterDigitIdComponent,
+    HeaderDigitIdComponent]
 })
 export class DigitIdModule { }
