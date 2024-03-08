@@ -9,9 +9,6 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { IndexComponent } from './index/index.component';
-import { CreateAccountFormComponent } from './components/create-account-form/create-account-form.component';
-import { SignupComponent } from './signup/signup.component';
-import { SigninComponent } from './signin/signin.component';
 import { ActivateComponent } from './activate/activate.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { PwdResetComponent } from './pwd-reset/pwd-reset.component';
@@ -45,9 +42,6 @@ import { VersionComponent } from './version/version.component';
     CheckoutComponent,
     BuyComponent,
     IndexComponent, 
-    CreateAccountFormComponent, 
-    SignupComponent, 
-    SigninComponent, 
     PaymentComponent,
     ActivateComponent, 
     ForgotPasswordComponent, 
@@ -82,6 +76,8 @@ import { VersionComponent } from './version/version.component';
     ModalModule.forRoot(),
     BsDropdownModule.forRoot(),
     ButtonsModule.forRoot(),
+    ModalModule, // Add this line
+    ButtonsModule, // Add this line
   ],
   exports: [
 

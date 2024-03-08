@@ -22,10 +22,10 @@ export class ThreeSceneComponent implements OnInit {
 
   ngOnInit(): void {
     this.scene = new THREE.Scene();
-    this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    this.camera = new THREE.PerspectiveCamera(75, document.documentElement.clientWidth / window.innerHeight, 0.1, 1000);
 
     this.renderer = new THREE.WebGLRenderer({ canvas: this.canvasElementRef.nativeElement });
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
+    this.renderer.setSize(document.documentElement.clientWidth, window.innerHeight);
 
     this.scene.background = new THREE.Color(0x0a1629);
 
@@ -48,9 +48,9 @@ export class ThreeSceneComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   onResize(event: Event): void {
-    this.camera.aspect = window.innerWidth / window.innerHeight;
+    this.camera.aspect = document.documentElement.clientWidth / window.innerHeight;
     this.camera.updateProjectionMatrix();
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
+    this.renderer.setSize(document.documentElement.clientWidth, window.innerHeight);
   }
 
   // private loadModel(): void {

@@ -30,18 +30,18 @@ export class SigninComponent implements OnInit {
   ngOnInit(): void {
 
     //change #main-bg css color to #fff
-    const mainBg = document.getElementById('main-bg');
+    // const mainBg = document.getElementById('main-bg');
 
-    if (mainBg) {
-      mainBg.style.backgroundColor = '#fff';
-    }
+    // if (mainBg) {
+    //   mainBg.style.backgroundColor = '#fff';
+    // }
 
-    this.routerExtServ.previousUrl$
-      .subscribe((previousUrl: string) => {
-        if (previousUrl && (previousUrl != '/signup') && (previousUrl != '/signin') && (previousUrl.indexOf('/setup') < 0)) {
-          this.storage.set('return_url', previousUrl).subscribe(() => { });
-        }
-      });
+    // this.routerExtServ.previousUrl$
+    //   .subscribe((previousUrl: string) => {
+    //     if (previousUrl && (previousUrl != '/signup') && (previousUrl != '/signin') && (previousUrl.indexOf('/setup') < 0)) {
+    //       this.storage.set('return_url', previousUrl).subscribe(() => { });
+    //     }
+    //   });
 
   }
 

@@ -51,7 +51,6 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     FormsModule,
-    TabsModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

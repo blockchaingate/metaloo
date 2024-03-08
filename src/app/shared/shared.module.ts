@@ -10,6 +10,10 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
+import { SigninComponent } from './signin/signin.component';
+import { SignupComponent } from './signup/signup.component';
+import { FormsModule } from '@angular/forms';
+import { CreateAccountFormComponent } from './create-account-form/create-account-form.component';
 
 @NgModule({
   declarations: [
@@ -18,14 +22,18 @@ import { RouterModule } from '@angular/router';
     RoundedIconButtonComponent,
     RoundedCardComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SigninComponent,
+    SignupComponent,
+    CreateAccountFormComponent 
   ],
   imports: [
     CommonModule,
     TranslateModule,
     PopoverModule.forRoot(),
     BsDropdownModule.forRoot(),
-    RouterModule.forChild([])
+    RouterModule.forChild([]),
+    FormsModule,
   ],
   exports: [
     MenuComponent,
@@ -33,7 +41,10 @@ import { RouterModule } from '@angular/router';
     RoundedIconButtonComponent,
     RoundedCardComponent,
     HeaderComponent,
-    FooterComponent  
+    FooterComponent,
+    SigninComponent,
+    SignupComponent,
+    CreateAccountFormComponent 
   ]
 })
 export class SharedModule { }

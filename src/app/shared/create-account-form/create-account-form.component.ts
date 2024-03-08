@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
-import { MemberService } from '../../../services/member.service';
+import { MemberService } from '../../services/member.service';
 import { StorageMap } from '@ngx-pwa/local-storage';
 import { LoggingService } from 'src/app/services/logging.service';
 import { TokenService } from 'src/app/services/token.service';

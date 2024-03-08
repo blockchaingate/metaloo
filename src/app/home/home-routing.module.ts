@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { IndexComponent } from './index/index.component';
 import { HomeComponent } from './home.component';
-import { SignupComponent } from './signup/signup.component';
-import { SigninComponent } from './signin/signin.component';
+import { SignupComponent } from '../shared/signup/signup.component';
+import { SigninComponent } from '../shared/signin/signin.component';
 import { ActivateComponent } from './activate/activate.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { PwdResetComponent } from './pwd-reset/pwd-reset.component';
@@ -50,15 +50,15 @@ const routes: Routes = [
       {
         path: 'verify/:token', component: VerifyComponent
       },
-      {
-        path: 'signup', component: SignupComponent
-      },
+      // {
+      //   path: 'signup', component: SignupComponent
+      // },
       {
         path: 'signup-wallet', component: SignupWalletComponent
       },
-      {
-        path: 'signin', component: SigninComponent
-      },
+      // {
+      //   path: 'signin', component: SigninComponent
+      // },
       {
         path: 'forgot-password', component: ForgotPasswordComponent
       },

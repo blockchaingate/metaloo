@@ -4,16 +4,20 @@ import { CommonModule } from '@angular/common';
 import { MetRoutingModule } from './met-routing.module';
 import { MetComponent } from './met.component';
 import { ThreeSceneComponent } from './three-scene/three-scene.component';
+import { MetHomeComponent } from './met-home/met-home.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
   declarations: [
     MetComponent,
-    ThreeSceneComponent
+    ThreeSceneComponent,
+    MetHomeComponent
   ],
   imports: [
     CommonModule,
-    MetRoutingModule
+    MetRoutingModule,
+    SharedModule
   ]
 })
 export class MetModule { }
