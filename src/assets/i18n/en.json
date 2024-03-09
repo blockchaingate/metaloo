@@ -740,6 +740,11 @@
         },
         "thankYouMessage": "Thank you for choosing the Salvadoran Government Bonds Sales Website. We value your privacy and data protection."
     },
+    "Meta": {
+        "Entrance": "Entrance to the amazing future world",
+        "Desc": "The fascinating future world structured by blockchain, cryptocurrency, artificial intelligence, and the metaverse connects El Salvador, a beautiful Central American country that uses Bitcoin as its legal tender.",
+        "More deitals": "More deitals"
+    },
     "did": {
         "salvador_digital_citizen_plan": "El Salvador Digital Citizen Plan",
         "digital_citizen_plan_description": "The Digital Citizen Plan is an emerging digital identity system recognized by national sovereignty, designed to enable individuals and businesses to produce and provide services online globally through encryption technology. Originating from the 1.0 version pioneered by countries such as Estonia, El Salvador's 2.0 version integrates elements like DID, NFT, and DAO, creating a more comprehensive economic system that is crypto-asset-friendly and metaverse-oriented. This represents an innovative development in the digital economy and opens new opportunities for global citizens and businesses to transcend physical boundaries.",
@@ -804,9 +809,5 @@
     "Brochure": "Brochure",
     "Invalid email format": "Invalid email format",
     "Email does not exist": "Email does not exist",
-    "Login failed!": "Login failed!",
-    "Meta": {
-        "Entrance": "Entrance to the amazing future world",
-        "Desc": "The fascinating future world structured by blockchain, cryptocurrency, artificial intelligence, and the metaverse connects El Salvador, a beautiful Central American country that uses Bitcoin as its legal tender."
-    }
+    "Login failed!": "Login failed!"
 }
