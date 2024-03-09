@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { MetRoutingModule } from './met-routing.module';
 import { MetComponent } from './met.component';
@@ -17,7 +18,8 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     MetRoutingModule,
-    SharedModule
+    SharedModule,
+    TranslateModule
   ]
 })
 export class MetModule { }

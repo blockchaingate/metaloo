@@ -804,5 +804,9 @@
     "Brochure": "Brochure",
     "Invalid email format": "Invalid email format",
     "Email does not exist": "Email does not exist",
-    "Login failed!": "Login failed!"
+    "Login failed!": "Login failed!",
+    "Meta": {
+        "Entrance": "Entrance to the amazing future world",
+        "Desc": "The fascinating future world structured by blockchain, cryptocurrency, artificial intelligence, and the metaverse connects El Salvador, a beautiful Central American country that uses Bitcoin as its legal tender."
+    }
 }

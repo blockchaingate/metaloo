@@ -804,5 +804,9 @@
     "Brochure": "手册",
     "Invalid email format": "无效的电子邮件格式",
     "Email does not exist": "电子邮件不存在",
-    "Login failed!": "登录失败！"
+    "Login failed!": "登录失败！",
+    "Meta": {
+        "Entrance": "通往迷人的未来世界的入口",
+        "Desc": "由区块链、加密货币、人工智能、元宇宙架构起的未来迷人世界，联接萨尔瓦多，一个以比特币作为法币的美丽的中美洲国家。"
+    }
 }
