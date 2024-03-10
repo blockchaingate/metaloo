@@ -20,6 +20,7 @@
     ]
   },
   "angularCompilerOptions": {
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+/*    "strictTemplates": true*/
   }
 }
